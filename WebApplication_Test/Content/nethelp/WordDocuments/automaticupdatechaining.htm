@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Automatic Update Chaining</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="proxyservers.htm" /><link rel="next" href="localizedupdateprocess.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="b9c1ccc3-bc49-4d24-a4ec-8bfae238ce0c">
+<h3>Automatic Update Chaining</h3>
+<p class="MsoBodyText">Updates chains are made when the current version must first 
+apply one or more updates before the highest available update can be 
+applied.  This commonly occurs when dated application installers are used 
+to install your application, or when your application is infrequently used.</p>
+<p class="MsoBodyText">The default behavior of AppLife Update would result in the 
+intermediate update versions being discovered and applied individually.  
+You can enable automatic chaining.  When automatic chaining is enabled, all 
+available updates are downloaded in a single process, and each update is 
+sequentially applied before your application is restarted as the highest 
+available version.</p>
+<p class="MsoBodyText">To enable automatic chaining, set the 
+<i>EnableAutoChaining</i> property of the Update Controller in your application 
+to true.</p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Non-Chainable 
+Updates</span></b></p>
+<p class="MsoBodyText">If you publish an update that would not participate 
+properly within a chain of updates, you can designate that update as 
+non-chainable.  An update that requires the operating system to restart, or 
+that might rely on activity that your application performs as it is restarted 
+are examples of non-chainable updates.  To designate an update as 
+non-chainable, clear the <i>Allow chaining from this update</i> checkbox as your 
+update is created.  This value can be modified after the update is built by 
+managing published updates.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>The User Account Control (UAC)</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="windowspresentationfoundationwpf.htm" /><link rel="next" href="buildingyourupdate.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="10925463-45b8-4b82-8cb5-c00b8da81dec">
+<h4>The User Account Control (UAC)</h4>
+<p class="MsoBodyText">On Windows 7 and Windows Vista, privileged users execute 
+applications with a limited security token.  When a privileged user 
+attempts to perform an action that required higher privileges, they are prompted 
+for confirmation ( Limited users are prompted for credentials).  If your 
+update package requires higher credentials to complete and have chosen 
+<i>not</i> to deploy and use the <a class="topic-link" href="elevatedprivileges.htm">AppLife Update Windows Service</a> for elevation, 
+you can utilize the UAC to attempt elevation.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The default behavior of the Update Controller is to 
+initiate an update using the same privileges as the current user.  You can 
+set the Update Controller to utilize the UAC or the AppLife Update Windows 
+Service for permissions elevation using the <i>ElevationType</i> property.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">If you choose the UAC, the update is launched from an 
+unknown publisher:</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_34.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">You can optionally code sign the launcher for your update 
+project.  The launcher is compiled by Make Update and cannot be used with 
+any other project than the one that created it.  Code signing the launcher 
+allows you to identify your organization as the publisher of the update that 
+your users will apply.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_35.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">To code sign your launcher, choose the <i>UAC Launcher</i> 
+menu item from the <i>Tools</i> menu.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  Using 
+the dialog, you can optionally specify an icon for your launcher, then save the 
+executable file to your file system.  Keep track of the saved exe file as 
+it is the only file that can be imported back into the update project. </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  Code 
+sign the saved executable using your organizations certificate.  If you do 
+not have a certificate, there are many vendors who can provide this. <br /><a href="http://www.verisign.com">www.verisign.com</a><br /><a href="http://www.thawte.com">www.thawte.com</a></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  
+Import the code signed executable back into your AppLife Update project 
+file.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Once imported, future updates will properly identify your 
+organization as the publisher of the update.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

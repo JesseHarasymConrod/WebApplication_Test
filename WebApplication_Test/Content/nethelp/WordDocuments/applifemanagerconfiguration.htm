@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>AppLife Manager Configuration</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="determiningthecurrentlyinstalledversion.htm" /><link rel="next" href="primaryexecutableassemblyversion.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="8b19b628-fc72-4c92-82f1-621120079d14">
+<h4>AppLife Manager Configuration</h4>
+<p class="MsoBodyText">This is the default method.  A version stamp is 
+recorded, along with the rest of the application configuration information that 
+determines application behavior within AppLife Manager.  The version stamp 
+is read from the configuration information upon the initiation of an update 
+check, and as an update is executed, the version stamp is written using the <a class="topic-link" href="setupdateversion.htm">Set Update Version</a><i> 
+</i>update action.</p>
+<p class="MsoBodyText">This option is appropriate when your application is 
+deployed and maintained exclusively using AppLife Manager.</p>
+<p class="MsoBodyText">When AppLife Manager first discovers an application using 
+this version method, the local version stamp will be 0.0.0.0.  The first 
+update published should target this version and perform actions necessary to 
+install the application for the first time, or search the local system for any 
+existing installation and extract the correct version stamp. If an application 
+is found to already exist, the correct existing version number can be recorded 
+in the AppLife Manager configuration using the <a class="topic-link" href="setupdateversion.htm">Set Update Version</a> action.</p><span id="related-topics"></span></body></html>

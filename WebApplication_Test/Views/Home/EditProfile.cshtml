@@ -1,0 +1,92 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.EditUser
+@{
+	ViewBag.Title = "AppLife Server - Edit Profile";
+		
+}
+<div class="grid_12">
+	<h2>Edit User</h2>
+	<div class="clearfix">
+	</div>
+	<hr />
+	@using(Html.BeginForm()) {
+		@Html.ValidationSummary(true)
+
+		<div class="container_12">
+
+			<div id="editUserTab">
+				@Html.HiddenFor(model => model.UserId)
+
+				<p>
+					@Html.LabelFor(model => model.Username)<br />
+					@if(ViewBag.IsNew == true) { 
+						@Html.TextBoxFor(model => model.Username, new { Class = "text small error" })
+					} else { 
+						@Html.TextBoxFor(model => model.Username, new { Class = "text small error", @readonly = "true" })					
+					}
+					@Html.ValidationMessageFor(model => model.Username)
+				</p>
+				<p>
+					@Html.LabelFor(model => model.Name)<br />
+					@Html.TextBoxFor(model => model.Name, new { Class = "text small error" })
+					@Html.ValidationMessageFor(model => model.Name)
+				</p>
+				<p>
+					@Html.LabelFor(model => model.Email)<br />
+					@Html.TextBoxFor(model => model.Email, new { Class = "text medium error" })
+					@Html.ValidationMessageFor(model => model.Email)
+				</p>
+				<p>
+					@if(ViewBag.IsNew == false) {<a href="#" id="resetPasswordLnk">Reset Password</a><span id="resetPasswordConfirmed" style="display: none;">Complete.</span> }
+				</p>
+				
+			</div>
+
+			<div class="grid_2">
+				<br />
+				<input type="submit" class="submit" value="Apply" />
+			</div>
+			<div class="clearfix">
+			</div>
+			<br />
+		</div>
+		<div id="dialog-confirm" title="Confirm Reset" style="display: none;">
+			<p>
+				<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+				Are you sure you want to reset this password?
+			</p>
+		</div>
+		<script type="text/javascript" language="javascript">
+			$(function () {
+				$('#resetPasswordLnk').click(function () {
+					$('#dialog-confirm').dialog({
+						resizable: false, modal: true,
+						buttons: {
+							Cancel: function () { $(this).dialog("close"); },
+							"Reset": function () {
+								$(this).dialog("close");
+								$.ajax({
+									url: '@Url.Action("RequestReset", "Account")',
+									data: { val: '@Model.Username' },
+									success: function (data) {
+										if (data.result == 'success') {
+											//display success element
+											$('#resetPasswordLnk').hide();
+											$('#resetPasswordConfirmed').show();
+										} else { alert("fail"); }
+									},
+									error: function (xhr, ajaxOptions, thrownError) {
+										alert(xhr.responseText);
+									}
+								});
+							}
+						}
+
+					});
+
+				});
+			});
+		</script>
+	}
+
+</div>
+

@@ -1,0 +1,148 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ActivityModel
+@using AppLifeServerMvc.Models.ViewModels
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1.0", { 'packages': ['corechart'] });
+    google.setOnLoadCallback(drawCharts);
+
+    try{
+        drawCharts(); // needed for ajax partial view render.
+    } catch (err) { }
+
+    function drawCharts() {
+        // Create the check chart data table.
+        var checkChartData = new google.visualization.DataTable();
+        checkChartData.addColumn('string', 'Applications');
+        checkChartData.addColumn('number', 'Update Checks');
+        checkChartData.addRows([
+           @for(int i = 0; i < Model.AppActivity.Count; i++) {
+            @Html.Raw(string.Format(@"['{0}', {1}]", HttpUtility.JavaScriptStringEncode(Model.AppActivity[i].Name), Model.AppActivity[i].UpdateCheckCount));
+                                                                                                                       if(i != Model.AppActivity.Count - 1) {
+                @Html.Raw(",");
+                                                                                                                       }
+           }
+        ]);
+
+        // Set chart options
+        var checkChartOptions = {
+            'legend': { position: 'none' },
+            'pieSliceText': 'label',
+            'width': 150,
+            'chartArea': { top: 0, width: 150, height: 150 }
+        };
+
+        // Create the Results chart data table.
+        var resultsChartData = new google.visualization.DataTable();
+        resultsChartData.addColumn('string', 'Results');
+        resultsChartData.addColumn('number', 'Total');
+        resultsChartData.addRows([
+            @Html.Raw(string.Format(@"['Success', {0}],", Model.TotalApplied - Model.TotalFailed))
+            @Html.Raw(string.Format(@"['Failed', {0}]", Model.TotalFailed))
+        ]);
+
+        // Set chart options
+        var pieChartOptions = {
+            'legend': { position: 'none' },
+            'pieSliceText': 'label',
+            'width': 150,
+            'chartArea': { top: 0, width: 150, height: 150 }
+        };
+
+        //Create Applied Update chard data table
+
+        var appliedUpdatesChartData = new google.visualization.DataTable();
+
+
+        appliedUpdatesChartData.addColumn('string', 'Date');
+
+        @foreach(AppliedUpdateActivityInfo app in Model.AppActivity) {
+            @Html.Raw(string.Format(@"appliedUpdatesChartData.addColumn('number', '{0}');", HttpUtility.JavaScriptStringEncode(app.Name)));
+        }
+        //addRows([['5/4/10',5,4,6,5],['5/5/10',1,2,3]]);
+        @for(int idx = Model.Days - 1; idx >= 0; idx--) {
+            if(idx == Model.Days - 1) { 
+                @Html.Raw(@"appliedUpdatesChartData.addRows([");
+            }
+            @Html.Raw(string.Format(@"['{0}'", DateTime.Now.Date.Subtract(new TimeSpan(idx, 0, 0, 0)).ToShortDateString()));
+                                                                                                                           int ctr = 0;
+                                                                                                                           foreach(AppliedUpdateActivityInfo app in Model.AppActivity) {
+                                                                                                                               ctr++;
+                @Html.Raw(string.Format(@",{0}", app.Data[idx].AppliedCount));
+                                                                             if(ctr == Model.AppActivity.Count) { 
+                    @Html.Raw("]")
+                                                                             }
+                                                                                                                           }
+                                                                                                                           if(idx == 0) { 
+                @Html.Raw("]);");
+                                                                                                                           } else { 
+                @Html.Raw(",");
+                                                                                                                           }
+        }
+
+
+        // Set chart options
+        var lineChartOptions = {
+            'legend': { position: 'none' }
+        };
+
+
+        // Instantiate and draw our chart, passing in some options.
+        var checkChart = new google.visualization.PieChart(document.getElementById('checkChart_div'));
+        var resultsChart = new google.visualization.PieChart(document.getElementById('resultsChart_div'));
+        var appliedUpdatesChart = new google.visualization.LineChart(document.getElementById('appliedUpdatesChart_div'));
+
+        checkChart.draw(checkChartData, pieChartOptions);
+        resultsChart.draw(resultsChartData, pieChartOptions);
+        appliedUpdatesChart.draw(appliedUpdatesChartData, lineChartOptions);
+
+        $("#cboActivitySpan").val(@Model.Days);
+    }
+</script>
+<div>
+
+    <h2 style="float: left;">Activity</h2>
+    <div id="activitySpanChoice" style="float: right;">
+        @using(Ajax.BeginForm("ActivitySpanChange", "Home", new AjaxOptions {
+            HttpMethod = "GET",
+            UpdateTargetId = "activity",
+            InsertionMode = InsertionMode.Replace
+        })) { 
+            <select name="activitySpan" id="cboActivitySpan" class="select" onchange="$(this.form).submit();">
+                <option value="15">15 days</option>
+                <option value="30">30 days</option>
+                <option value="90">90 days</option>
+                <option value="180">180 days</option>
+            </select>
+        }
+    </div>
+
+    <div class="clearfix"></div>
+    <hr />
+    <ul id="imglist" class="ActivityStats">
+        <li>
+            <div>
+                Update Checks:
+                <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.TotalChecks)</h4>
+                Update Downloads:
+                <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.TotalDownloads)</h4>
+                Applied Updates:
+                <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.TotalApplied)</h4>
+                Failed Updates:
+                <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.TotalFailed)</h4>
+
+            </div>
+        </li>
+        <li>
+            <div id="checkChart_div"></div>
+            Update Checks</li>
+        <li>
+            <div id="resultsChart_div"></div>
+            Results
+        </li>
+        <li>
+            <div id="appliedUpdatesChart_div" style="width: 350px;"></div>
+            Applied Updates
+        </li>
+    </ul>
+</div>
+<div class="clearfix"></div>

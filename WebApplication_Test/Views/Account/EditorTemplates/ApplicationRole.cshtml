@@ -1,0 +1,11 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ApplicationRole
+
+<tr>
+    <td width="70%">
+        @Html.HiddenFor(x => x.ApplicationId)
+        @Html.DisplayFor(x => x.ApplicationName)</td>
+
+    <td width="15%">@Html.EditorFor(x => x.IsPublisher)</td>
+
+    <td width="15%">@Html.EditorFor(x => x.IsViewer)</td>
+</tr>

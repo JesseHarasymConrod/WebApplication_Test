@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Windows Presentation Foundation (WPF)</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="64bitoperatingsystems.htm" /><link rel="next" href="theuseraccountcontroluac.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="91b3d02c-ec7b-4eee-ad87-a0f14382f70f">
+<h4>Windows Presentation Foundation (WPF)</h4>
+<p class="MsoBodyText">The AppLife Update Controller is completely compatible with 
+the .Net Framework 3.5 and WPF applications. Though the built-in user interface 
+forms that are in the Update Controller are Windows Forms based, they can still 
+be shown from WPF applications.  In addition, you can completely customize 
+your user interface using WPF XAML, just as you can create custom winforms user 
+interfaces.</p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Integration Points to 
+consider with WPF applications</span></b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt"><span style="FONT-SIZE: 11pt">1.  <b>The Update Controller is 
+Disposable</b><br /></span>The controller class is disposable and must be disposed 
+when you are done using it.  Placing a controller on a WinForms designer 
+adds the control to the form container, and the container ensures that the 
+controller is disposed when the form is closed.  In WPF this won’t be the 
+case.<br /><span style="FONT-SIZE: 11pt"><br /></span>If you intend to utilize the 
+built-in Inter-process communications(IPC) of the update controller to 
+coordinate the shutdown of multiple instances, then instantiate your controller 
+and keep it instantiated throughout the lifetime of your main WPF Window.  
+Ensure the control is disposed as the Window closes.<br /><br /><span style="FONT-SIZE: 11pt"></span></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt"><span style="FONT-SIZE: 11pt">2.  <b>Setting the Owning Form<br /></b></span>To 
+utilize the built-in user interface for updating, the Update Controller methods 
+expect a <i>IWin32Window</i> class for the <i>owner</i> parameters.  If you 
+don’t set an owner, the dialogs that the Update Controller displays will not be 
+properly positioned.  You can easily wrap a WPF Window using this simple 
+wrapper class, allowing you to pass the WPF Window to the Update Controller 
+properties.<br /><span style="FONT-SIZE: 11pt"><br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">private</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; COLOR: blue">class</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; COLOR: #2b91af">WindowWrapper</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> : System</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Windows</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Forms</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #466268">IWin32Window</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">  private</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> System</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Windows</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Interop</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #2b91af">WindowInteropHelper</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> mHelper;<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">    public</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> WindowWrapper(</span><span style="FONT-FAMILY: Consolas; COLOR: #2b91af">Window</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> window) {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">      
+if</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">(window 
+</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">!=</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; COLOR: blue">null</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">) 
+{<br />        mHelper </span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">=</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; COLOR: blue">new</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> System</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Windows</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Interop</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #2b91af">WindowInteropHelper</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">(window);<br />      
+}<br />    }<br /><br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">  public</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; BACKGROUND: white; COLOR: #2b91af">IntPtr</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> Handle {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">    get</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">      
+if</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">(mHelper 
+</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">==</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; COLOR: blue">null</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">) {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">        
+return</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> </span><span style="FONT-FAMILY: Consolas; BACKGROUND: white; COLOR: #2b91af">IntPtr</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Zero;<br />      
+} </span><span style="FONT-FAMILY: Consolas; COLOR: blue">else</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> {<br /></span><span style="FONT-FAMILY: Consolas; COLOR: blue">        
+return</span><span style="FONT-FAMILY: Consolas; COLOR: #333333"> 
+mHelper</span><span style="FONT-FAMILY: Consolas; COLOR: #cc0071">.</span><span style="FONT-FAMILY: Consolas; COLOR: #333333">Handle;<br />      
+}<br />    }<br />  }<br />}</span><span style="FONT-SIZE: 11pt"><br /><br /></span>Example Usage:<br /><span style="FONT-FAMILY: &quot;Courier New&quot;">mController.UpdateInteractive(<span style="COLOR: blue">new</span> WindowWrapper(<span style="COLOR: blue">this</span>));</span><span style="FONT-SIZE: 11pt"></span></p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt"></span></b> </p><span id="related-topics"></span></body></html>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppLifeUpdate BuilderVersion="5.4.0.5" type="full" xmlns="http://www.kineticjump.com/AppLifeUpdate/DirectorSchema">
+	<Application AppId="4b130588-7765-462e-a815-e68f4406a86c" NoUpdateDisplayText="">
+		<Versions>
+			<Version number="1.3.0.3" postdate="2018-10-09T01:33:42.3842663Z" signature="l7p3Q3ToIm8QejNnkgg6riavR9UnEqFMUeb2AW5jQg8/vxXTh+Youu5+hKB0OmG4wD0Fl0be/nGNr4DDD92EIrQlTLt9rUwQ//juXW+TSsqpzjkhQKQaMQHawDkpMSJWdQsM5xyi4PwpLx9rdWOjc53L/c0nCQlDt7yXEG0ijuE=" fileSize="1774643" isTest="false" allowChaining="true" uacLauncherHash="CEJQnXGHHEHN682EBX9boqPONrA=" forceElevationMode="ClientSetting">
+				<Targets>
+					<Target number="0.0.0.0" includeAllGreater="true" />
+				</Targets>
+				<RichSummary>H4sIAAAAAAAEAO3BQQkAIBAAMNP4NYDHZbgMBhDB/mANH9uisu91z4xR2QAAAAAAAAAAAAAAgB89rpHsUQAwAAA=</RichSummary>
+			</Version>
+		</Versions>
+	</Application>
+</AppLifeUpdate>

@@ -1,0 +1,127 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.Dashboard.AppViewClientTableView
+
+<div id="clientTable">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="4%" scope="col">View
+            </th>
+            <th width="15%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'UniqueId')">Client ID</a>
+                @if(Model.SortCol == "UniqueId") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="22%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'ClientAccessKey')">Client Access Key</a>
+                @if(Model.SortCol == "ClientAccessKey") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="12%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'ComputerName')">Computer Name</a>
+                @if(Model.SortCol == "ComputerName") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="14%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'Version')">Version</a>
+                @if(Model.SortCol == "Version") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="13%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'FirstCheck')">First Check</a>
+                @if(Model.SortCol == "FirstCheck") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="13%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'LastCheck')">Last Check</a>
+                @if(Model.SortCol == "LastCheck") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="5%" scope="col"></th>
+        </tr>
+        @foreach(var item in Model.ClientInstallEntries) {
+            <tr id="row-@item.Id">
+                <td>
+                    <a href="@Url.Action("GetClient", "Home", new { applicationId = item.ApplicationId, clientId = item.ClientId })" onclick="storeTableParams();">
+                        <img src="@Url.Content("~/Content/Images/16X16/information.png")" alt="View" style="float:left;" />
+                        @if(item.IgnoreClient){
+                        <img src="~/Content/images/16X16/disable_overlay.png" style="position:absolute; float:left; left:8px;" title="Logging is disabled for this client."/> 
+                        }</a>
+                </td>
+                <td>
+                    <div title="@item.Id">@AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(item.ClientId)</div>
+                </td>
+                <td>
+                    @item.ClientAccessKey
+                </td>
+                <td>
+                    @item.ComputerName
+                </td>
+                <td>
+                    @item.Version
+                </td>
+                <td>
+                    @string.Format("{0:d}", item.FirstUpdateCheckUTC.ToLocalTime())
+                </td>
+                <td>@string.Format("{0:d}", item.LastUpdateCheckUTC.ToLocalTime())
+                </td>
+                <td><a href="javascript:void(0)" onclick="deleteRow(this)" rel="@item.Id">
+						<img src="@Url.Content("~/Content/Images/16X16/delete.png")" alt="Remove" /></a></td>
+            </tr>
+        }
+    </table>
+    <div class="container_12">
+        <div class="grid_6">
+            Page @(Model.ClientInstallEntries.PageIndex + 1)
+            of @Model.ClientInstallEntries.TotalPages
+            @if(!string.IsNullOrEmpty(Model.Filter)) {
+                @:(filtered)
+		}
+        </div>
+        <div class="grid_6">
+            <ul id="pagination">
+                @{if(Model.ClientInstallEntries.HasPreviousPage) {
+                    <li class="previous"><a href="#void" onclick="redrawGrid('pageIndex', gridState.pageIndex - 1)">« Previous</a> </li>
+                  } else {  
+                    <li class="previous-off">&laquo; Previous</li>
+                  }
+                }
+                @{if(Model.ClientInstallEntries.HasNextPage) {
+                    <li class="next"><a href="#void" onclick="redrawGrid('pageIndex', gridState.pageIndex + 1)">Next »</a> </li>
+                  } else {  
+                    <li class="next-off">Next &raquo;</li>
+                  }
+                }
+            </ul>
+        </div>
+    </div>
+     <div id="dialog-confirm" title="Confirm Removal" style="display: none;">
+		<p>
+			<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 40px 0;"></span>
+			This client entry will be permanently deleted and cannot be recovered. Are you sure?</p>
+	</div>
+</div>
+
+

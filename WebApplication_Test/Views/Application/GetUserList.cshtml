@@ -1,0 +1,7 @@
+﻿@model List<AppLifeServerMvc.Models.User>
+
+@foreach(AppLifeServerMvc.Models.User item in Model) {
+    //<li data-id="1" data-username="item1">Item 1</li>
+    <li data-id="@item.Id" data-username="@item.Username">@item.Name</li>
+}
+

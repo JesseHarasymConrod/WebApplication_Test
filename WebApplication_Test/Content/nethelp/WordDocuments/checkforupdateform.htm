@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Check for Update Form</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="customizedforms.htm" /><link rel="next" href="downloadupdateform.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="14634ff2-e69e-422f-a92a-d52b68fe628f">
+<h4>Check for Update Form</h4>
+<p class="MsoBodyText">To implement your own Check for Updates form, you will call 
+a check for update method on the <i>Update Controller</i> and then interrogate 
+the <i>CurrentUpdate</i> property for information about any discovered 
+updates.</p>
+<p class="MsoBodyText">There is both a synchronous and asynchronous method to 
+check for updates.  The synchronous <i>CheckForUpdates</i> method is a 
+blocking method and returns a boolean value indicating whether an update was 
+found or not.  The <i>CheckForUpdatesAsync</i> method is a non-blocking 
+call.  You can handle the <i>CheckForUpdateCompleted </i>event to be 
+informed when the asynchronous call completes.  The event argument contains 
+a property that indicates whether or not an update was discovered.</p>
+<p class="MsoBodyText">With either Check for Update call, if an update is found, 
+information about the update can be utilized by looking at the 
+<i>CurrentUpdate</i> property.  If no update is found, the 
+<i>CurrentUpdate</i> property is empty or null.</p>
+<p class="MsoBodyText"><i>Note:  Please reference the Update Controller API 
+documentation for more information on these methods.  Also, please 
+reference the Custom Forms Quick Start project for an example of using custom 
+forms.</i></p><span id="related-topics"></span></body></html>

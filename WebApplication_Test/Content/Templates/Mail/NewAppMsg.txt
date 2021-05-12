@@ -1,0 +1,136 @@
+﻿<html>
+<head>
+	<title>Welcome to AppLife Server</title>
+	<style type="text/css">
+		Body {
+			margin: 0;
+			padding: 0;
+			font-family: Tahoma, Arial, Verdana, sans-serif;
+		}
+		div {
+			margin: 5px 10px;
+		}
+		p {
+			font-size: 12px;
+			color: #666666;
+			line-height: 18px;
+			margin-bottom:0px;
+		}
+		h1 {
+		}
+		h3 {
+			font-size: 18px;
+			font-weight: normal;
+			color: #007BA8;
+			margin-bottom:0px;
+		}
+		
+		.logo {
+			font-family: Tahoma, Arial, Verdana, sans-serif;
+			font-size: 36px;
+			letter-spacing: -3px;
+			padding: 10px 0px 10px 0px;
+			color: #fff;
+			margin-left: 15px;
+		}
+		.header {
+			background-color: #258cd1;
+			background-image: url('https://www.applifeupdate.com/content/images/header_highlighter.png');
+			background-repeat: repeat-x;
+			height:75px;
+		}
+		.footer {
+			text-align: center;
+			font-size: 10px;
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+		.logo_wrapper {
+			height: 171px;
+		}
+	</style>
+</head>
+<body>
+	<table cellpadding="0" cellspacing="0" border="0" width="600">
+		<tr>
+			<td class="header">
+				<div class="logo">
+					<img src="https://www.applifeupdate.com/Content/images/AUServer_White_48X48.png" alt="AppLife Server" width="48" height="48" /><strong>AppLife</strong>Server</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<p>
+						Hello [name],
+					</p>
+					<p>
+						A new application update location has been provisioned for you on the following
+						AppLife Update Server:
+					</p>
+					<p>
+						<b>[url]</b><br />
+						Application Id: <b>[appId]</b><br />
+						Application Name: [appName]<br />
+					</p>
+					<h3>Configuring AppLife Manager</h3>
+					<p>
+					If your application will use the AppLife Manager for deployed maintenance, get started by creating a new Make Update project and select the <i>AppLife Manager Maintained Application</i> option in the New Project wizard.<br/><br/>
+					 Clients can download the AppLife Manager here:<br/>
+					 [url]/GetAppLifeManager
+					</p>
+					<p>Once installed, configure the Manager for this server by using the <i>Add Server</i> button and all your applications configured for AppLife Manager deployment will be discovered and maintained.
+					</p>
+					[cloudInfo]
+					<h3>
+						Configuring Client Software</h3>
+					<p>
+						For direct integration into your application using the AppLife Controller API, configure your application to get updates from this server by setting the <i>Update Location</i>
+						to [url] and <i>Application Id</i> to <b>[appId]</b>. To identify specific client
+						installations within your server dashboard, you can set the <i>Client Access Key</i>
+						property on the update controller integrated into your application to a meaningful
+						value, such as a license number or user name. This value can also be used to identify specific clients and control
+						access to updates.
+					</p>
+						<p>
+						To publish updates to this location, create a new AppLife Update project using the AppLife Make Update software and select the <i>Integrated AppLife Update Project</i> option in the New Project wizard.  Set the publish location and application Id property to the values displayed above. You can alternatively change the id of an existing project as well.
+					</p>
+					<h3>
+						Access Control</h3>
+					<p>
+						By default, this application is configured for anonymous access, allowing any properly
+						configured client installation to check for and retrieve updates. Access can be
+						controlled by managing a list of Client Access Keys within the server dashboard. When
+						enabled, a client must be configured with a key that has been granted access
+						in order to find and retrieve updates. Update access can also be controlled by managing
+						a list of unique installation id values as well.</p>
+					<h3>
+						Failed Update Notification</h3>
+					<p>
+						You will receive an email when an application update failure is reported. Failed
+						update notification can be disabled through the dashboard.</p>
+					<h3>
+						Client Update Analytics</h3>
+					<p>
+						The application dashboard will keep you informed of the status of your deployed
+						software as clients check and apply application updates. At a glance, track the
+						adoption of the latest published update, identify clients who have not yet applied
+						an update, look up the current version of a specific client installation, or review
+						the updates that have been applied to a client.</p>
+					<p>
+						Help with using this new application update location is available at [helpPhone].
+						Email support is available at [helpEmail].</p>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p class="footer">
+					&copy; Copyright 2016 Kinetic Jump Software, LLC | Powered by <a target="_blank" href="http://www.kineticjump.com/update">AppLife
+						Update</a>
+				</p>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>What Are Custom Actions?</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="makingcustomactions.htm" /><link rel="next" href="updateactionconfigurationandstate.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="9870c1c5-ad9d-4249-b249-53a07777050b">
+<h3>What Are Custom Actions?</h3>
+<p class="MsoBodyText">Custom actions are .Net classes that derive from an 
+abstract <i>Kjs.AppLife.Update.Engine.Core.UpdateAction</i> class.  This 
+class is located in the Kjs.AppLife.Update.Core.dll.  Custom actions can be 
+written in any .Net language and can utilize the entire .Net framework to 
+accomplish the functions for which they are being built.  The AppLife 
+Update Engine processes your custom actions just as it processes the built-in 
+actions.  At a minimum, a custom action must implement an <i>Execute</i> 
+method and a <i>Rollback</i> method.  You can do much more with custom 
+actions though, such as build a custom builder that enforces rules during the 
+update build process, interact with other actions through the 
+<i>UpdateContext</i> object, build a custom user interface to configure the 
+action within <i>Make Update, </i>manipulate the progress bar shown to the user 
+while your custom action executes, and create custom palettes to organize your 
+custom actions within the <i>Make Update</i> user interface.</p>
+<p class="MsoBodyText">Custom Actions essentially allow you to implement any 
+actions that you need in order to update and maintain your software in a simple, 
+intuitive and easy to use framework.  Please reference the Custom Actions 
+Quick Start to quickly learn how to create and implement custom 
+actions.</p><span id="related-topics"></span></body></html>

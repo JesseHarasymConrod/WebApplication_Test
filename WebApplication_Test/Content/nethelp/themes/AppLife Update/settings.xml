@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <theme>
+    <name>AppLife Update</name>
+    <predefined>false</predefined>
+    <baseTheme>Accordion</baseTheme>
+    <baseVersion>1.11.7</baseVersion>
+  </theme>
+  <general>
+    <favicon>images/AppLifeUpdateIcon.ico</favicon>
+  </general>
+  <pageHeader>
+    <logoImage>images/applifeupdatelogo.gif</logoImage>
+    <height>68</height>
+  </pageHeader>
+</settings>

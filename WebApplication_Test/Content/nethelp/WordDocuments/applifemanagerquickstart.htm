@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>AppLife Manager Quick Start</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="quickstarts.htm" /><link rel="next" href="simplequickstart.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="034d6627-1a66-488a-911d-f2f85605df87">
+<h3>AppLife Manager Quick Start</h3>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  
+Create an application on your AppLife Server, or provision a new application on 
+the <a href="http://www.kineticjump.com/subscribe.aspx">AppLife Cloud</a>.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><br /><img border="0" src="../ImagesExt/image135_2.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><br />Note the <i>Enable AppLife 
+Manager Integration </i>checkbox.  The AppLife Manager client service will 
+not “see” this application until this setting is enabled.  The default 
+value is disabled.  Leave this setting disabled until the configuration of 
+this application is completed and we are ready to expose the application to your 
+deployed clients.<br /><br />The default <i>Client Access</i> setting is for 
+anonymous access.  This can be changed under the <i>Client Access</i> 
+tab.  We will come back to this later in the walkthrough.  Initially, 
+we’ll stay with anonymous access.<br /><br />AppLife Manager settings can be 
+configured under the <i>Manager Settings </i>tab.  For initial 
+configuration, it is better to walk through the New Project wizard within the 
+Make Update build tool. This process will synchronize the update project file 
+with the server settings.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  
+Launch AppLife Make Update and select to create a new project…<br /><img border="0" src="../ImagesExt/image135_3.png" alt="" /><br /><br />Select <i>AppLife Manager Maintained 
+Application </i>and click Next.<br /><br /><img border="0" src="../ImagesExt/image135_4.png" alt="" /><br /><br />Enter your server URL and publishing 
+credentials, then click to login.  Once logged in, click Next to 
+continue.<br /><br />You will see a list of all applications for which you are a 
+publisher, and <i>has not yet</i> been configured to use AppLife 
+Manager.<br /><br /><img border="0" src="../ImagesExt/image135_5.png" alt="" /><br /><br />Select 
+the application and click Next to continue.<br /><br /><img border="0" src="../ImagesExt/image135_6.png" alt="" /><br /><br />The next page in the wizard allows you 
+to configure most of the settings that govern how the application maintenance 
+process will operate within AppLife Manager.<br /><br /><a class="topic-link" href="applicationdirectory.htm">Application Directory</a><br />This is the 
+directory that the AppLife Manager expects to find or install the application 
+to.  For this example, we are going to modify the default value to be 
+<i>%ProgramFiles%\AppLifeManagerExample<br /><br /></i><a class="topic-link" href="processname.htm">Process Name</a><b><br /></b>The process name value is used 
+by the AppLife Manager to identify running instances of the application being 
+maintained, and if necessary, stop the process(s) before applying updates<a href="http://www.kineticjump.com/files/AppLifeManagerExampleApplication.zip">.  
+The download for this Quickstart</a> includes version 1 and 2 of a simple 
+example.  This example process is named <i>ExampleApplication</i>, so we 
+will set the value to that.<br /><br /><a class="topic-link" href="primaryexecutable.htm">Primary Executable<br /></a>Identifying the primary 
+executable allows AppLife Manager to launch the application and use the 
+assembly/file version of the primary executable for versioning.  This value 
+can include a path relative to the identified Application Directory.  For 
+this example, the primary executable will be located in the Application 
+Directory and will be named <i>ExampleApplication.exe</i><br /><br /><b>Apply 
+Updates Automatically</b><br />AppLife Manager will download and apply updates 
+without any user intervention.  <br /><br /><br /><b>Update Recheck 
+Frequency<br /></b>The default frequency is to check for updates once a day (every 
+1440 minutes).  We’ll set this value to the lowest allowed (5 minutes) for 
+testing and experimentation.<br /><br />For the rest of the settings, we’ll leave 
+the defaults.<br /><br /><img border="0" src="../ImagesExt/image135_7.png" alt="" /><br /><br />Click Next<br /><br /><img border="0" src="../ImagesExt/image135_8.png" alt="" /><br /><br />Access control can be defined using 
+Access Control Lists and Client Access Keys.  The time window that updates 
+are allowed can also be defined.  For now, we’ll leave the 
+defaults.<br /><br />The AppLife Update API <a class="topic-link" href="integratingapplicationshutdown.htm">optionally allows applications to be 
+notified and interact</a> with the AppLife Manager and applying updates.  
+This example will not integrate.<br /><br />Click Finish to apply the settings to 
+the application.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  With 
+the New Project wizard completed, the application is configured on AppLife 
+Server and we have an AppLife Update project file ready to start creating and 
+publishing updates for the application.  A few things to note here are:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">a.  The 
+Application is still not enabled for AppLife Manager within the server 
+configuration.  We can toggle that when we are ready for deployed AppLife 
+Managers to start “seeing” the application.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">b.  The 
+newly created AppLife Update project contains the Private/Public key pair that 
+is needed to create updates for this application.  Backing up this file is 
+highly recommended.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><br />Notice that the update 
+project contains a <i>Set Update Version</i> action.  This action was added 
+by the New Project wizard because the application is configured to use the 
+AppLife Manager configuration file for version identification.  This action 
+will update the AppLife Manager configuration file as updates are 
+applied.<br /><br /><b>Deploying the application</b><br /><br />To deploy this 
+application we are going to create an application that will target the scenario 
+where an AppLife Manager deployment first discovers the application. In this 
+scenario the AppLife Manager will have an effective version number of 
+0.0.0.0.  Our first update will install version 1.0.0.0 of our example 
+application and will target any clients with a version number less than 
+1.0.0.0.  <br /><br /><b>Actions to Include</b><br />We will include an action 
+that will:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">1.  Add 
+the application assemblies to the identified application directory</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">2.  Add a 
+shortcut to the application in the <i>All Users</i> profile</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">3.  
+Update the Version setting</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Add an <i>Add &amp; Replace 
+Files</i> action to the update by double clicking or dragging the action from 
+the Action Palette onto the action list.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_9.png" alt="" /><br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Add the version 1.0.0.0 
+executable and config file from the associated download.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">ExampleApplication.exe</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">ExampleApplication.exe.config<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">The default <i>Target Client 
+Folder </i>is the configured application directory.  If the folder doesn’t 
+exist on the deployed client, it will be created.  Remember that we 
+configured the %ProgramFiles%\AppLifeManagerExample folder as the application 
+directory.  This folder will be created when this first update is 
+applied.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_10.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Add a Create File Shortcut action 
+to the update action list<br /><br /><img border="0" src="../ImagesExt/image135_11.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">We will place the shortcut in the 
+all users start menu.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Set the Shortcut location and the 
+shortcut target</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_12.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><b>Build and Publish the 
+Update<br /><br /></b>Click the <i>Create an Update…</i> button to start the publish 
+wizard</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Set the update version to 1.0.0.0 
+and the <i>Versions to Update</i> to Any Previous Version.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_13.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Click Next.  The second 
+wizard screen allows you to publish the update for specific Access Control Lists 
+and set a few other features.  We’ll accept the defaults and publish the 
+update for general accessibility.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_14.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Click the Build Button to build 
+and publish this new update.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_15.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">With the update published, the 
+application is ready for the AppLife Manager to discover, download and apply the 
+update.  Because the application is configured for anonymous access, any 
+AppLife Manager configured to check this server for updates will find the 
+application and install it.  To enable this application, log into your 
+server and toggle the <i>Enable AppLife Manager Integration </i>option.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_16.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">With the application enabled, 
+AppLife Manager can now “see” the application.<br /><br /><b>Building and Publishing 
+an update to Version 2.0.0.0</b><br /><br />The update to version 2.0.0.0 will no 
+longer need the shortcut be placed, so lets remove that action.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">Update the Add &amp; Replace 
+Files action to include the new version 2.0.0.0 files, then build update version 
+2.0.0.0 by clicking on the Create an Update… button.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">With version 2.0.0.0 created, the 
+AppLife Manager will automatically discover and apply the update to version 
+2.0.0.0.  If version 1.0.0.0 is running, the user will be prompted before 
+the update is applied.  If running instances are shutdown, they will be 
+restarted after the update completes under the same user context as was 
+originally running under.</p><span id="related-topics"></span></body></html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Elevated Privileges</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="localizedupdateengineuserinterface.htm" /><link rel="next" href="recoveringfromacompromisedprivatekey.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="85777e51-02c6-4c3d-9626-f4bd2c957ce0">
+<h4>Elevated Privileges</h4>
+<p class="MsoBodyText">Depending on the installed structure of your application, 
+it is sometimes necessary for elevated user privileges to accomplish a software 
+update.  For example, a standard user cannot replace a file in the Program 
+Files directory.  In these circumstances it is necessary to elevate 
+privileges in order to execute an update.</p>
+<p class="MsoBodyText"><i>AppLife Update Windows Service</i></p>
+<p class="MsoBodyText"> If you are using an AppLife Update action list to 
+update your software, you can elevate privileges by configuring your software to 
+use the AppLife Update Windows Service.  This windows service runs under 
+the context of the local system account.</p>
+<p class="MsoBodyText"><b>The AppLife Update Service can ONLY be used with an 
+AppLife Update action list.  Msi based updates can utilize the elevation 
+features of the Windows Installer.  AppLife Update provides no means to 
+elevate privileges during a custom exe update.</b></p>
+<p class="MsoBodyText">To use the AppLife Update Windows Service:</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 198.0pt">1.  
+Configure your application by setting the <i>ElevationType </i>property of your 
+Update Controller to <i>AppLifeUpdateService</i>.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 198.0pt">2.  Add 
+the <a class="topic-link" href="theapplifeupdatewindowsservice.htm">AppLife Update 
+Windows Service</a> to your application installer.  The merge module will 
+install the service and register your application for use.  <b>Only 
+registered applications can interact with the service.</b></p>
+<p class="MsoBodyText">When your application distributes the AppLife Update 
+Windows Service and is properly configured to utilize the service, the update 
+engine will execute your update packages under the security context of the Local 
+System.  The AppLife Update engine user interface communicates with the 
+service to provide your users progress indication as the service executes your 
+update package.</p>
+<p class="MsoBodyText">Applications that utilize the AppLife Update Windows 
+Service will not be prompted by the Windows Vista User Account Control (UAC) 
+when an update is executed.</p>
+<p class="MsoBodyText">All of the built-in update actions perform identity 
+impersonation to ensure that any update activity that targets the current user 
+profile will be properly executed by the AppLife Update Windows Service.  
+Custom actions that you create can gain access to the Windows Identity of the 
+user who initiated the update using the Target Application Identity information 
+on the Update Context object.  More information on this topic is available 
+in the API Reference.</p><span id="related-topics"></span></body></html>

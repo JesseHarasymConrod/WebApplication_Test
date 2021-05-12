@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Controlled Rollout</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="updateoptions.htm" /><link rel="next" href="customizedforms.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="c4189b8f-3f43-49f3-aa3a-f08f2436fa8a">
+<h3>Controlled Rollout</h3>
+<p class="MsoBodyText">When a new update is made available to a large audience of 
+clients, the availability of the update can be limited for a specified period of 
+time.  By controlling the initial rollout, you can avoid bandwidth and 
+server loading issues that might occur.</p>
+<p class="MsoBodyText">A controlled rollout limits the number of clients that can 
+discover the update for a specified time period.  This time period is set 
+on the Update Controller <i>ControlledRolloutHours</i>.  </p>
+<p class="MsoBodyText">When the hosting application is launched, a random number 
+between 0 and the number of controlled hours<i> </i>is generated.  This 
+number represents the hour after which a new update was published, that this 
+client can receive the update.  Statistically, the clients should be evenly 
+distributed across the designated controlled rollout period.</p>
+<p class="MsoBodyText">When the <i>Update Controller</i> checks for an available 
+update, the universal time difference between now and when the update was 
+published is calculated.  If the time difference is in the <i>Controlled 
+Rollout </i>window, the randomly generated number is checked to see if it is 
+less than the time difference.  If so, the update is available, otherwise 
+it is not.</p>
+<p class="MsoBodyText">The <i>Update Controller</i> property 
+<i>EnableControlledRollout</i> must be set to true to enable controlled 
+rollouts.  The default value is false.</p><span id="related-topics"></span></body></html>

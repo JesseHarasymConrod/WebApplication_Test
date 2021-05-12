@@ -1,0 +1,179 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.VersionViewModel
+@{
+    ViewBag.Title = string.Format("Dashboard - Version {0}", Model.Version);
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/adapters/jquery.js"></script>
+<style>
+    #tblTargets td {
+        padding: 0;
+        font-weight: bold;
+        color: #999;
+    }
+</style>
+<div class="grid_12">
+    <div class="breadcrumb">: @Html.ActionLink("Dashboard", "Index", "Home") / @Html.ActionLink("Application", "AppView", "Home", new { id = Model.ApplicationId }, null) </div>
+    @if(Model.ConcurrencyError) {
+        <div class="notification failure">
+            <p><strong>Error:</strong>This Version information has been modified since you started your edit. Your changes cannot be saved.</p>
+            <p>@Html.ActionLink("Click to refresh", "Index", new { Id = Model.ApplicationId, Version = Model.Version })</p>
+        </div>
+    }
+    <h3>
+        Version: @Model.Version&nbsp;<span style="font-size:.4em;">
+            @if(!Model.NoPackageExists) {
+                @:Published on @Model.PostedDateUtc.ToLocalTime().ToShortDateString() by @Model.Publisher
+            }
+        </span>
+    </h3>
+    <div id="activity">
+        <ul id="imglist">
+            <li>
+                <div class="ActivityStats">
+                    Active Client on Version @Model.Version:
+                    <h4>
+                        @String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.ActivityInfo.TotalClientsOnVersion)
+                    </h4>
+                    Total Active Clients:
+                    <h4>
+                        @String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.ActivityInfo.TotalActiveClients)
+                    </h4>
+                    Percent of Active Clients:
+                    <h4>
+                        @String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0}%", Model.ActivityInfo.GetPercentOfActiveClients())
+                    </h4>
+                    Total Times Applied:
+                    <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.ActivityInfo.TotalAppliedUpdates)</h4>
+                    First:
+                    <div style="margin-bottom:7px;"><b>@Model.ActivityInfo.FirstDate</b></div>
+                    
+                    Last:
+                    <div style="margin-bottom:5px;"><b>@Model.ActivityInfo.LastDate</b></div>
+                    
+                </div>
+            </li>
+            <li>
+                <div class="grid_6">
+                    @{Html.RenderPartial("VersionActivity_Partial", Model.ActivityInfo);}
+                </div>
+            </li>
+        </ul>
+       
+       
+        <div class="clear" />
+    </div>
+    <div>
+        <h5>Details</h5>
+        @if(Model.NoPackageExists) {
+            <div>No Update Package Present.</div>
+        } else {
+            using(Html.BeginForm("Apply", "Version")) {
+                @Html.HiddenFor(model => model.ApplicationId)
+                @Html.HiddenFor(model => model.Version)
+                @Html.HiddenFor(model => model.OriginalDirectorHash)
+                @Html.ValidationSummary(true)
+                @*Details*@
+                <div id="tabs" style="margin-bottom:10px;">
+                    <ul>
+                        <li><a href="#accessTab"><span>Access</span></a></li>
+                        <li><a href="#targetsTab"><span>Targets</span></a></li>
+                        <li><a href="#summaryTab"><span>Summary</span></a></li>
+                        <li><a href="#detailsTab"><span>Details</span></a></li>
+                    </ul>
+                    <div id="accessTab">
+                        <div class="grid_5">
+                            @Html.LabelFor(model => model.AccessMode) @Html.DropDownListFor(model => model.AccessMode, Model.AccessModeTypesSelectList)
+                        </div>
+                        <div class="grid_5">
+                            @Html.LabelFor(model => model.IsTest) @Html.EditorFor(model => model.IsTest)
+                        </div>
+                        <br />
+                        <hr />
+                        <div class="grid_10">
+                            <h5>Enabled Access Lists</h5>
+                            <div id="AccessListControl" style="height:200px; width:875px;" class="scroll borderedPanel">
+                                <div id="AccessListTable" style="float:left;">
+                                    @Html.EditorFor(model => model.AccessLists)
+                                </div>
+                            </div>
+                            @if(Model.UserCanEdit) {
+                                <p>
+                                    @Html.ActionLink("Manage Access Control Lists", "ManageACL", "Application", new { Id = @Model.ApplicationId, Version = @Model.Version }, null)
+                                </p>
+                            }
+                        </div>
+
+                    </div>
+                    <div id="targetsTab">
+                        <h5>Versions to update:</h5>
+                        @Html.HiddenFor(model => model.TargetsJSON)
+                        <p>
+                            @Html.CheckBoxFor(model => model.IsAnyPrevious)
+                            @Html.LabelFor(model => model.IsAnyPrevious)
+                        </p>
+                        <div class="grid_6" id="pnlEditTargets" name="pnlEditTargets">
+                            <hr />
+                            SPECIFIC TARGETS:<br />
+                            <span style="font-size:.8em;">Type version number (e.g 1.0.0.0)</span>
+                            <input id="txtVersionToAdd" type="text" class="text medium" name="txtVersionToAdd" />
+                            <input id="btnVersionToAdd" type="button" class="submit" value="Add" />
+                            <a href="#" id="lnkClearTargetsList">Clear List</a>
+                            <div class="scroll" style="height:100px;">
+                                <table id="tblTargets" name="tblTargets">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            @Html.CheckBoxFor(model => model.AllowAnyVersionHigher)
+                            @Html.LabelFor(model => model.AllowAnyVersionHigher)
+                        </div>
+                        <div class="grid_5">
+                            <p>The list of versions to update specifies which versions of your software can successfully run this update.  This is usually determined by the actions included in the update.</p>
+                            <p>Some updates replace all application files, and can be applied by any previous version.  Other updates use file patches and can only work from a specific version.</p>
+                            <p>You can choose to update all previous versions, a list of specific versions, or all versions higher than a previous version.</p>
+                        </div>
+                    </div>
+                    <div id="summaryTab">
+                        <h5>Edit Update Summary Text</h5>
+                        <p>In-line editing is enabled for the summary text bodies below:</p>
+                        <hr />
+                        <div id="SummariesTable" class="scroll" style="height:250px;">
+                            @Html.EditorFor(model => model.SummaryText)
+                        </div>
+                    </div>
+                    <div id="detailsTab">
+
+                        @Html.HiddenFor(model => model.ElevationType)
+                        <h6>ELEVATION TYPE:</h6>
+                        <div>
+                            <input type="radio" name="rdoElevationType" value="0" />Use Controller Settings<br />
+                            <input type="radio" name="rdoElevationType" value="1" />No Elevation<br />
+                            <input type="radio" name="rdoElevationType" value="2" />Update Service<br />
+                            <input type="radio" name="rdoElevationType" value="3" />UAC<br />
+                        </div>
+                        <br />@Html.CheckBoxFor(model => model.AllowChaining)
+                        @Html.LabelFor(model => model.AllowChaining)<br /><br />
+                        <p>
+                            @Html.LabelFor(model => model.CustomData)<br />
+
+                            @Html.TextAreaFor(model => model.CustomData, new { @class = "grid_11", style = "height:150px;" })
+                        </p>
+                    </div>
+                </div>
+                if(Model.UserCanEdit) {
+                    <div>
+                        <p>
+                            <input type="submit" class="submit" value="Apply" @if(Model.ConcurrencyError) { @Html.Raw("disabled='disabled'")          } />
+                        </p>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div id="dialog-confirm" title="Confirm Removal" style="display: none;">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+            All targets will be removed. Are you sure?
+        </p>
+    </div>
+</div>
+<script src="@Url.Script("editVersion.js")"></script>

@@ -1,0 +1,179 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.Dashboard.AppView
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    var applicationId = '@string.Format("{0}", Model.Id)';
+    google.load("visualization", "1.0", { 'packages': ['corechart'] });
+    google.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+        var versionDistChartData = new google.visualization.DataTable();
+        versionDistChartData.addColumn('string', 'Version');
+        versionDistChartData.addColumn('number', 'Percent');
+        versionDistChartData.addRows([
+            @{List<AppLifeServerMvc.Models.ViewModels.Dashboard.AppViewVersion> versions = Model.Versions.OrderBy(av => av.PercentOfTotalClients).ToList();
+              for(int i = 0; i < versions.Count; i++) { 
+                @Html.Raw(string.Format(@"['{0}', {1}]", versions[i].Version, versions[i].ClientCount));
+                                                                                                       if(i != versions.Count - 1 && i < 10) {
+                        @Html.Raw(",");
+                                                                                                       }
+                                                                                                       if(i == 10) {
+                                                                                                           long otherCount = 0;
+                                                                                                           for(int j = 10; j < versions.Count; j++) {
+                                                                                                               otherCount = otherCount + versions[j].ClientCount;
+                                                                                                           }
+                            @Html.Raw(string.Format(@",['Other', {0}]", otherCount));
+
+                                                                                    break;
+                                                                                                       }
+              }
+                
+             }
+        ]);
+
+        var versionDistChartOptions = {
+            'legend': { position: 'none' },
+            'pieSliceText': 'label',
+            'width': 150,
+            'chartArea': { top: 0, width: 150, height: 150 }
+        };
+
+        var versionDistChart = new google.visualization.PieChart(document.getElementById('versionDistChart_div'));
+
+        ///Adoption Chart
+        var adoptionChartData = new google.visualization.DataTable();
+        adoptionChartData.addColumn('string', 'Date');
+        adoptionChartData.addColumn('number', '% Adoption');
+
+        @{
+            if(Model.CurrentVersionAdoptionData != null) {
+                long adoptionTotal = 0;
+                for(int idx = 0; idx < Model.CurrentVersionAdoptionData.Count; idx++) {
+                    if(idx == 0) { 
+                    @Html.Raw(@"adoptionChartData.addRows([");
+                    }
+                    adoptionTotal = adoptionTotal + Model.CurrentVersionAdoptionData[idx].Count;
+            @Html.Raw(string.Format(@"['{0}', {1}]{2}", Model.CurrentVersionAdoptionData[idx].ExecutionDate.ToShortDateString(),
+            Model.TotalClientCount > 0 ? (Math.Round(Convert.ToDecimal(adoptionTotal) / Convert.ToDecimal(Model.TotalClientCount), 4)) * 100 : 0,
+                                                        idx == Model.CurrentVersionAdoptionData.Count - 1 ? "" : ","));
+
+                }
+
+                if(Model.CurrentVersionAdoptionData.Count > 0) {
+                @Html.Raw("]);");
+                }
+            }
+        }
+
+        var adoptionChartOptions = { 'vAxes': [{ maxValue: 100, minValue: 0, title: '% Adoption' }], 'legend': { position: 'none' }, 'pointSize': 1 };
+
+        var adoptionChart = new google.visualization.LineChart(document.getElementById("adoptionChart_div"));
+
+        //draw the charts
+        versionDistChart.draw(versionDistChartData, versionDistChartOptions);
+        adoptionChart.draw(adoptionChartData, adoptionChartOptions);
+    }
+</script>
+
+@{
+    ViewBag.Title = String.Format("Application: {0}", Model.Name);
+}
+<div class="grid_12">
+    <div class="breadcrumb">: @Html.ActionLink("Dashboard", "Index")</div>
+    <br />
+    <h2>@Model.Name <a href="@Url.Action("EditApplication", "Home", new { id = Model.Id })">
+        <img src="@Url.Content("~/Content/Images/16X16/application_edit.png")" alt="Edit" /></a></h2>
+    <div class="clearfix"></div>
+    <hr />
+
+    <ul id="imglist">
+        <li>
+            <div class="ActivityStats">
+                Active Clients:
+            <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.ActiveClientCount)</h4>
+                Applied Updates:
+            <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:#,#0}", Model.TotalAppliedUpdates)</h4>
+                Success Rate:
+            <h4>@String.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0:P}", Model.SuccessRate)</h4>
+                @if(Model.TotalFailedUpdates > 0) { 
+                    @Html.ActionLink(string.Format("{0} failed", Model.TotalFailedUpdates), "FailedUpdate", new { id = Model.Id })
+                }
+
+            </div>
+        </li>
+        <li>
+            <div id="versionDistChart_div"></div>
+            Version Distribution
+        </li>
+        <li>
+            <div id="adoptionChart_div" style="width: 360px;"></div>
+            Adoption Rate for version @Model.CurrentVersion
+        </li>
+    </ul>
+
+    <div class="clearfix"></div>
+    <h2>Versions</h2>
+    <hr />
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px;">
+        <tr>
+            <th width="4%">View</th>
+            <th scope="col" width="23%">Version</th>
+            <th width="24%">Release Date</th>
+            <th width="23%">Client Count</th>
+            <th width="24%">% of Clients</th>
+            <th width="2%"></th>
+        </tr>
+    </table>
+
+    <div class="scroll" style="height: 240px; border: 1px solid lightgray">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+            @foreach(var item in Model.Versions) {
+                <tr>
+                    <td width="4%">
+                        <a href="@Url.Action("Index", "Version", new {Id = Model.Id, version = item.Version})">
+                            <img src="@Url.Content("~/Content/Images/16X16/chart_bar.png")" alt="View" style="float:left;" />
+                        </a>
+                    </td>
+                    <td width="24%">
+                        @Html.DisplayFor(modelItem => item.Version)@if(item.PublishedAsTest) { 
+                            <span>&nbsp;<b>(Test)</b></span>}
+                        
+                        @if(item.RestrictedAccess){<span>&nbsp;<b>(Restricted Access)</b></span>} 
+                    </td>
+                    <td width="24%">@String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0}", (item.ReleaseDate == DateTime.MinValue ? "Unknown" : item.ReleaseDate.ToString("d")))
+                    </td>
+                    <td width="24%">@String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:#,#0}", item.ClientCount)
+                    </td>
+                    <td width="24%">@String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0} %", item.PercentOfTotalClients)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="container_12">
+        <h2 class="grid_1" style="margin-left:0px; margin-top:5px;">Clients</h2>
+        <!-- START SEARCH -->
+        <div id="search" class="grid_3 prefix_8">
+            @using(Ajax.BeginForm("ClientSearch", "Home", new { id = Model.Id }, new AjaxOptions {
+                HttpMethod = "GET",
+                UpdateTargetId = "clientTable",
+                InsertionMode = InsertionMode.Replace,
+                OnComplete = "setFilter()"
+            })) {
+                <input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("QuickClientSearch", "Home", new { id = Model.Id })" placeholder="Search" />
+                <input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+            }
+        </div>
+        <!-- END SEARCH -->
+        <div class="clearfix">
+        </div>
+        <hr />
+    </div>
+    
+    @Html.Partial("AppViewClientTable", Model.ClientInstallViewModel)
+    @Content.Script("ClientTable.js", @Url)
+
+</div>
+<div id="loaderDiv"></div>
+
+

@@ -1,0 +1,207 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ApplicationViewModel
+<style>
+    .ui-selecting {
+        background: #ccc;
+    }
+
+    .ui-selected {
+        background: #999;
+    }
+
+    #tabs {
+        height: 470px;
+    }
+
+    .accessListEntry {
+        float: left;
+        width: 33%;
+        width: 265px;
+    }
+</style>
+<div class="container_12">
+    <div id="tabs" style="height:auto;">
+        <ul>
+            <li><a href="#editApplicationTab"><span>Info</span></a></li>
+            <li><a href="#rolesTab"><span>Roles</span></a></li>
+            <li><a href="#clientAccessTab"><span>Client Access</span></a></li>
+            <li><a href="#managerSettingsTab"><span>Manager Settings</span></a></li>
+        </ul>
+        <div id="editApplicationTab">
+            <p>
+                @Html.LabelFor(model => model.Id)<br />
+                @if(ViewBag.IsNew == true) {
+                @Html.TextBoxFor(model => model.Id, new { Class = "text small error" })
+} else {
+                @Html.TextBoxFor(model => model.Id, new { Class = "text small error", @readonly = "true" })
+}
+                @Html.ValidationMessageFor(model => model.Id)
+                @if(Model.AppIdNotUnique) {
+                <span class="text small error">Application Id is not unique.</span>}
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Name)<br />
+                @Html.TextBoxFor(model => model.Name, new { Class = "text medium error" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.OwnerName)<br />
+                @Html.HiddenFor(model => model.OwnerUserId)
+                <span id="OwnerDisplay">
+                    @Html.DisplayTextFor(model => model.OwnerName)
+                    (@Html.DisplayTextFor(model => model.OwnerUserName))
+                </span>
+                <!--Find Onwer link-->
+                @Ajax.ActionLink("Find User", "GetUserList", new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "selectableUserList",
+               InsertionMode = InsertionMode.Replace,
+               OnComplete = "openSelectOwnerDialog()"
+           })
+
+            </p>
+            <p>
+                @Html.CheckBoxFor(model => model.InformOwnerOnFailedUpdate)
+                @Html.LabelFor(model => model.InformOwnerOnFailedUpdate)
+            </p>
+            <p>
+                @Html.CheckBoxFor(model => model.EnableAppLifeManager)
+                @Html.LabelFor(model => model.EnableAppLifeManager)
+            </p>
+        </div>
+        <div id="rolesTab">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px;">
+                <tr>
+                    <th scope="col" width="70%">
+                        User
+                    </th>
+                    <th scope="col" width="15%">
+                        Publisher
+                    </th>
+                    <th scope="col" width="15%">
+                        Viewer
+                    </th>
+                </tr>
+            </table>
+            <div class="scroll" style="height: 260px;">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    @Html.EditorFor(userRoles => Model.UserRoles)
+                </table>
+            </div>
+        </div>
+        <div id="clientAccessTab">
+            @Html.CheckBoxFor(model => model.ShowSharedACLs)
+            @Html.LabelFor(model => model.ShowSharedACLs)<br />
+            @Html.CheckBoxFor(model => model.AllowAnonymousAccess)
+            @Html.LabelFor(model => model.AllowAnonymousAccess)
+            @Html.HiddenFor(model => model.IsNew)
+            <h5>Enabled Access Lists</h5>
+            <div id="AccessListControl" class="scroll" style="height:200px; border:1px solid lightgray">
+                @Html.Partial("_ACLSelector", Model)
+            </div>
+            <p>
+                @Html.ActionLink("Manage Access Control Lists", "ManageACL", "Application", new { Id = @Model.Id }, new { id = "btnManageACLs" })
+            </p>
+        </div>
+        <div id="managerSettingsTab">
+            <div class="container_12">
+                <div class="grid_6">
+                    <p>
+                        @Html.LabelFor(model => model.AppPath)<br />
+                        @Html.TextBoxFor(model => model.AppPath, new { Class = "text big error" })<br />
+                        @Html.ValidationMessageFor(model => model.AppPath)
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.ProcessName)<br />
+                        @Html.TextBoxFor(model => model.ProcessName, new { Class = "text big error" })<br />
+                        @Html.ValidationMessageFor(model => model.ProcessName)
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.PrimaryExecutable)<br />
+                        @Html.TextBoxFor(model => model.PrimaryExecutable, new { Class = "text big error" })<br />
+                        @Html.ValidationMessageFor(model => model.PrimaryExecutable)
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.PublicKey)<br />
+                        @Html.TextAreaFor(model => model.PublicKey, new { Class = "text big error", Style = "height: 100px;" })<br />
+                        @Html.ValidationMessageFor(model => model.PublicKey)
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.RecheckDelayMinutes)<br />
+                        @Html.TextBoxFor(model => model.RecheckDelayMinutes, new { Class = "text small error" })
+                        @Html.ValidationMessageFor(model => model.RecheckDelayMinutes)<br />
+                    </p>                    
+                                      
+                </div>
+                <div class="grid_6">
+                    <p>
+                        @Html.CheckBoxFor(model => model.ForceUpdates) @Html.LabelFor(model => model.ForceUpdates)
+                    </p> 
+                    <p>
+                    @Html.LabelFor(model => model.ClientVersionMode)<br/>
+                    @foreach(var value in Enum.GetValues(typeof(AppLifeServerMvc.Models.ClientVersionMode))) {
+                        @Html.RadioButtonFor(model => model.ClientVersionMode, value)
+                        @Html.Label(AppLifeServerMvc.Models.EnumHelper<AppLifeServerMvc.Models.ClientVersionMode>.GetDisplayValue((AppLifeServerMvc.Models.ClientVersionMode)value))<br />
+                    }
+                        
+                            @Html.LabelFor(model => model.MsiDisplayName, new { Style = "margin-left:30px;" })<br />
+                            @Html.TextBoxFor(model => model.MsiDisplayName, new { Class = "text big error", Style = "margin-left:30px; width:373px;" })<br />
+                    </p>
+                    <p>
+                        @Html.CheckBoxFor(model => model.HasIntegratedUpdateController) @Html.LabelFor(model => model.HasIntegratedUpdateController)
+                    </p>
+                    <p>
+                        @Html.CheckBoxFor(model => model.EnableUpdateTimeWindow) @Html.LabelFor(model => model.EnableUpdateTimeWindow)
+                    </p>
+                    <div id="pnlUpdateTimeWindow" style="padding-left:30px;">
+                        @{object displayMode; }
+                        @{if(Model.EnableUpdateTimeWindow) {
+                              displayMode = new { Class = "text error" };
+                          } else {
+                              displayMode = new { Class = "text error", disabled = "disabled" };
+                          }
+                        }
+                        @Html.LabelFor(model => model.UpdateTimeWindowStart) <br />
+                        @Html.TextBoxFor(model => model.UpdateTimeWindowStart, displayMode) @Html.ValidationMessageFor(model => model.UpdateTimeWindowStart)<br />
+                        @Html.LabelFor(model => model.UpdateTimeWindowDuration)<br />
+                        @Html.TextBoxFor(model => model.UpdateTimeWindowDuration, displayMode) @Html.ValidationMessageFor(model => model.UpdateTimeWindowDuration)
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+    @*@Html.HiddenFor(model => model.AddToClientAccess)
+        @Html.HiddenFor(model => model.RemoveFromClientAccess)*@
+    <input id="viewState" type="hidden" name="viewState" value="" /><!--Used to transfer the user list parameters back to the server to be used during the redirect.-->
+    <div class="clearfix">
+    </div>
+    <div class="grid_2">
+        <br />
+        <input id="btnSubmit" type="submit" class="submit" value="Apply" />
+    </div>
+    <div class="clearfix">
+    </div>
+    <br />
+</div>
+<div id="selectOwnerDialog" title="Select Owner">
+    <ul id="selectableUserList" class="selectableList"></ul>
+</div>
+<div id="alertNewDialog" title="New Application" hidden>
+    The application must be saved before managing Access Control Lists.
+</div>
+<div id="loaderDiv">
+</div>
+<script src="@Url.Script("editApplication.js")"></script>
+<script type="text/javascript">
+        $("#ShowSharedACLs").change(function (e) {
+            var id = $("#Id").val();
+            var isShared = $("#ShowSharedACLs").is(":checked");
+
+            $("#AccessListControl").load('@Url.Action("_ACLSelector","Application")' + '?appId=' + id + '&showShared=' + isShared);
+        });
+</script>

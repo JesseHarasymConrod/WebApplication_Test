@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Stop Service</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="startservice.htm" /><link rel="next" href="replacepublickey.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="d85dd1fc-3a46-4a70-9e0c-06185bbca62b">
+<h4>Stop Service</h4>
+<p class="MsoBodyText">The <i>Stop Service</i> action stops a windows service on 
+the target client.  To use this action, you provide the service name that 
+you want to stop.  The action will stop a running or paused service.  
+If the service is already stopped, the action will do nothing.  If the 
+service does not exist on the target, the update will fail.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">The action stops the designated service.  Any 
+dependent services will also be stopped.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">If the service was running when the action executed, the 
+service is restarted.  Any dependent services are also restarted</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

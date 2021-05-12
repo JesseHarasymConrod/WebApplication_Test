@@ -1,0 +1,7 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.AccessListViewModel
+<div class="accessListEntry grid_5">
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.Name)
+    @Html.EditorFor(x => x.IsSelected)
+    @Html.DisplayFor(x => x.Name)
+</div>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Patch Existing File</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="maskedaddreplacefiles.htm" /><link rel="next" href="patchfolder.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="70971a82-cf73-4476-8b98-b0674639d372">
+<h4>Patch Existing File</h4>
+<p class="MsoBodyText">The <i>Patch Existing File</i> action allows you to compare 
+the current version of a file with a previous existing file, generate a delta 
+file as an update is being created, and then utilizing the delta file and the 
+existing file to create the new file on deployed systems.  This action 
+utilizes the <a href="http://msdn.microsoft.com/en-us/library/ms811406.aspx" target="_blank">Microsoft Delta Compression API</a> to generate the patch file, 
+and re-create the new file starting from the existing file.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action verifies permissions 
+to the target folder.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">During the execute stage, the original existing file is 
+backed up in case the update must be rolled back.  The patch is then 
+applied to the existing file.  After the patch is applied, the hash of the 
+resulting file is compared to the hash of the target file that was taken when 
+the update was created.  If the resulting file hash does not match, the 
+action fails and a rollback is initiated.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup copies that were made during the execute 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Replaces the target file with the original back up created 
+prior to performing the <i>Execute</i> stage.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

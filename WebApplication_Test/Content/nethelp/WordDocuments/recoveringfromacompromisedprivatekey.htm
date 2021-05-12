@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Recovering From a Compromised Private Key</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="elevatedprivileges.htm" /><link rel="next" href="theupdatelog.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="15ab9cf3-05c3-419c-ac76-1275ff91c26c">
+<h4>Recovering From a Compromised Private Key</h4>
+<p class="MsoBodyText">The security of your application is dependent on keeping 
+your private key private.  <b><i>It is imperative that your application 
+project (aup) file be kept securely private.</i></b></p>
+<p class="MsoBodyText">In the event that your private key is compromised, your 
+software and your clients are at risk of being maliciously targeted.  If 
+you have deployed the AppLife Update Service for elevated permissions, then your 
+client computers are at a higher risk because malicious code could execute with 
+permissions higher than the logged in user.</p>
+<p class="MsoBodyText">Attackers could use your private key to create a malicious 
+update package.  To execute this compromised update package, attackers 
+would need to place this update package in your application’s publish 
+location.  With a malicious update signed with your private key and placed 
+in your update location, your update process will discover, retrieve, validate 
+and apply the malicious update package.</p>
+<p class="MsoBodyText">It could also be possible for attackers to bypass your 
+application entirely, if they could successfully trick your users into executing 
+a Trojan executable.  The severity of this scenario increases if the 
+AppLife Update Service has been deployed with your application.</p>
+<p class="MsoBodyText">If you suspect that your private key has been compromised, 
+your update location must be secured, preventing an attacker from gaining the 
+ability to add or modify files.  A new key pair must also be implemented in 
+your application and your clients must be updated as soon as possible with the 
+new public key. </p>
+<p class="MsoBodyText"><i>You must update all versions of your software</i>.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  
+Create a backup of your current Make Update project file and archive it.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  
+Create a new AppLife Make Update project file.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  
+Within your software, modify the public key property of your update controller 
+to match the new Make Update project file public key.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">4.  If 
+necessary, build your software and then create a new update.  If you have 
+deployed the AppLife Update Service, include in this update a <a class="topic-link" href="replacepublickey.htm">Replace Public Key</a><i> 
+</i>action.  Place the new public key that matches your update 
+controller.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">5.  After 
+publishing the update in step 3, import into your project the new key pair from 
+the new Make Update project file and remove the <i>Replace Public Key </i>action 
+from your update project.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">6.  Set 
+your <i>Versions to update</i> property to &gt;[Previous Version] and save your 
+project file.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">7.  No 
+future updates can target versions with the previous public key.  These 
+updates will fail validation and not be executed.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

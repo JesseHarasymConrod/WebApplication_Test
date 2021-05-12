@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Using the Command Line Utility</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="commandlineutilitylocation.htm" /><link rel="next" href="msbuildtask.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="4915dfb2-b00d-4903-a2b3-8b914c7d7e7c">
+<h3>Using the Command Line Utility</h3>
+<p class="MsoBodyText">The console application is located at:</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">[InstallDir]\Make Update\AppLifeUpdateCmd.exe</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Usage:</p>
+<p class="MsoBodyText"><b>AppLifeUpdateCmd &lt;project file&gt;  [&lt;update 
+version&gt;] /publish:&lt;location&gt;  [options]</b></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"><b>&lt;project 
+file&gt;</b>     The project file (aup) to be built.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"><b></b> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"><b>&lt;update 
+version&gt;</b>  The version of the update to be built from the 
+project.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"><b>&lt;location&gt; 
+</b>        Specifies a location to publish 
+the update after building it. &lt;location&gt; can be either the name of a 
+location from the project, or a directory. The update can be published to 
+multiple locations by including multiple /publish options.  If no /publish 
+option is specified, the update will be published to the last set of locations 
+specified from the Make Update application.  To specify location logon 
+credentials, add /username:&lt;username&gt; and /password:&lt;password&gt; 
+options immediately after the publish location.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt">Options:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"><b>/targets:&lt;target 
+list&gt;</b>      Replaces the target versions in the 
+project with the specified list of target versions.  Versions can be 
+prefixed with  ‘&gt;’ (e.g. “&gt;5.0.0.0) to indicate that any higher 
+versions are also valid.  Instead of a target list, “All” or “last” can 
+also be specified.  “All” replaces the project’s target list with the 
+“(all)” target, allowing any previous version  to be updated.  “Last” 
+replaces the project’s target list with the last saved update version.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/summary:&lt;file&gt;</b>             
+Replaces the summary text in the project with the contents of the specified 
+file.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/customdata:&lt;file&gt;</b>         
+Replaces the custom data in the project with the contents of the specified 
+file.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/availability:[normal|test]           
+</b>Sets the availability of the current update in the project to normal or 
+test.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/actionbase:&lt;directory&gt;  
+</b>Sets the base directory used by update actions that support relative file 
+paths.</p>
+<p class="MsoBodyText" style="tab-stops: 238.5pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/silent</b>                             
+Suppresses all output.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 238.5pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 0pt; tab-stops: 288.0pt"><b>/?</b>                                   
+Displays help information</p>
+<p class="MsoBodyText" style="tab-stops: 288.0pt"> </p><span id="related-topics"></span></body></html>

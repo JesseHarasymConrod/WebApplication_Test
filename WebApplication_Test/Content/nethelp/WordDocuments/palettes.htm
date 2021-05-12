@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Palettes</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="customactionassemblies.htm" /><link rel="next" href="customactionplaceholders.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="7158e7a3-0075-41c1-a6b6-4ffe1b7523ba">
+<h4>Palettes</h4>
+<p class="MsoBodyText">Actions within custom action assemblies are placed in the 
+Action palettes within <i>Make Update</i>.  Users can then add these 
+actions to the update projects by interacting with the palette, just as the 
+built in actions are added.  Custom Action developers can control the 
+placement within the action palettes by placing attributes on the custom action 
+class declaration.</p>
+<p class="MsoBodyText">By default, all custom actions are placed in a palette 
+labeled <i>Misc</i>.  Actions are named by their class name and they have a 
+standard action icon.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_8.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">To control the display and placement, there are three 
+attributes that you place on your action class declaration.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">          
+<i>System.ComponentModel.DisplayNameAttribute</i></p>
+<p class="MsoBodyText"><i>          
+System.ComponentModel.DescriptionAttribute</i></p>
+<p class="MsoBodyText"><i>          
+System.Drawing.ToolboxBitmapAttribute</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Use the <i>DisplayName</i> attribute to change the display 
+name of the action.  Use the <i>Description</i> attribute to change the 
+tooltip on the action.  Use the <i>ToolboxBitmap</i> attribute to change 
+the icon for the action.</p>
+<p class="MsoBodyText">Using these attributes…</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoNormal" style="TEXT-AUTOSPACE: ; tab-stops: 162.0pt"><span style="FONT-SIZE: 8pt; FONT-FAMILY: &quot;Courier New&quot;">    
+                           
+[<span style="COLOR: #2b91af">DisplayName</span>(<span style="COLOR: #a31515">"Add Text File"</span>), <span style="COLOR: #2b91af">Category</span>(<span style="COLOR: #a31515">"Sample 
+Actions"</span>)]</span></p>
+<p class="MsoNormal" style="TEXT-AUTOSPACE: ; tab-stops: 162.0pt"><span style="FONT-SIZE: 8pt; FONT-FAMILY: &quot;Courier New&quot;">    
+                           
+[<span style="COLOR: #2b91af">Description</span>(<span style="COLOR: #a31515">"This is a sample custom action"</span>)]</span></p>
+<p class="MsoNormal" style="TEXT-AUTOSPACE: ; tab-stops: 162.0pt"><span style="FONT-SIZE: 8pt; FONT-FAMILY: &quot;Courier New&quot;">    
+                           
+[<span style="COLOR: #2b91af">ToolboxBitmap</span>(<span style="COLOR: #a31515">@"P:\~Scratch\RadialChartHS.png"</span>)]</span></p>
+<p class="MsoNormal" style="TEXT-AUTOSPACE: ; tab-stops: 162.0pt"><span style="FONT-SIZE: 8pt; FONT-FAMILY: &quot;Courier New&quot;">    
+                           
+<span style="COLOR: blue">public</span> <span style="COLOR: blue">class</span> 
+<span style="COLOR: #2b91af">AddTextFileAction</span> : <span style="COLOR: #2b91af">UpdateAction</span></span></p>
+<p class="MsoNormal" style="TEXT-AUTOSPACE: ; tab-stops: 162.0pt"><span style="FONT-SIZE: 8pt; FONT-FAMILY: &quot;Courier New&quot;; COLOR: #2b91af"></span> </p>
+<p class="MsoBodyText">Causes the action to be displayed…</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_9.png" alt="" /></p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

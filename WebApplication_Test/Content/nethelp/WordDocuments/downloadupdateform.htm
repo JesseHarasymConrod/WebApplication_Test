@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Download Update Form</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="checkforupdateform.htm" /><link rel="next" href="applifeupdatecomponents.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="a149bc93-9233-40e5-89d5-2cd7273f333e">
+<h4>Download Update Form</h4>
+<p class="MsoBodyText">If the standard update download form does not match your 
+application, you can implement your own download form.  You do not need to 
+implement a custom download form just because a custom Check for Updates form 
+was implemented.  To show the standard download form after utilizing a 
+custom Check for Updates form, you can call the <i>ShowDownloadUpdateDialog 
+</i>method.</p>
+<p class="MsoBodyText">To implement a custom download form, you call a download 
+method on the <i>Update Controller</i>.  There is both a synchronous and 
+asynchronous download method.  When using the asynchronous method, you can 
+subscribe to a progress event and a completion event.  Both event handlers 
+are guaranteed to be executed on the same thread that started the 
+download.  The progress event handler has an event argument that provides 
+progress information.</p>
+<p class="MsoBodyText">After an update is downloaded by using the 
+<i>ShowDownloadUpdateDialog</i> or a call to a download method, you must call 
+<i>ApplyUpdate</i> on the Update Controller to initiate the update process.</p>
+<p class="MsoBodyText"><i>Note:  Please reference the Update Controller API 
+documentation for more information on these methods.  Also, please 
+reference the Custom Forms Quick Start project for an example of using custom 
+forms.</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

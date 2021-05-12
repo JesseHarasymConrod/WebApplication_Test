@@ -1,0 +1,88 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.Dashboard.GetClientViewModel
+<script type="text/javascript">
+    var applicationId = '@string.Format("{0}", Model.ApplicationId)';
+    var clientId = '@string.Format("{0}", Model.ClientId)';
+    var ignoreClient = @((Model.IgnoreClient == true) ? "true" : "false");
+    $(function(){setLogButton();});
+
+    @{if(User.IsInRole(string.Format("Publisher{0}", Model.ApplicationId)) || User.IsInRole("GlobalPublisher")) { 
+        <text>
+        $(function(){
+       
+            setLogButton();
+
+            $('#toggleIgnore').click(function () {
+                $.ajax({url: '@Url.Action("IgnoreClient", "Home")', data: {clientId: clientId, applicationId: applicationId, on: !ignoreClient},
+                        success: function(data){
+                            if(data.result == 'success'){
+                                ignoreClient = !ignoreClient;
+                                //update display
+                                setLogButton();
+                            }
+                        }, error: function (xhr, ajaxOptions, thrownError){
+                            alert(xhr.responseText);
+                        }
+                    })
+                });
+            });
+    </text>
+      } else { 
+      <text>
+        $(function(){$('#toggleIgnore').hide();});
+    </text>
+      }
+    } 
+      
+        function setLogButton(){
+            $(function(){
+                if(ignoreClient){
+                    $('#logEnable').hide();
+                    $('#logDisable').show();
+                }else{
+                    $('#logEnable').show();
+                    $('#logDisable').hide();
+                }
+            })};
+        
+</script>
+@{
+    ViewBag.Title = string.Format("Client: {0}", AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(Model.ClientId));
+}
+<div class="breadcrumb">: @Html.ActionLink("Dashboard", "Index") / @Html.ActionLink(Model.Name, "AppView", new { id = Model.ApplicationId }) </div>
+<br />
+<h2 class="grid_5" style="margin-left: 0px;">Client: <span title="@Model.ClientId">@AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(Model.ClientId)</span>
+    
+    <a href="#" id="toggleIgnore" title="Toggle Ignore. Enable/Disable logging for this client">
+        <img id="logEnable" src="~/Content/images/32x32/Log.png" /><img id="logDisable" src="~/Content/images/32x32/LogDisable.png" /></a>
+</h2>
+<!-- START SEARCH -->
+<div id="search" class="grid_3 prefix_4">
+    @using(Ajax.BeginForm("ClientUpdateSearch", "Home", new { applicationId = Model.ApplicationId, clientId = Model.ClientId }, new AjaxOptions {
+        HttpMethod = "GET",
+        UpdateTargetId = "ClientUpdateTable",
+        InsertionMode = InsertionMode.Replace,
+        OnComplete = "setFilter()"
+    })) {
+        <input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("QuickClientUpdateSearch", "Home", new { applicationId = Model.ApplicationId, clientId = Model.ClientId })" placeholder="Search" />
+        <input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+    }
+</div>
+<!-- END SEARCH -->
+<div class="clearfix">
+</div>
+<hr />
+<div>
+    Current Version: @Model.CurrentVersion<br />
+    First Update Check: @Model.FirstCheckDate<br />
+    Last Update Check: @Model.LastCheckDate<br />
+    Computer Name: @Model.ComputerName<br />
+    Client ID: @Model.ClientId<br />
+    Client Access Key: @Model.ClientAccessKey
+</div>
+
+<h2>Executed Updates</h2>
+<hr />
+@Html.Partial("ClientUpdateTable", Model.ClientUpdateTableViewModel)
+@Content.Script("ClientUpdateTable.js", @Url)
+<div id="loaderDiv">
+</div>

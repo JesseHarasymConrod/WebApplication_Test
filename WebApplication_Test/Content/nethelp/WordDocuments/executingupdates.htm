@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Executing Updates</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="localizedupdateprocess.htm" /><link rel="next" href="supportednetframeworks.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="2eb7bae2-bbb9-4d2f-8356-d0d2215f13d0">
+<h3>Executing Updates</h3>
+<p class="MsoBodyText">Updates are discovered, downloaded and verified to be 
+intact and from the original publisher.  Only then can an update be 
+executed.  To execute an update package, the Update Controller component 
+initiates the process by communicating with all instances of the hosting 
+application and requesting a shutdown.  Implementers can handle the 
+<i>UpdateStarted</i> event of the Update Controller to perform any necessary 
+actions prior to shutdown, such as prompting to save work.  The update can 
+also be cancelled from that event.  Once the instances have been shutdown, 
+the initiating instance extracts and executes an <i>Update Launcher</i>.</p>
+<p class="MsoBodyText">The <i>Update Launcher</i> initiates the update process and 
+then waits until the updating executable completes its work.  After the 
+update is complete, the hosting application is launched in its updated 
+state.</p>
+<p class="MsoBodyText">The executable that actually performs the update is 
+determined by the <i>Make Update </i>project.  It can be either a Microsoft 
+Installer file, a custom created executable, or it can be an AppLife Update 
+Action List executable.  The best method to use is dependent on the type of 
+application being updated and the preferences of the developers.</p>
+<div class="related-topics-header">
+<p class="RelatedHead">More:</p>
+<div class="related-topics">
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="supportednetframeworks.htm">Supported .Net Frameworks</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="preservingcommandlinearguments.htm">Preserving Command Line 
+Arguments</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="microsoftinstallerpatch.htm">Microsoft Installer Patch</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="customupdateexecutable.htm">Custom Update Executable</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="applifeupdateproject.htm">AppLife Update Project</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="applifeupdateengineoptions.htm">AppLife Update Engine Options</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="coordinatedapplicationshutdown.htm">Coordinated Application 
+Shutdown</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="passinginsharedpropertiesforanupdate.htm">Passing in Shared Properties for 
+an Update</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="implementingacustomupdateengineuserinterfaceiupdateui.htm">Implementing a 
+Custom Update Engine User Interface (IUpdateUI)</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="thefirstrunafteranupdate.htm">The First Run after an Update</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="accessingtheresultsofthepreviousupdate.htm">Accessing the Results of the 
+Previous Update</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="localizedupdateengineuserinterface.htm">Localized Update Engine User 
+Interface</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="elevatedprivileges.htm">Elevated Privileges</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="recoveringfromacompromisedprivatekey.htm">Recovering From a Compromised 
+Private Key</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="theupdatelog.htm">The Update Log</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="customizetheloglocation.htm">Customize the Log Location</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="disablelogging.htm">Disable Logging</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="accessinglogsthroughtheapi.htm">Accessing Logs through the API</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="64bitoperatingsystems.htm">64 Bit Operating Systems</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="windowspresentationfoundationwpf.htm">Windows Presentation Foundation 
+(WPF)</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="theuseraccountcontroluac.htm">The User Account Control 
+(UAC)</a></p></div></div></body></html>

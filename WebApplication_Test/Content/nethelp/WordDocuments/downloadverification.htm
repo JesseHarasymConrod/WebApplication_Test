@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Download Verification</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="downloadauthentication.htm" /><link rel="next" href="proxyservers.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="137d40bc-e2bb-4c5f-ba2e-d4ece28f3b2c">
+<h4>Download Verification</h4>
+<p class="MsoBodyText">Upon successful download of a discovered update, the 
+downloaded file is verified to be intact and that it came from the same 
+publisher that supplied the application being updated.  This is 
+accomplished using the RSA Crypto Service Provider <i>Sign Data</i> 
+functionality.  When a new Update Project (aup) is created using the 
+<i>Make Update</i> application, an RSA public-private key pair is created.  
+The private key is used to sign the update package after it is built.  The 
+public key is placed in the <i>PublicKey</i> property of the Update 
+Controller.</p>
+<p class="MsoBodyText">When a new update package is created, the resulting file is 
+signed using the RSA Crypto Provider and the private key of the update 
+project.  The signature of the package is placed in the Director file to be 
+provided to the application while downloading an update.</p>
+<p class="MsoBodyText">When the hosted application downloads the update package, 
+the signature and public key are used to verify that the downloaded file has not 
+been changed, and that it came from a source that had the proper private 
+key.  If any changes were made to the file, or if the update package had 
+been created without the appropriate private key, the verification will fail and 
+the update package is discarded.</p>
+<p class="MsoBodyText"><i>Note:  This verification process assumes the 
+sanctity of the private key.  If a private key is compromised, AppLife 
+Update would not be able ensure the update package file originated with the 
+original software publisher.</i></p><span id="related-topics"></span></body></html>

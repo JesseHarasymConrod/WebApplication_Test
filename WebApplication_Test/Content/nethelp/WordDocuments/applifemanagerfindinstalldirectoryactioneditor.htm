@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>AppLife Manager Find Install Directory Action Editor</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="applifemanagersetupdateversionactioneditor.htm" /><link rel="next" href="missingactionplaceholder.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="93177368-08a3-4891-b590-3f209b69062e">
+<h2>AppLife Manager Find Install Directory Action Editor</h2>
+<p class="MsoBodyText">This action will search for a designated assembly (or file) 
+and then write the Directory Information of the discovered file into the AppLife 
+Manager application configuration.  See <a class="topic-link" href="applicationdirectory.htm">Application Directory</a> for more 
+information.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image133_62.png" alt="" /></p>
+<p class="MsoBodyText">Action Description - Descriptive text that can be used to 
+identify this particular action in the Actions list.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Assembly to search for – The file name or assembly name to 
+search for.  This is a file that would be located in the targeted 
+application directory, or a directory that would be relative to the target 
+application directory.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Search Install Folders – When checked, the action will 
+search Program Files and Common Program Files for the target assembly.  The 
+32-bit (x86) directories will be searched first on 64 bit operating 
+systems.<br /><br /></p>
+<p class="MsoBodyText">Search additional folder – A custom directory that will be 
+searched for the target assembly.  Windows Environment Variables can be 
+used in this value.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Recursive – When checked, all inner directories of the 
+designated additional search folder will be searched.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Action to take if assembly can’t be found – The designated 
+default value can be used or the update can be terminated and rolled back.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Default value – The value to use if the designated assembly 
+cannot be found and the action to take is set to <i>Use default value</i>.  
+Shared Properties and Windows Environment Variables are expanded when used in 
+this value.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Shared property to read File Location into -  The name 
+(or key) of the Shared Property that will hold the results of the action.  
+The Shared Property will hold a string value that represents the complete 
+location path to the targeted assembly, including the assembly name.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Shared property to read Directory Name into - The name (or 
+key) of the Shared Property that will hold the results of the action.  The 
+Shared Property will hold a string value that represents only the directory path 
+of the targeted assembly.  If the default value was used, this value will 
+be read into the Shared Property.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

@@ -1,0 +1,10 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.UserRoleView
+
+<tr>
+    <td width="70%">
+        @Html.HiddenFor(x=>x.UserId)
+        @Html.DisplayFor(x=>x.Username)
+    </td>
+    <td width="15%">@Html.EditorFor(x=>x.IsPublisher)</td>
+    <td width="15%">@Html.EditorFor(x=>x.IsViewer)</td>
+</tr>

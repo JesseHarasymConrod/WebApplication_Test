@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Add Element</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="xmlactions.htm" /><link rel="next" href="addattribute.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="cdd86acc-53f1-4004-95e3-aaa415e8cbb0">
+<h4>Add Element</h4>
+<p class="MsoBodyText">The <i>Add Element</i> action adds an Xml element to an 
+existing xml document.  To use this action you provide a path to an 
+existing Xml Document by selecting from a list of known folders on the client 
+target and then providing a sub path and file name.</p>
+<p class="MsoBodyText">You then provide an XPath expression to identify the parent 
+element that the new element will be added to.  If more than one element 
+matches the Xpath expression, you can choose one of five actions:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the element to all nodes (the default action)</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the element to only the first node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the element to only the last node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Don’t add any elements</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Abort the update</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Once the parent node is found, you can choose to add the 
+new element at the beginning (before siblings) or at the end (after siblings) of 
+the parent document element.</p>
+<p class="MsoBodyText">A new element is added at this location using the element 
+name provided.  If a value is provided, the text will be placed inside 
+opening and closing tags.</p>
+<p class="MsoBodyText">If an element already exists that matches the element being 
+added, you can choose take one of four actions:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Insert the new element, ignoring any previous ones (The default 
+action)</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Delete any existing elements, then insert the new one</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Do not insert the element</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Abort the update</p>
+<p class="MsoBodyText">This action requires a full path to an xml file, defined by 
+setting a <a class="topic-link" href="addreplacefiles.htm">target client 
+folder</a>, any appropriate sub path information and a file name.  In 
+addition to the full file path, the element name must be provided.  The 
+element value is optional.</p>
+<p class="MsoBodyText">A list of Attributes can be defined, which will be added to 
+the newly created element.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">Verifies permissions to modify the xml file.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Backs up the xml file then inserts the new xml element, 
+performing the operation as defined by the action properties.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup file created during the <i>execute</i> 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Restores the xml file with the file backed up in the 
+<i>execute</i> stage.</p><span id="related-topics"></span></body></html>

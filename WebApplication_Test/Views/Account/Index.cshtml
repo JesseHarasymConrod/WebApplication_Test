@@ -1,0 +1,29 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.UserTableView
+@{
+	ViewBag.Title = "AppLife Server - User Management";
+}
+<h2 class="grid_1">
+	Users</h2>
+<!-- START SEARCH -->
+<div id="search" class="grid_3 prefix_8">
+	@using(Ajax.BeginForm("Search", "Account", new AjaxOptions {
+				HttpMethod = "GET",
+				UpdateTargetId = "userTable",
+				InsertionMode = InsertionMode.Replace,
+				OnComplete = "setFilter()"
+	})) {	
+		<input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("QuickSearch", "Account")" placeholder="Search" />
+		<input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+ }
+</div>
+<!-- END SEARCH -->
+<div class="clearfix">
+</div>
+<hr />
+@{Html.RenderPartial("UserTable");}
+@Content.Script("UserTable.js", @Url)
+<div class="grid_8">
+	<input type="submit" class="submit" value="Add User" onclick="location.href='@Url.Action("Add", "Account")'" />
+</div>
+<div id="loaderDiv">
+</div>

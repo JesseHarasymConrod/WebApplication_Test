@@ -1,0 +1,26 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.EditUser
+@{
+	ViewBag.Title = "AppLife Server - Add User";
+}
+<div class="grid_12">
+	<h2>
+		Add New User</h2>
+	<div class="clearfix">
+	</div>
+	<hr />
+	@using(Html.BeginForm()) {
+		@Html.ValidationSummary(true)
+
+		@Html.Partial("EditUser");
+ }
+	<div class="grid_2">
+		<br />
+		@Html.ActionLink("Back to List", "Index")
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+	$(document).ready(function () {
+		document.getElementById("viewState").value = sessionStorage.getItem("UserTable");
+	});
+</script>
+

@@ -1,0 +1,7 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.SummaryViewModel
+<h6>@((Model.Culture == "en-us")?"Default Summary":string.Format("({0})",Model.Culture))</h6>
+<div class="summaryEntry">
+    @Html.HiddenFor(model=>model.Culture)
+    @Html.HiddenFor(model=>model.IsHtml)
+    @Html.TextAreaFor(model => model.Body, 10, 120, new {IsHtml = @Html.Raw(Model.IsHtml), @class="borderedPanel"})
+</div>

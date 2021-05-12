@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Simple Quick Start</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="applifemanagerquickstart.htm" /><link rel="next" href="customformsquickstart.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="d1933183-07ab-4a07-bb66-49fcd378c9c3">
+<h3>Simple Quick Start</h3>
+<p class="MsoBodyText">The simple quick start application implements the AppLife 
+Update solution by using the <i>UpdateDisplay</i> Windows Forms control.  
+We’ll walk through enabling an existing WinForms application for AppLife Update. 
+To update the application, a single <i>Add and Replace files</i> action is 
+used.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt"><b><span style="FONT-SIZE: 12pt">1. Add an <i>UpdateDisplay</i> Control to the Main Form 
+of the Application.<br /><br /><img border="0" src="../ImagesExt/image135_17.png" alt="" /><br /><br /></span></b>Drag and drop an 
+<i>UpdateDisplay</i> control from the WinForms toolbox in Visual Studio onto the 
+application’s main form.  This control can be found on the <b>AppLife 
+Update</b> tab. The <i>UpdateDisplay</i> control provides an in-line 
+asynchronous check for updates, download, and user notification.  The 
+control also has a details pop-up pane.  You can use this control from the 
+main form of an application to completely manage the update process.  There 
+are many customizations available through the properties of this control.  
+When an <i>UpdateDisplay</i> control is placed on a form, an 
+<i>UpdateController</i> control is also added.  The Update Controller 
+performs all of the actual work of the update process, and the 
+<i>UpdateDisplay</i> provides a user experience.  You can switch user 
+experiences by adding one of the alternative display controls and assigning the 
+existing update controller to the control’s <i>UpdateController</i> 
+property.  Multiple visual controls can utilize the same update 
+controller.<br /><br />See the <a class="topic-link" href="updatinguserexperienceoptions.htm">User Experience Options</a> topic for 
+information on the other built-in update user experiences available.<b><span style="FONT-SIZE: 12pt"></span></b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt"><span style="FONT-SIZE: 8pt">Note: Visual Studio Express Editions will not have 
+AppLife Update controls pre-populated in the toolbox.  These controls can 
+be manually added to the toolbox, and then dragged onto your form.  To 
+manually add the controls, select to <i>Choose Items…</i> from the toolbox 
+context menu, then select the <i>UpdateDisplay</i> control from the .Net 
+Framework Components list.<br /><br /></span></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt"><b><span style="FONT-SIZE: 12pt">2. Set up a new AppLife Update 
+project.<br /></span></b><br />Click the <i>UpdateDisplay</i> control smart tag, and 
+select to <i>Set up a new project.<br /><br /></i><b><span style="FONT-SIZE: 12pt"><img border="0" src="../ImagesExt/image135_18.png" alt="" /></span></b><b><span style="FONT-SIZE: 12pt"></span></b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">To set up a new project, 
+specify:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">1.  Where 
+will your updates be hosted?</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">2.  How 
+would you like to control versioning?</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">3.  Will 
+your updates require permissions elevation?</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">You can utilize any http, ftp, 
+UNC or file path location to host your updates.  There are no server 
+requirements, except that your application must be able to connect to this 
+location.<br /><br /><i>Note: It is common to use a different path to publish 
+updates.  Ftp is commonly used to publish, while http is used to retrieve 
+updates.</i><br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">By using Assembly Version for 
+versioning, the host executable assembly version determines the client version, 
+and is used to determine which updates are available for the application.  
+By selecting to set the version manually, the <i>Version</i> property of the 
+Update Controller will determine the version of the client. Using manual 
+versioning is often used in customized updating implementations to provide 
+flexibility.  For most .Net applications, assembly versioning is the best 
+choice.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">The permissions that your update 
+process requires is determined by where the application is installed on the 
+deployed system, and the security posture of the deployed system 
+environment.  Applications that are installed into the Program Files 
+directory and started by a user with limited permissions will not be able to be 
+updated without permissions elevation.  You can choose no elevation, UAC 
+elevation, or elevation using the AppLife Update Windows Service.  The 
+AppLife Update Windows Service can securely elevate the permissions of the 
+update process to run as the local system account, allowing limited users to 
+update your software without administrative support. If you utilize the Windows 
+Service, this service will need to be deployed with your application.  
+Administrative permissions <b><i>are</i></b> required for initial installation 
+of the service as well as the registration of each application that will use 
+it.  See <a class="topic-link" href="deployingtheapplifeupdatewindowsservice.htm">deploying the AppLife Update 
+Windows Service</a> for more information.<br /> <br /><img border="0" src="../ImagesExt/image135_19.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  
+<b><span style="FONT-SIZE: 12pt">Build an Update</span></b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">When you complete the setup, a 
+new AppLife Update project is created, and the Update Controller on the 
+application main form is synchronized with this project.  This can be 
+confirmed by comparing the Application ID, Public Key, and Update Location 
+properties of the Update Controller with the project settings.  These 
+settings must match in order for your application to successfully apply updates 
+created by this project.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">As this project was created, an 
+<i>Add &amp; Replace Files</i> action was added to the project for you. This 
+update action will replace the host executable, and any Visual Studio 
+<i>project</i> referenced assemblies from the solution as the update executes on 
+deployed systems.  You can add additional files to this action, or use any 
+other update action in the Action palette by modifying the action list.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">To build an Update:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">a.  Build 
+the executable in Visual Studio.  <b>Don’t forget to set the proper version 
+number before building the executable</b>.  Make Update will detect the 
+assembly version of the host executable (your application), and this will 
+determine the version number of the update being created.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">b.  In 
+Make Update, Click the <i>Create an Update</i> button…<br />This will launch the 
+create update wizard.<br /><br /><img border="0" src="../ImagesExt/image135_20.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">The update version being created 
+is 2.0.0.0.  This is detected from the host executable.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">This update is available for any 
+previous version of this application.  If the actions in the update action 
+list are configured to expect a specific version, you can change the <b>Versions 
+to Update </b>to target a specific version.  You can also target all 
+versions greater than a specific version, or a discrete list of previous 
+versions.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">Summary text describing the 
+update can be provided.  This text will be displayed by the update user 
+experience and is also available through the Update Controller API.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">Custom Data provides a method to 
+pass information to your update process.  Information provided here is 
+available to your application through the Update Controller API.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><i>Note:  The list of 
+versions to update, summary text, and custom data can be modified after an 
+update has been created by managing the update location that the update is 
+published to.</i></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">Click Next&gt;</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_21.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">On the next page, you can select 
+from one or more update locations to publish the update to.  If your update 
+location requires credentials, you can provide them here, or be prompted as the 
+update is actually transferred.  When updates are present at the location, 
+they are displayed in the list on the right.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">The update can be designated as a 
+test update by checking the <b>Make this update only available to testers</b> 
+checkbox.  When this box is checked, clients who will discover this update 
+must have a specific value in their app.config file.  See Testing updates 
+for more information.  This value can be modified by managing the update 
+location that the update is published to.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">Click Build &gt; to build and 
+publish the new update.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_22.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt"><b><span style="FONT-SIZE: 12pt">4. Applying the New Update<br /><br /></span></b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt">The newly created update can now 
+be used to update any previous version of the application to version 
+2.0.0.0.  To test this, we’ll change the application version in Visual 
+Studio back to version 1.0.0.0, build the application, and then run it.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">a.  
+Change the assembly version back to 1.0.0.0</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18pt; tab-stops: 198.0pt">b.  Start 
+debugging the application in Visual Studio.<br /><br />The update process is started 
+automatically.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_23.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_24.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_25.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_26.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_27.png" alt="" /><br /><br />Applying the update…</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt">The host application is closed 
+and the AppLife Update engine performs the actions defined in the update action 
+list.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_28.png" alt="" /><br /><br />The update completes and the host 
+application is restarted as version 2.0.0.0.  An update check is performed, 
+but this time the application is up-to-date.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"><img border="0" src="../ImagesExt/image135_29.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 54pt"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt">The Custom Forms 
+Quick Start walks through using the Update Controller API to create a completely 
+customized user experience.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt">The Custom Actions 
+Quick Start walks through creating completely custom update actions, allowing 
+you to perform any updating activity during an update. </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt"> </p><span id="related-topics"></span></body></html>

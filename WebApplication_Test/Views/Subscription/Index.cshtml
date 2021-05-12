@@ -1,0 +1,346 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.SubscriptionViewModel
+@{
+  ViewBag.Title = "AppLife Server - Subscription Management";
+}
+
+<style type="text/css">
+    .sortWrapper {
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #subscriptions {
+        width: 100%;
+    }
+</style>
+<div>
+    <div class="breadcrumb">: @Html.ActionLink("Dashboard", "Index", "Home")</div>
+    <br />
+    <h2>Subscription Management</h2>
+    <hr />
+    <div class="grid_6">
+        @Html.LabelFor(model => model.SubscriberName): @Model.SubscriberName<br />
+        @Html.LabelFor(model => model.CfySubscriptionId): @Model.CfySubscriptionId<br />
+        @Html.LabelFor(model => model.SignupDate): @Model.SignupDate.ToShortDateString()<br />
+        @Html.LabelFor(model => model.LicenseKey): @Model.LicenseKey<br />
+        <a href="https://www.kineticjump.com/downloads/software/applifeupdate.zip">Download AppLife Update Software</a>
+    </div>
+    <div class="grid_4">
+        Billing Name: @Model.CfyInfo.FirstName @Model.CfyInfo.LastName<br />
+        Masked Card: @Model.CfyInfo.CCLastFour<br />
+        Last Charge: @string.Format("{0:C} on {1}", Model.CfyInfo.LastBillingAmount, Model.CfyInfo.LastBillingDate.ToShortDateString())<br /><br />
+        Current Billing Period: @Model.CfyInfo.PeriodStartDate.ToShortDateString() to @Model.CfyInfo.PeriodEndDate.ToShortDateString()<br />
+        Next Billing Date: @Model.CfyInfo.NextBillingDate.ToShortDateString()<br />
+        Estimated Amount: <span data-bind="text: formattedTotal"></span><br />
+
+        <br />
+        <a href="@Model.CCUpdateUrl" target="_blank">Update Credit Card Information</a>
+    </div>
+    <div class="grid_2">
+        <input type="checkbox" id="chkEnableCancel" data-bind="checked: enableCancel" />Enable Cancel
+        <input type="button" class="submit" value="Cancel Subscription" data-bind="click: CancelSubscription, enable: enableCancel, css: {'ui-state-disabled': !enableCancel()}" />
+    </div>
+    <div class="clearfix"></div>
+    <br />
+
+
+    <table id="subscriptions">
+        <thead>
+            <tr>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'ID')}">
+                    <div class="sortWrapper"><a href="#void">ID</a><span></span></div>
+                </th>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'Name')}">
+                    <div class="sortWrapper"><a href="#void">Name</a><span></span></div>
+                </th>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'StartDate')}">
+                    <div class="sortWrapper"><a href="#void">Start Date</a><span></span></div>
+                </th>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'ApplicationId')}">
+                    <div class="sortWrapper"><a href="#void">Application ID</a><span></span></div>
+                </th>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'ActiveClients')}">
+                    <div class="sortWrapper"><a href="#void">Active Clients</a><span></span></div>
+                </th>
+                <th data-bind="click: function(data, event){ SetOrder(data, event, 'Cost')}">
+                    <div class="sortWrapper"><a href="#void">Cost</a><span></span></div>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: subscriptions">
+            <tr class="hidden">
+                <td><span data-bind="text: id"></span></td>
+                <td><a data-bind="attr: { href: editLink }"><span data-bind="text: name"></span></a></td>
+                <td><span data-bind="text: formattedStartDate"></span></td>
+                <td><span data-bind="text: applicationId"></span></td>
+                <td><span data-bind="text: activeClients"></span></td>
+                <td><span data-bind="text: formattedPrice"></span></td>
+                <td><a href="#void" data-bind="click: function(data, event){ RemoveSubscription(data, event)}"><img src="@Url.Content("~/Content/Images/16X16/delete.png")" alt="Remove" /></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container_12">
+        <div class="grid_6"><span data-bind="text: pagesText"></span></div>
+        <div class="grid_6">
+            <ul id="pagination">
+                <li data-bind="visible: page() > 1, css: page() > 1 ? 'previous' : 'previous-off'"><a href="#void" data-bind="click:PageBack">« Previous</a></li>
+                <li data-bind="visible: page() < totalPages(), css: page() < totalPages() ? 'next' : 'next-off'"><a href="#void" data-bind="click:PageNext">Next »</a></li>
+            </ul>
+        </div>
+    </div>
+    <br /><br />
+    <input type="button" class="submit" value="Add a New Application" data-bind="click: AddNewSubscription" />
+</div>
+<div id="dialog-confirm-add" title="Confirm Additional Application" style="display:none;">
+    <span class="ui-icon ui-icon-plusthick" style="float: left; margin: 0 7px 30px 0;"></span><p>
+        You are about to add a new application to your subscription.  Additional monthly charges will result.  Are you sure?
+    </p>
+</div>
+<div id="dialog-confirm-remove" title="Confirm Application Removal" style="display:none;">
+    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 40px 0;"></span><p>
+        You are about to remove an application from your subscription. All application updates will be deleted. <span style="font-weight:bold; color:red;">This action cannot be undone.</span> Are you sure?
+    </p>
+</div>
+<div id="dialog-confirm-cancel" title="Confirm Subscription Cancellation" style="display:none;">
+    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 60px 0;"></span><p>
+        You are about to remove ALL of your applications and cancel your AppLife Update subscription. All application updates will be deleted. <span style="font-weight:bold; color:red;">This action cannot be undone.</span> Are you sure?
+    </p>
+</div>
+<div id="loaderDiv"></div>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $(document).ajaxStart(function () {
+            $("#loaderDiv").addClass('ui-ajax-loading');
+        });
+
+        $(document).ajaxStop(function () {
+            $("#loaderDiv").removeClass('ui-ajax-loading');
+        });
+
+    });
+
+    function SubscriptionApp(data) {
+        var self = this;
+
+        self.id = ko.observable(data.Id);
+        self.startDate = ko.observable(data.StartDate);
+        self.applicationId = ko.observable(data.ApplicationId);
+        self.activeClients = ko.observable(data.ActiveClients);
+        self.name = ko.observable(data.Name);
+        self.cost = ko.observable(data.Cost);
+
+        self.formattedPrice = ko.computed(function () {
+            var price = self.cost();
+            return price ? "$" + price.toFixed(2) : "None";
+        })
+
+        self.formattedStartDate = ko.computed(function () {
+            var date = self.startDate();
+            return moment(date).format("MMM DD YYYY");
+        })
+
+        self.editLink = ko.computed(function () {
+            return 'home/editapplication/' + self.applicationId();
+        })
+
+        function RemoveSubscription(data, event) {
+            $("#dialog-confirm-remove").dialog({
+                resizable: false,
+                model: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    },
+                    "Remove": function () {
+                        $.post('/subscription/Remove', { id: data.id() }, function (result) {
+                            if (result == "ok") {
+                                viewModel.estimatedTotal(viewModel.estimatedTotal() - self.cost());
+                                $(event.target).closest("tr").fadeOut(null, function () {
+                                    viewModel.subscriptions.remove(data);
+                                });
+                            }
+                        })
+
+                        $(this).dialog("close");
+                    }
+                }
+            })
+        }
+
+        self.RemoveSubscription = RemoveSubscription;
+    };
+
+
+    function subscriptionViewModel() {
+        var self = {};
+
+
+        self.estimatedTotal = ko.observable(0);
+        self.formattedTotal = ko.computed(function () {
+            var total = self.estimatedTotal();
+            return total ? "$" + total.toFixed(2) : "0";
+        })
+
+        //paging data
+        self.page = ko.observable(1);
+        self.records = ko.observable(1);
+        self.totalPages = ko.observable(1);
+        self.rowsPerPage = ko.observable(10);
+        self.pagesText = ko.computed(function () { return self.page() + " of " + self.totalPages() + " pages"; });
+        self.enableCancel = ko.observable(false);
+        self.subscriptions = ko.observableArray();
+        self.subscriptionId = ko.observable(@Model.CfySubscriptionId);
+
+        /******************************
+        Public Functions
+        ******************************/
+        self.CancelSubscription = function () {
+            $('#dialog-confirm-cancel').dialog({
+                resizable: false,
+                modal: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    },
+                    "Yes": function () {
+                        $.post('/subscription/Cancel', { id: self.subscriptionId }, function (result) {
+                            if (result == "ok") {
+                                window.location = document.location.href = "/";
+                            }
+                        })
+                        $(this).dialog("close");
+                        alert("An error occurred.");
+                    }
+                }
+            })
+        }
+
+
+        self.AddNewSubscription = function () {
+            //show dialog and ask for confirmation.
+            $("#dialog-confirm-add").dialog({
+                resizable: false,
+                modal: true,
+                buttons: {
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    },
+                    "Add": function () {
+                        //send request to server, which will return a new app object
+                        $.post('/subscription/AddNew?SubscriptionId=' + viewModel.subscriptionId(), function (data) {
+                            self.subscriptions.push(new SubscriptionApp(data));
+                            $("#subscriptions .hidden").fadeIn();
+                            self.estimatedTotal(self.estimatedTotal() + data.Cost);
+                        });
+
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        function PageFirst(item) {
+            self.page(1);
+            LoadSubscriptionsFromServer();
+        }
+
+        self.PageFirst = PageFirst;
+
+        function PageLast(item) {
+            self.page(self.totalPages());
+            LoadSubscriptionsFromServer();
+        }
+
+        self.PageLast = PageLast;
+
+        function PageBack(item) {
+            self.page(self.page() - 1);
+            LoadSubscriptionsFromServer();
+        }
+
+        self.PageBack = PageBack;
+
+        function PageNext(item) {
+            self.page(self.page() + 1);
+            LoadSubscriptionsFromServer();
+        }
+
+        self.PageNext = PageNext;
+
+        function SetOrder(data, event, colName) {
+            if (self.colName == colName) {
+                self.switchSortOrder();
+            } else {
+                self.colName = colName;
+                self.sortOrder = "asc";
+            }
+            setTHClass(event);
+            LoadSubscriptionsFromServer();
+        }
+
+        self.SetOrder = SetOrder;
+
+
+
+        function switchSortOrder() {
+            if (self.sortOrder == "asc") {
+                self.sortOrder = "desc";
+            } else if (self.sortOrder == "desc") {
+                self.sortOrder = "asc";
+            }
+        }
+
+        self.switchSortOrder = switchSortOrder;
+
+        function setTHClass(event) {
+            //remove the existing classes
+            $(event.currentTarget).parent().find(".sortWrapper").children("span").removeClass("ui-icon-inline ui-icon-triangle-1-s");
+            $(event.currentTarget).parent().find(".sortWrapper").children("span").removeClass("ui-icon-inline ui-icon-triangle-1-n");
+            if (self.sortOrder === "asc") {
+                $(event.currentTarget).children(".sortWrapper").children("span").addClass("ui-icon-inline ui-icon-triangle-1-s");
+            } else {
+                $(event.currentTarget).children(".sortWrapper").children("span").addClass("ui-icon-inline ui-icon-triangle-1-n");
+            }
+        }
+
+        function LoadSubscriptionsFromServer() {
+            var url = '/subscription/data';
+            url += '?rows=' + self.rowsPerPage() + '&page=' + self.page() + '&sidx=' + self.colName + '&sord=' + self.sortOrder;
+
+            $.post(url,
+                function (data) {
+                    self.records(data.TotalRowsCount);
+                    self.totalPages(data.TotalPageCount);
+
+                    var results = ko.observableArray();
+                    self.subscriptions.removeAll();
+                    self.estimatedTotal(0);
+                    $.map(data.GridData, function (item) {
+                        self.subscriptions.push(new SubscriptionApp(item));
+                        self.estimatedTotal(self.estimatedTotal() + item.Cost);
+                    });
+
+                    $("#subscriptions .hidden").fadeIn();
+                }, 'json');
+        }
+
+        /***************************
+        Initialization
+        ***************************/
+
+        ko.applyBindings(self, $("body").get(0));
+
+        LoadSubscriptionsFromServer();
+
+
+        return self;
+    }
+
+    var viewModel = subscriptionViewModel();
+</script>

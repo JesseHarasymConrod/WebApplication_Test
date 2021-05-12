@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Start Service</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="services.htm" /><link rel="next" href="stopservice.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="8013af85-9c65-4713-a7cc-2f65170cb4e0">
+<h4>Start Service</h4>
+<p class="MsoBodyText">The <i>Start Service</i> action starts a windows service on 
+the target client.  To use this action, you provide the service name and 
+any arguments that the service expects.  The action will start a stopped or 
+paused service.  If the service is already running the default action is to 
+do nothing.  Alternatively, you can select to force the service to 
+restart.  If the service does not exist on the target, the update will 
+fail.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">The action starts the designated service.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">If the service was stopped when the action executed, the 
+service is stopped.</p><span id="related-topics"></span></body></html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <theme>
+    <layout>themes/AppLife%20Update/layout.html</layout>
+    <stylesheet>css/jquery-ui/redmond/jquery-ui.css</stylesheet>
+  </theme>
+  <references>
+    <join>themes/AppLife%20Update/settings.theme.xml</join>
+    <join>themes/AppLife%20Update/settings.en-us.xml</join>
+    <css>LinksExt/D2H_HTML.css</css>
+  </references>
+  <strings>
+    <pageHeaderText>
+    </pageHeaderText>
+    <emailAddress>techsupport@kineticjump.com</emailAddress>
+  </strings>
+  <windows>
+    <window>
+      <name>proc</name>
+      <features>left=680,top=10,height=500,width=315,resizable=1,scrollbars=1</features>
+    </window>
+  </windows>
+</settings>

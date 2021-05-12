@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Custom Action Builder</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="progressupdates.htm" /><link rel="next" href="addingcustomactionstoyourproject.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="71d1e567-26cd-435c-adea-57aebd7f7719">
+<h3>Custom Action Builder</h3>
+<p class="MsoBodyText">A <i>Custom Action Builder</i> class allows you to control 
+how your action interacts with the <i>AppLife Make Update</i> application and 
+the update build process.  <i>Custom Action Builders are not required in 
+order to create and implement custom actions.</i>  For most situations, and 
+especially actions that will be used only once, the default Action Builder will 
+provide all that is needed.  When you have authored an action that is 
+intended for extensive use, or to be used by other developers, creating a custom 
+action builder allows you provide a more robust and intuitive interaction with 
+<i>Make Update.</i></p>
+<p class="MsoBodyText">The reasons you will implement a Custom Action Builder 
+are:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>You want to validate the properties of your action before an update can 
+be built and published.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>You want to implement a custom user interface to configure your 
+action.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>You want to change the name and icon that <i>Make Update</i> displays 
+when interacting with your action.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>You want to implement a pre and/or post build action around your 
+action.</p>
+<p class="MsoBodyText">A <i>Custom Action Builder</i> is a class that inherits 
+from the <i>Kjs.AppLife.Update.Engine.Core.Design.ActionBuilder</i> class.  
+This class is located in the Kjs.AppLife.Update.Engine.Core.Design.dll.  
+Refer to the F1 help for implementation details of the methods and properties of 
+this class.</p>
+<p class="MsoBodyText">To link your custom action to its corresponding action 
+builder, you add an <i>ActionBuilderAttribute</i> to your custom action class 
+declaration that specifies your action builder.</p>
+<p class="MsoBodyText">From within the action builder, you can reference the 
+action itself with the base class Action property.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Adding Validation</b></p>
+<p class="MsoBodyText">Overriding the <i>ValidateActionCore</i> method allows you 
+to evaluate your action for a valid configuration.  This method is called 
+by <i>Make Update</i> when the project is validated.  To indicate that your 
+action is not valid, simply add a string description to the <i>errors</i> 
+parameter.  This description will be used within the <i>Make Update</i> 
+user interface to indicate the action is invalid and prevent an update package 
+from being built.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_4.png" alt="" /></p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_5.jpg" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Adding a Custom User Interface</b></p>
+<p class="MsoBodyText">The default Action Builder utilizes a property grid to 
+allow you to set the public properties of your custom action.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_6.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">You can implement your own interface by creating a .Net 
+control or user control. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image131_7.png" alt="" /></p>
+<p class="MsoBodyText">The control needs to derive from 
+System.Windows.Forms.Control.  You should implement a property within your 
+control that allows setting a reference to your Custom Action Builder from 
+outside the user control.  This reference will provide all the programmatic 
+access you need from the user control code to interact with your action and 
+<i>Make Update.</i></p>
+<p class="MsoBodyText">The <i>ActionBuilder’s</i> Action property lets you change 
+the state of the action as the user interface elements are manipulated.</p>
+<p class="MsoBodyText"><i>Make Update</i> is interested in knowing when the 
+actions within the project have changed and when the actions become valid and 
+invalid.  When your user control changes action property values, you should 
+call the <i>SetActionDirty</i> method of the Action Builder.  Additionally, 
+when the user control changes values that could affect the validation state of 
+your custom action, you should call the <i>ValidateAction</i> method of the 
+Action Builder.<i></i></p>
+<p class="MsoBodyText">To connect your custom editor to your action, you override 
+the <i>StartEditingAction</i> method and use the  
+<i>IWindowsFormsActionEditorService </i>to show your custom control in place of 
+the default editor.  Use F1 help on this method for additional assistance 
+and an example of how this is performed.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Changing the Action Name and Icon</b></p>
+<p class="MsoBodyText">When you create a custom action, <i>Make Update</i> uses 
+the class name and a default icon to display your action within the <i>Make 
+Update</i> action list.  You can change this behavior by setting the 
+<i>DisplayText</i> and <i>Image</i> properties of your custom action 
+builder.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Build Actions</b></p>
+<p class="MsoBodyText">Using a custom action builder, you can perform operations 
+in a pre and post build action.  These events occur before and after an 
+update package is built.  To use these events for special processing, you 
+override the <i>PrepareForBuild </i>method and/or the <i>CleanupAfterBuild</i> 
+method.  Both methods have access to a Build Context object.  Using 
+the Build Context object, you can write to the build log by using the <i>Log</i> 
+property.  You also can access the project build folder using the 
+<i>BuildDirectory </i>property.</p>
+<p class="MsoBodyText"><i></i> </p>
+<p class="MsoBodyText"><i>Note:  Custom Actions, Custom Builders and Custom 
+Editors do not have to be in the same assembly.  The assembly that contains 
+your Custom Actions is included in any update package that utilizes those 
+actions, as your update execution logic resides there.  Builders and 
+editors are not used during the update process on the target client. If your 
+builders and editors are in the same assembly as your actions and they 
+significantly increase the size of the assembly, you might consider placing them 
+in a separate assembly to decrease the update package size.</i></p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Custom Action Quick Start</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="customformsquickstart.htm" /><link rel="next" href="simplewpfquickstart.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="0392671f-29ce-4cd1-ae93-40f5691d7e4f">
+<h3>Custom Action Quick Start</h3>
+<p class="MsoBodyText">This example demonstrates how to create a custom action, as 
+well as a corresponding custom action builder and custom action editor to 
+provide an Update Action that will perform a text file search on the deployed 
+client that is being updated for a designated regular expression. The results 
+are then further manipulated with customized .Net code using a <a class="topic-link" href="dynamiccodeaction.htm"><i>Dynamic Code Action</i></a>. 
+<br /><br /></p>
+<p class="MsoBodyText">Custom actions in AppLife Update allow you to execute 
+custom .Net code during the execution of an update package on the deployed 
+client.  Authoring a custom action and adding it to an update consists 
+of:</p>
+<p class="MsoBodyText"> </p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Creating a .Net class that inherits from the <i>UpdateAction</i> 
+class</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>At a minimum, implement a parameterless constructor, <i>Execute</i> 
+method, and a <i>RollbackExecute</i> method on the class.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Compile the custom action assembly</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the assembly to the collection of custom action assemblies in AppLife 
+Make Update</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the action to the project list.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt"> </p>
+<p class="MsoBodyText">Custom Actions can be further enhanced by creating a custom 
+action builder. With a custom action builder, you can intervene during the 
+update <i>build</i> process, validate the properties of a custom action, 
+manipulate the action properties as the project file is saved, and launch a 
+customized update action editor.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The update scenario demonstrated in this Quick Start is to 
+migrate setting from a text-based configuration file that version 1 of the 
+example application uses, to an xml-based configuration file that version 2 of 
+the example application uses. </p>
+<p class="MsoBodyText"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">1.  Review 
+how the <a class="topic-link" href="theapplifeupdateengine.htm">AppLife Update 
+Engine</a> operates.  Our custom actions operate in this context.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">2.  When 
+added to the Make Update custom action assemblies list, our custom actions are 
+configured within AppLife <i>Make Update</i> and persisted within the AppLife 
+Update project file by interacting with public properties on the custom action 
+classes.  Any public properties that are implemented will be configurable 
+from AppLife Make Update and persisted with your project.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">3.  Review 
+the <a class="topic-link" href="updatecontext.htm">Update Context</a> 
+object.  We will use the context object’s <i>SharedProperties </i>property 
+to pass information between the actions in this example. </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt"> </p>
+<p class="MsoBodyText"><b>Architecting our Custom Actions</b></p>
+<p class="MsoBodyText">We are going to create a custom action that searches a 
+designated text file for a line that includes a designated regular expression. 
+If the regular expression search finds a match, the entire line within the text 
+file will be placed in a designated Shared Property within the Update Context 
+Shared Properties collection so that it is available for further processing by 
+the update. This custom action is named <i>Search File Action.</i></p>
+<p class="MsoBodyText">Further processing will be performed by a second custom 
+action that is defined within a built-in <a class="topic-link" href="dynamiccodeaction.htm"><i>Dynamic Code Action</i></a><i>.</i> 
+ Dynamic Code actions provide the ability to quickly create customized 
+update activity.</p>
+<p class="MsoBodyText">Our <i>Search File Action</i> is further refined by adding 
+a custom action builder.  In the custom action builder, we’ll validate the 
+properties of the action, preventing Make Update from building the action with 
+invalid input information.  We’ll also create and launch a custom update 
+editor.  Our editor will replace the default property grid editor and 
+provide an intuitive interface as well as validation feedback for the update 
+designer.<br /><br /></p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_34.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">4.  Open 
+the <i>Custom Actions</i> solution with Visual Studio.  Within this 
+solution you will find two projects.  The <i>Custom Actions</i> application 
+and the <i>Actions</i> class library.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">5.  Notice 
+that the <i>Actions</i> project contains a reference to the 
+<i>Kjs.AppLife.Update.Engine.Core</i> assembly and the 
+<i>Kjs.AppLife.Update.Engine.Core.Design</i> assembly.  These assemblies 
+are located in the [InstallDir]\PublicAssemblies folder where AppLife Update is 
+installed.  The <i>core</i> assembly contains the <i>UpdateAction</i> base 
+class from which all custom actions are derived. The <i>design</i> assembly 
+contains the <i>ActionBuilder</i> base class used provide a custom action 
+builder and editor. </p>
+<p class="MsoBodyText"><b></b> </p>
+<p class="MsoBodyText"><b>Creating the <i>SearchFileAction</i></b></p>
+<p class="MsoBodyText">The <i>SearchFileAction</i> derives from 
+<i>UpdateAction.</i>  It contains an empty parameter-less constructor. This 
+constructor is necessary, as without it, the Update Engine could not create an 
+instance of this action.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">There is a public <i>FileName</i> property that is used to 
+store a path (<i>relative to the deployed client application directory)</i> to a 
+local text file that will be searched when the update action executes.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">There is a public <i>Regex</i> property that is used to 
+store the regular expression that will be searched for within the identified 
+text file.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">There is a public <i>SharedPropertyName </i>property that 
+identifies the key name of the <a class="topic-link" href="sharedproperties.htm">Shared Property</a> that will store the results of 
+the regex search.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Adding these properties makes this action easily re-usable 
+in other projects.</p>
+<p class="MsoBodyText"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">6.  The 
+<i>Execute</i> method of this action backs up the value of the designated Shared 
+Property (if it exists) so that it can be rolled back if the update fails.  
+Then, the designated text file is searched. <br /><br />The user is kept informed by 
+utilizing the base class <i>OnProgressChanged </i>method, and the update 
+execution <a class="topic-link" href="theupdatelog.htm">log file</a> is updated 
+using the UpdateContext <i>Log</i> property.<br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">7.  The 
+<i>RollbackExecute</i> method restores the original value of the Shared 
+Property.  No other action is necessary to rollback the execution of this 
+action.</p>
+<p class="MsoBodyText">To control the AppLife Make Update palette location of this 
+action, attributes are placed on the class declaration.</p>
+<p class="MsoBodyText"><br />[DisplayName("Search File")]</p>
+<p class="MsoBodyText">[Description("Search a text file for a regular expression 
+and store the matching line in a shared property.")]</p>
+<p class="MsoBodyText">[Category("Files &amp; folders")]<br /><br />These attributes 
+result in:<br /><img border="0" src="../ImagesExt/image135_35.png" alt="" /></p>
+<p class="MsoBodyText"><br />These attributes cleanly present the custom action 
+within the Make Update application, however they are not required.  If they 
+were omitted, the action would be in a category named “Misc” with an action name 
+that matches the name of the class.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Creating the <i>SearchFileActionBuilder</i> 
+class</b></p>
+<p class="MsoBodyText"><i>Note: See </i><a class="topic-link" href="customactionbuilder.htm">Custom Action Builder</a>.</p>
+<p class="MsoBodyText">Implementing an action builder for the 
+<i>SearchFileAction</i> will provide validation functionality as well as launch 
+a customized action editor user interface. The custom action editor is assigned 
+to the action by adding a <i>ActionBuilder</i> class attribute to the action 
+class.<br /><br /><span style="FONT-FAMILY: &quot;Courier New&quot;"></span></p>
+<p class="MsoBodyText"><b><span style="FONT-FAMILY: &quot;Courier New&quot;">[<span style="COLOR: #2b91af">ActionBuilder</span>(<span style="COLOR: blue">typeof</span>(<span style="COLOR: #2b91af">SearchFileActionBuilder</span>))]</span></b></p>
+<p class="MsoBodyText"><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: blue">public</span><span style="FONT-FAMILY: &quot;Courier New&quot;"> <span style="COLOR: blue">class</span> <span style="COLOR: #2b91af">SearchFileAction</span> : <span style="COLOR: #2b91af">UpdateAction</span> {</span><br /><br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">8.  
+Implement <i>ValidationActionCore</i><br />This method checks to ensure that a 
+search file name, regular expression, and shared property key name is 
+provided.  If any of these properties are empty, Make Update will not build 
+the project, and the action is adorned as being invalid. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_36.png" alt="" /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 31.5pt; TEXT-INDENT: 0pt; tab-stops: 36.0pt"> </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">9.  
+Implement <i>StartEditingAction</i><br />In this method, the custom editor is 
+instantiated and shown, replacing the default property grid editor.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_37.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Creating the <i>SearchFileActionEditor</i></b></p>
+<p class="MsoBodyText">A custom action editor is a Windows Forms User 
+Control.  When a custom action editor is created, the corresponding 
+<i>Action Builder</i> instance is passed into the editor as a constructor 
+parameter. We maintain a reference to the <i>Action Builder</i> and by 
+extension, the <i>Update Action.</i> This reference is used to manipulate the 
+Update Action from the custom editor.</p>
+<p class="MsoBodyText">The <i>SearchFileAction</i> editor provides textboxes and 
+checkboxes to enter the necessary information required to configure the update 
+action behavior.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Adding the actions to your action list</b></p>
+<p class="MsoBodyText">Once the Update Action and supporting classes are compiled 
+into a .Net assembly, we can add the assembly to the custom action assemblies 
+list.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Open the Project Settings dialog from the <i>Project</i> 
+menu.  Then open the <i>Custom Actions</i> tab.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_38.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Add an assembly by clicking the <i>Add an assembly</i> 
+button and browsing to your custom assembly.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>Note:  AppLife Make Update loads the custom action 
+assemblies that are used by the project.  When a custom action assembly is 
+loaded, the assembly is locked by Make Update.  This could cause Visual 
+Studio builds to fail if you reference your custom action assemblies in Make 
+Update from the Visual Studio build location.  To unload the assemblies you 
+will need to close AppLife Make Update.</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Once an assembly has been added, its custom actions are 
+placed in the action palettes and are available to be placed into the action 
+list.  Custom actions can also be made available globally to all Make 
+Update projects by placing the assembly into the Make Update <i>AppDir/Custom 
+Actions </i>folder.  This folder is typically located at:</p>
+<p class="MsoBodyText"> C:\Program Files\AppLife 
+Update\MakeUpdate\CustomActions</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Update the Example Application using the <i>Search 
+File</i> Action</b></p>
+<p class="MsoBodyText">Version 1 of the example application utilizes a text-based 
+settings file.  Version 2 utilizes an Xml-based settings file.  In 
+order to update a deployed Version 1, our update must migrate a couple of 
+settings from the old to the new settings files.  To do this, we are going 
+to utilize the <i>Search File</i> action, along with a few built-in Update 
+Actions.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Step 1 – Find the settings of interest within the old 
+text-based settings file</p>
+<p class="MsoBodyText">Step 2 – Parse the settings that are found using a 
+<i>Dynamic Code Action</i></p>
+<p class="MsoBodyText">Step 3 – Copy the new application assemblies and the new 
+Xml Settings file using an <i>Add &amp; Replace files</i> action.</p>
+<p class="MsoBodyText">Step 4 – If previous settings were successfully extracted 
+from the existing settings file in Steps 1 and 2, then update the newly placed 
+Xml file using a <i>Change Xml Node</i> action. <i>Note: These actions are 
+</i><a class="topic-link" href="actionconditionals.htm"><i>conditionally</i></a><i> executed.</i></p>
+<p class="MsoBodyText">Step 5 – Delete the old settings file using a <i>Delete 
+files </i>action.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Our update action list looks like this:</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_39.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Search File Editor:</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_40.png" alt="" /></p>
+<p class="MsoBodyText">This action will search the <i>OldSettingsFile.txt </i>file 
+for the line that has the <i>Setting1</i>=value, and if found, the entire line 
+will be placed in a Shared Property named <i>Setting1</i>.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Parse the Settings values using a <i>Dynamic 
+Action</i>:</b></p>
+<p class="MsoBodyText">The built-in <i>Dynamic Code</i> action provides a simpler 
+method to add a custom action to an update.  To demonstrate this method, a 
+<i>Dynamic Code</i> Action is used to parse the value out of the line that was 
+found by the custom <i>Search File Action.</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_41.png" alt="" /></p>
+<p class="MsoBodyText">The <i>Dynamic Code</i> action allows you to write a custom 
+action directly within Make Update.  The action is compiled as the update 
+package is built.  This action will read the Shared Property that the 
+<i>Search File</i> action set, and parse the value.  The Shared Property is 
+then updated to include only the value of the setting.</p>
+<p class="MsoBodyText"><b></b> </p>
+<p class="MsoBodyText"><b>Copy the Application Assembly and new Xml Settings 
+File</b></p>
+<p class="MsoBodyText">A built-in <i>Add &amp; Replace files action</i> places the 
+new files on the deployed client.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_42.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Updating the new Xml File</b></p>
+<p class="MsoBodyText">With the NewSettingsFile.Xml now present and populated with 
+default values, the update must replace the default values with the entries from 
+the previous text-based settings file. To accomplish this, a built-in <i>Change 
+Xml Node</i> action is used.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_43.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><i>Conditional Execution:</i></b></p>
+<p class="MsoBodyText">This action has a condition expression set.  The 
+action is only executed if the shared property “Setting1” is not empty.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">If the Shared Property “Setting1” is not empty, the 
+NewSettingsFile.xml file is updated using an XPath query and the value of the 
+Shared Property.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Deleting the old Settings File</b></p>
+<p class="MsoBodyText">The final step in this update process is to use the 
+built-in <i>Delete File</i> action to remove the old settings file.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image135_44.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 12pt">Summary</span></b></p>
+<p class="MsoBodyText">Creating custom actions for use with AppLife Update is 
+extremely easy.  You are not limited to just the standard AppLife Update 
+actions.  Custom actions allow you to easily define and execute .Net code 
+during your software updates.  </p>
+<p class="MsoBodyText">Reference the API Reference documentation</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Browse the <i>Kjs.AppLife.Update.Engine.Core</i> namespaces 
+for more information on custom actions.</p><span id="related-topics"></span></body></html>

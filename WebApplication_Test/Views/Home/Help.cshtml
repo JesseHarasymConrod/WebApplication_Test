@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Help";
+}
+<div class="grid_12">
+
+    <h3>Dashboard</h3>
+    <p>
+        Your dashboard lists all of the applications that you participate in.  The activity pane provides a combined view of maintenance activity that has transpired for your applications.  You can view the combined data over a period of 15, 30, 90 or 180 days by changing the period drop-down.
+    </p>
+    <p>
+        Each application is listed and you can select the application by clicking on the
+        <img src="~/Content/images/16X16/chart_bar.png" />
+        symbol  in front of the application name.
+    </p>
+
+    <h3>Managing Applications</h3>
+    <p>
+        When an application is viewed, the version distribution across your deployed install base is shown visually, along with the adoption rate of the most recent update.  Further client counts and percentages for each published update version is provided in tabular form.
+    </p>
+    <p>
+        Update execution history for each deployed client is kept and can be accessed by clicking the
+        <img src="~/Content/images/16X16/information.png" />
+        next to the client in the paged client list.  You can search for a specific client by client id, client access key, or computer name. You can also search based on version number.  To clear a current search, empty the search box and click the Go button.
+    </p>
+    <p>In the Clients list, each column can be sorted on by clicking the column header text.</p>
+    <h4>Ignore a specific client</h4>
+    <p>
+        If you would like to exclude a specific client from statistical data, click on the
+        <img src="~/Content/images/16X16/log.png" />
+        symbol when viewing the client details.
+    </p>
+    <h4>Editing an Application Properties</h4>
+    <p>
+        Application properties can be modified by clicking on the
+        <img src="~/Content/images/16X16/application_edit.png" />
+        symbol, when viewing the application details.
+    </p>
+    <h4>Controlling Access</h4>
+    <p>Access to published updates from deployed clients can be controlled through Access Control Lists.  Access Control Lists supports either the unique <em>Client ID</em>, which is both hardware and directory specific, or the <em>Client Access Key</em>, which is available as a property of the Update Controller, and can be set to a value meaningful to your organization.</p>
+    <p>Many Access Control Lists can be created for an application. Once created, they can be assigned at the application level by unchecking the <em>Allow Anonymous Client Access</em> box and selecting the applicable lists through the <em>Client Access</em> tab.</p>
+    <B>Version Specific Access</B>
+    <p>By default, access to published updates are governed by the application level access control settings.  Update access can also be individually controlled.  When an update is published, specific access control lists can be assigned to the new update. These access control settings can be modified through your dashboard by selecting the individual update version view.  Access to individual updates can also be blocked without deleting the published update.</p>
+    <h4>Update Failure Notification</h4>
+    <p>If you would like the designated application owner to receive an email notification when an update failure is reported, check the <em>Inform Owner of Failed Update</em> checkbox.</p>
+
+    <h3>Publishing Updates</h3>
+    <h4>Configuring Client Software</h4>
+    <p>To configure your application to get updates, set the <em>Update Location</em> of the Update Controller to the URL of your server and set the <em>Application Id</em> of the Update Controller to your applications ID. To identify specific client installations within your server dashboard, you can set the <em>Client Access Key</em> property on the update controller to a meaningful value, such as a license number or user name. This <em>Client Access Key</em> value can also be used to control access to updates. </p>
+
+    <h3>Managing Your Profile</h3>
+    <p>To update your email address or reset your password, click your name at the top right corner of the page. From this form, you can make changes.   If you forget your password, you can reset your password from the login page. When you enter your user name and click the reset password link, an email will be sent to the designated user with further instructions on resetting your password.</p>
+
+    @if(User.IsInRole("Admin")) {
+
+        <h3>Administrative Features</h3>
+
+        <h4>Creating New Applications</h4>
+        <p>
+            Manage applications by clicking the Applications link at the top of the page. From this page, you can add, remove and edit existing applications.
+            Click the Add Application button to add a new application.  When a new application is added, an Application ID is created for you.  Until you save the new application, you can change the Application ID. This is common to match an application that might already be setup.  Once saved, the application id cannot be changed. Provide the application a name. Users can be assigned a role within your new application. A user can be assigned as a Viewer or a Publisher.  Viewers can see the application in their dashboard but cannot modify the application properties or publish updates for the application.
+        </p>
+
+        <h4>Creating New Users</h4>
+        <p>Manage users by clicking on the Users link at the top of the page. From this page, you can add, remove, and edit existing users.</p>
+        <p>Click the Add User button to add a new user.  Provide a unique user name, full name, and email.</p>
+        <b>Administrator</b>
+        <p>Users identified as an administrator has the authority to create new applications and users, assign users to applications, as well as delete clients and update records.</p>
+        <b>Global Publisher</b>
+        <p>Users identified as global publishers have the authority to publish updates for any server application, without being assigned that right for each application.</p>
+        <b>Global Viewer</b>
+        <p>Users identified as global viewers have the authority to view analytical information of all server applications, without being assigned that right for each application.</p>
+        <h5>Roles</h5>
+        <p>A user can be assigned the role of Publisher or Viewer for each application.  Publishers can publish new updates and manage existing updates.  Viewers can view analytical information, but cannot modify or publish updates.</p>
+
+
+    }
+</div>

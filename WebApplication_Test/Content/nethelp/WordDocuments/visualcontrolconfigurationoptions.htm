@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Visual Control Configuration Options</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="updatedetailsdisplaywpfcontrol.htm" /><link rel="next" href="gettingupdates.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="c0283166-74d0-49db-8880-fbc7b6025ac0">
+<h3>Visual Control Configuration Options</h3>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Auto Start</span></b></p>
+<p class="MsoBodyText">When auto start is enabled, the control will initiate an 
+update process automatically.  By setting the <i>AutoStart</i> property to 
+false, the control will not initiate an update check automatically.  When 
+disabled, clicking on the control will initiate an update check, and the 
+<i>StartUpdateCheck</i> method can also be used to programmatically initiate an 
+update check.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Auto Hide 
+(UpdateDisplay)</span></b></p>
+<p class="MsoBodyText">When the Auto Hide option is enabled, the control will 
+perform the update check and download.  When completed, if the user does 
+not interact with the control, its visibility will fade to invisible after the 
+designated period of time (in seconds).  To enable, set the 
+<i>AutoHideDelaySeconds</i> property to a non-zero value. The default value is 
+0.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Recheck 
+Delay</span></b></p>
+<p class="MsoBodyText">The control can be configured to repeat an update check 
+after a period of time by setting the <i>RecheckDelayMinutes</i> to a non-zero 
+value.  The default value is 0.  For rechecks to occur, the control 
+must also be configured to Auto Start.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Click Action 
+(UpdateDisplay)</span></b></p>
+<p class="MsoBodyText">The Click Action option determines the behavior when a user 
+clicks on the control.  The options are:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Update (default) – When the control is clicked and an update is ready to 
+be applied, the update process is initiated.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Show Details Form – When the control is clicked, the update details pop 
+up is opened.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>None – Clicking on the control performs no action.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Display 
+Mode</span></b></p>
+<p class="MsoBodyText">The control display mode determines the image and text 
+display of an Update Display control. The options are:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Image and Long Text (Default)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Image and Short Text</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Image Only</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Long Text Only</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Short Text Only</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">When long text is selected, the status of the control shows 
+a more verbose label than when short text is selected.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Application 
+Name</span></b></p>
+<p class="MsoBodyText">When the application name property is set, it is displayed 
+on the update details, system tray bubble, and tooltips.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">No Update Text and 
+Image</span></b></p>
+<p class="MsoBodyText">When the No Update Text and Image properties are set, these 
+customizations replace the default image and text that the control uses in this 
+update state.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Ready to Apply Text and 
+Image</span></b></p>
+<p class="MsoBodyText">When the Ready to Apply Text and Image properties are set, 
+these customizations replace the default image and text that the control uses in 
+this update state.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Apply Update 
+Options</span></b></p>
+<p class="MsoBodyText">The Apply Update Options property lets you configure the <a class="topic-link" href="applifeupdateengineoptions.htm">options available</a> as 
+an update is initiated.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">UpdateReady 
+Event</span></b></p>
+<p class="MsoBodyText">The <i>UpdateReady</i> event is raised on the controls when 
+an update download is completed.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">Show Close Button 
+(UpdateDetailsDisplay)</span></b></p>
+<p class="MsoBodyText">A close button can be displayed on the Update Details 
+Display by setting the <i>ShowCloseButton </i>to true.  The 
+<i>CloseRequested</i> event is raised when the button is clicked.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 11pt">CloseRequested 
+Event</span></b></p>
+<p class="MsoBodyText">The <i>CloseRequested</i> event is raised when the close 
+button shown on the control is clicked.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Service Registration</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="theapplifeupdatewindowsservice.htm" /><link rel="next" href="viewingyourprojectfilepublickey.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="499d11a5-ec2a-41ec-a98a-6e4ae3c718f6">
+<h3>Service Registration</h3>
+<p class="MsoBodyText">To utilize the AppLife Update Windows Service, your 
+application must be registered with the service.  The service will validate 
+any update package that is applied with a public key that resides in the system 
+registry.</p>
+<p class="MsoBodyText">Registration adds an entry for your application in the 
+system registry.  The service will look for this entry when your 
+application attempts to use it to apply an update.  Entries are added 
+to:</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">HKLM(x86)\SOFTWARE\KineticJump\AppLifeUpdate\ServiceKeys\<i>appkey</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Your <i>appkey</i> must include two values:</p>
+<p class="MsoBodyText"><b>Path – </b>The <i>complete</i> path to the host 
+executable.  This is your application.</p>
+<p class="MsoBodyText"><b>Public Key –</b> The public key from the application 
+Make Update project (aup).</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 14.4pt"><i>An application path should 
+only be registered once.  If a single host application applies updates from 
+multiple AppLife Update projects, all projects must share the same key pair. 
+(See </i><a class="topic-link" href="viewingyourprojectfilepublickey.htm">importing key pairs</a><i>).</i></p>
+<p class="MsoBodyText">To manually register your application, add the necessary 
+registry keys. When the AppLife Update Windows Service is deployed using the 
+merge module included in the AppLife Update application directory, registration 
+is accomplished by setting the two merge module properties. </p>
+<p class="MsoBodyText">Applications that attempt to use the AppLife Update service 
+and are not registered will fail with an <i>update package failed validation</i> 
+message.<br /><br /></p><span id="related-topics"></span></body></html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Publishing a Test Update</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="noupdatesummarytext.htm" /><link rel="next" href="proxysettings.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="37c65e16-dfb3-4db3-84db-05465da66644">
+<h3>Publishing a Test Update</h3>
+<p class="MsoBodyText">An update can be published for limited availability to 
+testers with a special <i>Test</i> attribute.  For a client to discover a 
+test update there must be a specific key in the application app.config file. To 
+enable a client to retrieve test updates, add the following to the host 
+application’s app.config file.</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt"> </p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt; TEXT-INDENT: 18pt">&lt;configuration&gt;</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt; TEXT-INDENT: 18pt">     
+&lt;appSettings&gt;</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt; TEXT-INDENT: 18pt">    
+    &lt;add key="Kjs.AppLife.Update.Tester" 
+value="true"/&gt;</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt; TEXT-INDENT: 18pt">  
+  &lt;/appSettings&gt;</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt; TEXT-INDENT: 18pt">&lt;/configuration&gt;</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt"> </p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt"><b>Clearing the test 
+attribute</b></p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt">An update that was published as a 
+test update can be switched to a normal update by managing the location that the 
+update was published to.  Select the update from the list of updates, and 
+uncheck the <i>Make this update only available to testers</i> checkbox.  
+Publish the changes and the update will be available to all clients.</p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt"> </p>
+<p class="MsoBodyText" style="MARGIN-TOP: 0pt"><i>Note:  You can also switch 
+a normal update to a test update.</i></p><span id="related-topics"></span></body></html>

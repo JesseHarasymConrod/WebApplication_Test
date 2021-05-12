@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Implementing a Custom Update Engine User Interface (IUpdateUI)</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="passinginsharedpropertiesforanupdate.htm" /><link rel="next" href="thefirstrunafteranupdate.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="53ea339a-02bf-44a6-a449-7dc6619a1477">
+<h4>Implementing a Custom Update Engine User Interface (IUpdateUI)</h4>
+<p class="MsoBodyText">The user interface that is displayed to the user while an 
+update is being applied can be customized to match the visual appearance of your 
+application.  For customers that would like to add more in-depth visual 
+customizations than are possible through the <a class="topic-link" href="projectproperties.htm">Project Properties</a> options (adorn a logo image 
+and modify the window title), the standard user interface can be completely 
+replaced with your own customized UI by implementing the 
+Kjs.AppLife.Update.Engine.Core.IUpdateUI interface.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_30.png" alt="" /> <img border="0" src="../ImagesExt/image132_31.png" alt="" /></p>
+<p class="MsoBodyText">          
+(Left Image – Default User Interface, Right Image – Example Customized User 
+Interface)</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">To replace the Update Engine UI, you will create a new .Net 
+assembly (.dll or .exe), reference the AppLife Update Core assembly and include 
+one class that implements the IUpdateUI interface.  This class will be 
+called by the Update Engine, and should display and update the user interface as 
+the interface methods are called by the AppLife Update engine.</p>
+<p class="MsoBodyText">The assembly can then be imported into your AppLife Update 
+project, after which all future update packages built by the project will 
+include the new customized user interface. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><i>IUpdateUI</i> Operations</b></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  As 
+the update engine starts, the <i>IUpdateUI.Open()</i> method is called.  In 
+this method you should create and show your customized user interface. Your user 
+interface should remain visible until the <i>IUpdateUI</i>.<i>Finish </i>method 
+is called.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  As 
+the update progresses, the <i>IUpdateUI.Update()</i> method is repeatedly 
+called.  This method has parameters that provide information about the 
+current state and progress of the executing update.  This information can 
+be used to provide visual feedback within your customized user 
+interface.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  When 
+the update is finished, the <i>IUpdateUI.Finish()</i> method is called.  
+This method has parameters that indicate the condition of the update.  If 
+an error occurs during the update, error information is provided through the 
+error parameter.  The customized user interface can be safely closed 
+anytime after this method is called, but should not be closed before this method 
+call.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">4.  If 
+the <i>ApplyUpdateOptions.AutoClose</i> option is set by the host application 
+code that initiated the update process, the <i>IUpdateUI.Close()</i> method is 
+called immediately following the <i>Finish</i> method. If this method is called, 
+it is expected that your custom user interface be immediately closed.  
+<i>Note: If you utilize a </i>System.Windows.Forms.Form<i> class and implement 
+the </i>IUpdateUI<i> interface, this method is already present.</i><br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">5.  Some 
+update actions request a Yes/No response from the user.  To support this, 
+your customized user interface must implement the 
+<i>IUpdateUI.ShowYesNoPrompt()</i> method.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">6.  As 
+your customized user interface is closed, the update engine is notified by your 
+class raising the <i>IUpdateUI.Closed</i> event.  <i>Note: If you utilize a 
+</i>System.Windows.Forms.Form<i> class and implement the </i>IUpdateUI<i> 
+interface, this event is already present and is raised when the form is 
+closed.<br /><br /></i></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">7.  Your 
+custom user interface can optionally support canceling an update, as well as 
+pause and resume features by raising the <i>IUpdateUI</i>.<i>RequestCancel, 
+IUpdateUI.RequestPause, or IUpdateUI.RequestResume </i>events.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">A sample implementation of a custom update engine user 
+interface is available within the <a class="topic-link" href="customformsquickstart.htm">Custom Forms Quick Start example</a>.</p>
+<p class="MsoBodyText">For more information on the 
+<i>Kjs.AppLife.Update.Engine.Core.IUpdateUI</i> interface, reference the 
+ </p><span id="related-topics"></span></body></html>

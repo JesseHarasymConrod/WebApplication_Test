@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Open SQL Server Connection</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="commitsqlservertransaction.htm" /><link rel="next" href="runsqlserverquery.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="dd2aaeb8-81d5-4098-9867-29822d700f1c">
+<h4>Open SQL Server Connection</h4>
+<p class="MsoBodyText">This action opens a SQL Server connection using the defined 
+connection string, and adds the connection to the Update Context Shared 
+Properties collection. Other SQL Server update actions can use the 
+connection.  The connection can also be accessed from custom or dynamic 
+code action through the Update Context Shared Properties collection.</p>
+<p class="MsoBodyText">The connection string can be read from a .net config file, 
+or defined explicitly. Shared properties can also be used to define the 
+connection string.  Using Shared Properties, the connection string can be 
+passed in from the host application using an <i>ApplyUpdate</i> method overload, 
+or retrieved from the host computer using an xml or registry action and assigned 
+to a Shared Property, which can be used to define the connection string. </p>
+<p class="MsoBodyText">The connection can be designated to be exclusive by placing 
+the database in single-user mode prior to opening the connection.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">The SQL Server connection is opened and added to the Shared 
+Properties collection. If designated, the database is placed in single user 
+mode.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">If the connection is present and still open, the connection 
+is closed. Otherwise no action is taken.</p><span id="related-topics"></span></body></html>

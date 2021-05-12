@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53D50AC8-68A2-4ECC-B8E6-43C79956E61A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication_Test</RootNamespace>
+    <AssemblyName>WebApplication_Test</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44344</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Kjs.MVCUpdater.Comms, Version=1.0.0.3, Culture=neutral, PublicKeyToken=ec8eb5936eda804c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\Kjs.MVCUpdater.Comms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\..\..\..\Desktop\AppLife_Dependencies\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ApplicationUpdates\4b130588-7765-462e-a815-e68f4406a86c\Director.Xml" />
+    <Content Include="App_Data\ApplicationUpdates\PublishLocation.txt" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="bin\amd64\sqlceca40.dll" />
+    <Content Include="bin\amd64\sqlcecompact40.dll" />
+    <Content Include="bin\amd64\sqlceer40EN.dll" />
+    <Content Include="bin\amd64\sqlceme40.dll" />
+    <Content Include="bin\amd64\sqlceqp40.dll" />
+    <Content Include="bin\amd64\sqlcese40.dll" />
+    <Content Include="bin\AppLifeServerMvc.dll" />
+    <Content Include="bin\App_Data\ApplicationUpdates\PublishLocation.txt" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\HtmlAgilityPack.dll" />
+    <Content Include="bin\Kjs.MVCUpdater.Comms.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+    <Content Include="bin\x86\sqlceca40.dll" />
+    <Content Include="bin\x86\sqlcecompact40.dll" />
+    <Content Include="bin\x86\sqlceer40EN.dll" />
+    <Content Include="bin\x86\sqlceme40.dll" />
+    <Content Include="bin\x86\sqlceqp40.dll" />
+    <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="ckeditor\adapters\jquery.js" />
+    <Content Include="ckeditor\build-config.js" />
+    <Content Include="ckeditor\ckeditor.js" />
+    <Content Include="ckeditor\config.js" />
+    <Content Include="ckeditor\contents.css" />
+    <Content Include="ckeditor\lang\af.js" />
+    <Content Include="ckeditor\lang\ar.js" />
+    <Content Include="ckeditor\lang\bg.js" />
+    <Content Include="ckeditor\lang\bn.js" />
+    <Content Include="ckeditor\lang\bs.js" />
+    <Content Include="ckeditor\lang\ca.js" />
+    <Content Include="ckeditor\lang\cs.js" />
+    <Content Include="ckeditor\lang\cy.js" />
+    <Content Include="ckeditor\lang\da.js" />
+    <Content Include="ckeditor\lang\de.js" />
+    <Content Include="ckeditor\lang\el.js" />
+    <Content Include="ckeditor\lang\en-au.js" />
+    <Content Include="ckeditor\lang\en-ca.js" />
+    <Content Include="ckeditor\lang\en-gb.js" />
+    <Content Include="ckeditor\lang\en.js" />
+    <Content Include="ckeditor\lang\eo.js" />
+    <Content Include="ckeditor\lang\es.js" />
+    <Content Include="ckeditor\lang\et.js" />
+    <Content Include="ckeditor\lang\eu.js" />
+    <Content Include="ckeditor\lang\fa.js" />
+    <Content Include="ckeditor\lang\fi.js" />
+    <Content Include="ckeditor\lang\fo.js" />
+    <Content Include="ckeditor\lang\fr-ca.js" />
+    <Content Include="ckeditor\lang\fr.js" />
+    <Content Include="ckeditor\lang\gl.js" />
+    <Content Include="ckeditor\lang\gu.js" />
+    <Content Include="ckeditor\lang\he.js" />
+    <Content Include="ckeditor\lang\hi.js" />
+    <Content Include="ckeditor\lang\hr.js" />
+    <Content Include="ckeditor\lang\hu.js" />
+    <Content Include="ckeditor\lang\id.js" />
+    <Content Include="ckeditor\lang\is.js" />
+    <Content Include="ckeditor\lang\it.js" />
+    <Content Include="ckeditor\lang\ja.js" />
+    <Content Include="ckeditor\lang\ka.js" />
+    <Content Include="ckeditor\lang\km.js" />
+    <Content Include="ckeditor\lang\ko.js" />
+    <Content Include="ckeditor\lang\ku.js" />
+    <Content Include="ckeditor\lang\lt.js" />
+    <Content Include="ckeditor\lang\lv.js" />
+    <Content Include="ckeditor\lang\mk.js" />
+    <Content Include="ckeditor\lang\mn.js" />
+    <Content Include="ckeditor\lang\ms.js" />
+    <Content Include="ckeditor\lang\nb.js" />
+    <Content Include="ckeditor\lang\nl.js" />
+    <Content Include="ckeditor\lang\no.js" />
+    <Content Include="ckeditor\lang\pl.js" />
+    <Content Include="ckeditor\lang\pt-br.js" />
+    <Content Include="ckeditor\lang\pt.js" />
+    <Content Include="ckeditor\lang\ro.js" />
+    <Content Include="ckeditor\lang\ru.js" />
+    <Content Include="ckeditor\lang\si.js" />
+    <Content Include="ckeditor\lang\sk.js" />
+    <Content Include="ckeditor\lang\sl.js" />
+    <Content Include="ckeditor\lang\sq.js" />
+    <Content Include="ckeditor\lang\sr-latn.js" />
+    <Content Include="ckeditor\lang\sr.js" />
+    <Content Include="ckeditor\lang\sv.js" />
+    <Content Include="ckeditor\lang\th.js" />
+    <Content Include="ckeditor\lang\tr.js" />
+    <Content Include="ckeditor\lang\tt.js" />
+    <Content Include="ckeditor\lang\ug.js" />
+    <Content Include="ckeditor\lang\uk.js" />
+    <Content Include="ckeditor\lang\vi.js" />
+    <Content Include="ckeditor\lang\zh-cn.js" />
+    <Content Include="ckeditor\lang\zh.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="ckeditor\plugins\icons.png" />
+    <Content Include="ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="ckeditor\skins\moono\dialog.css" />
+    <Content Include="ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="ckeditor\skins\moono\editor.css" />
+    <Content Include="ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="ckeditor\skins\moono\icons.png" />
+    <Content Include="ckeditor\skins\moono\icons_hidpi.png" />
+    <Content Include="ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="ckeditor\skins\moono\images\close.png" />
+    <Content Include="ckeditor\skins\moono\images\hidpi\close.png" />
+    <Content Include="ckeditor\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="ckeditor\skins\moono\images\hidpi\lock.png" />
+    <Content Include="ckeditor\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="ckeditor\skins\moono\images\lock-open.png" />
+    <Content Include="ckeditor\skins\moono\images\lock.png" />
+    <Content Include="ckeditor\skins\moono\images\refresh.png" />
+    <Content Include="ckeditor\skins\moono\images\spinner.gif" />
+    <Content Include="ckeditor\styles.js" />
+    <Content Include="Content\960.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\facebox.css" />
+    <Content Include="Content\images\16X16\accept.png" />
+    <Content Include="Content\images\16X16\add.png" />
+    <Content Include="Content\images\16X16\application_edit.png" />
+    <Content Include="Content\images\16X16\cancel.png" />
+    <Content Include="Content\images\16X16\chart_bar.png" />
+    <Content Include="Content\images\16X16\chart_pie.png" />
+    <Content Include="Content\images\16X16\delete.png" />
+    <Content Include="Content\images\16X16\disable_overlay.png" />
+    <Content Include="Content\images\16X16\error.png" />
+    <Content Include="Content\images\16X16\exclamation.png" />
+    <Content Include="Content\images\16X16\help.png" />
+    <Content Include="Content\images\16X16\information.png" />
+    <Content Include="Content\images\16X16\lightbulb.png" />
+    <Content Include="Content\images\16X16\log.png" />
+    <Content Include="Content\images\16X16\medal_bronze_1.png" />
+    <Content Include="Content\images\16X16\medal_gold_3.png" />
+    <Content Include="Content\images\16X16\medal_silver_1.png" />
+    <Content Include="Content\images\16X16\medal_silver_2.png" />
+    <Content Include="Content\images\16X16\search.png" />
+    <Content Include="Content\images\16X16\shield.png" />
+    <Content Include="Content\images\16X16\status_offline.png" />
+    <Content Include="Content\images\16X16\status_online.png" />
+    <Content Include="Content\images\16X16\tick.png" />
+    <Content Include="Content\images\16X16\user.png" />
+    <Content Include="Content\images\16X16\user_edit.png" />
+    <Content Include="Content\images\16X16\zoom.png" />
+    <Content Include="Content\images\32x32\accept.png" />
+    <Content Include="Content\images\32x32\add.png" />
+    <Content Include="Content\images\32x32\application_edit.png" />
+    <Content Include="Content\images\32x32\cancel.png" />
+    <Content Include="Content\images\32x32\delete.png" />
+    <Content Include="Content\images\32x32\email.png" />
+    <Content Include="Content\images\32x32\error.png" />
+    <Content Include="Content\images\32x32\exclamation.png" />
+    <Content Include="Content\images\32x32\help.png" />
+    <Content Include="Content\images\32x32\house.png" />
+    <Content Include="Content\images\32x32\information.png" />
+    <Content Include="Content\images\32x32\lightbulb.png" />
+    <Content Include="Content\images\32x32\Log.png" />
+    <Content Include="Content\images\32x32\LogDisable.png" />
+    <Content Include="Content\images\32x32\user_edit.png" />
+    <Content Include="Content\images\ajax-loaders\bar.gif" />
+    <Content Include="Content\images\ajax-loaders\bert.gif" />
+    <Content Include="Content\images\ajax-loaders\circle-ball.gif" />
+    <Content Include="Content\images\ajax-loaders\indicator.gif" />
+    <Content Include="Content\images\ajax-loaders\snake.gif" />
+    <Content Include="Content\images\ajax-loaders\squares.gif" />
+    <Content Include="Content\images\arrows-ffffff.png" />
+    <Content Include="Content\images\AUServer_Black_48X48.png" />
+    <Content Include="Content\images\AUServer_Blue_32X32.png" />
+    <Content Include="Content\images\AUServer_Blue_48X48.png" />
+    <Content Include="Content\images\AUServer_White_32X32.png" />
+    <Content Include="Content\images\AUServer_White_48X48.png" />
+    <Content Include="Content\images\b.png" />
+    <Content Include="Content\images\bl.png" />
+    <Content Include="Content\images\blank.gif" />
+    <Content Include="Content\images\blockquote.gif" />
+    <Content Include="Content\images\br.png" />
+    <Content Include="Content\images\button_highlighter.png" />
+    <Content Include="Content\images\closelabel.gif" />
+    <Content Include="Content\images\header_highlighter.png" />
+    <Content Include="Content\images\jquery.wysiwyg.gif" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\shadow.png" />
+    <Content Include="Content\images\tl.png" />
+    <Content Include="Content\images\tr.png" />
+    <Content Include="Content\nethelp\context.xml" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\animated-overlay.gif" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\nethelp\css\jquery-ui\redmond\jquery-ui.css" />
+    <Content Include="Content\nethelp\css\nethelp.css" />
+    <Content Include="Content\nethelp\css\nethelp.responsive.css" />
+    <Content Include="Content\nethelp\groups.js" />
+    <Content Include="Content\nethelp\groups.xml" />
+    <Content Include="Content\nethelp\ImagesExt\image131_0.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_2.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_3.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_5.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image131_6.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_7.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image131_9.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_0.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_11.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_12.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_13.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_14.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_15.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_16.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_17.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_18.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_19.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_2.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_20.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_21.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_22.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_23.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_24.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_25.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_26.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_27.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_28.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_29.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_3.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_30.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_31.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_32.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image132_33.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image132_34.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_35.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_36.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_37.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_38.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_39.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_40.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_41.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_42.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_43.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_44.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_45.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_46.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_47.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_48.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_49.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_5.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_6.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_7.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image132_9.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_0.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_11.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_12.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_13.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_14.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_15.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_16.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_17.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_18.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_19.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_2.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_20.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_21.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_22.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_23.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_24.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_25.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_26.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_27.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_28.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_29.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_3.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_30.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_31.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_32.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_33.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_34.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_35.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_36.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_37.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_38.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_39.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_40.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_41.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_42.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_43.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_44.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_45.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_46.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_47.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_48.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_49.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_5.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_50.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_51.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_52.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_53.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_54.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_55.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image133_56.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_57.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image133_58.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_59.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_6.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_60.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_61.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_62.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_63.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_7.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image133_9.png" />
+    <Content Include="Content\nethelp\ImagesExt\image134_0.png" />
+    <Content Include="Content\nethelp\ImagesExt\image134_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_0.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image135_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_11.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_12.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_13.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_14.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_15.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_16.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_17.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_18.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_19.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_2.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_20.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_21.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_22.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_23.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_24.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_25.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_26.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_27.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_28.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_29.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_3.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_30.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_31.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_32.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_33.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_34.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_35.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_36.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_37.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_38.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_39.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_40.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_41.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_42.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_43.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_44.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_45.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_46.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_47.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_48.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_49.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_5.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_50.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_51.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_52.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_53.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_54.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_55.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_56.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_57.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_58.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_6.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_7.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image135_9.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_0.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_1.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image161_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_11.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_12.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_13.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_14.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_15.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_16.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_17.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_18.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_19.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_2.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_20.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_21.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image161_22.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image161_3.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_5.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_6.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image161_7.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image161_9.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_0.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_1.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_10.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_11.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_12.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_13.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_14.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_15.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_16.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_17.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_18.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_19.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_2.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_20.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_21.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_22.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_23.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_24.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_25.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_26.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_27.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_28.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_29.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_3.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_30.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_31.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_32.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_33.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_34.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_35.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_36.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_37.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_38.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_39.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_4.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_5.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_6.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_7.jpg" />
+    <Content Include="Content\nethelp\ImagesExt\image164_8.png" />
+    <Content Include="Content\nethelp\ImagesExt\image164_9.png" />
+    <Content Include="Content\nethelp\index.html" />
+    <Content Include="Content\nethelp\js\jquery-ui.js" />
+    <Content Include="Content\nethelp\js\jquery.js" />
+    <Content Include="Content\nethelp\js\jquery.mobile.js" />
+    <Content Include="Content\nethelp\js\nethelp.connect.js" />
+    <Content Include="Content\nethelp\js\nethelp.eclipse.js" />
+    <Content Include="Content\nethelp\js\nethelp.js" />
+    <Content Include="Content\nethelp\js\nethelp.redirector.js" />
+    <Content Include="Content\nethelp\js\nethelp.responsive.jqm.js" />
+    <Content Include="Content\nethelp\js\nethelp.responsive.js" />
+    <Content Include="Content\nethelp\js\nethelp.sandcastle.js" />
+    <Content Include="Content\nethelp\js\nethelp.xml" />
+    <Content Include="Content\nethelp\js\nodejs\index.js" />
+    <Content Include="Content\nethelp\js\nodejs\nethelp.search.engine.js" />
+    <Content Include="Content\nethelp\js\nodejs\requestHandlers.js" />
+    <Content Include="Content\nethelp\js\nodejs\router.js" />
+    <Content Include="Content\nethelp\js\nodejs\searchserverconfig.js" />
+    <Content Include="Content\nethelp\js\nodejs\server.js" />
+    <Content Include="Content\nethelp\keywords.js" />
+    <Content Include="Content\nethelp\keywords.xml" />
+    <Content Include="Content\nethelp\LinksExt\D2H_HTML.css" />
+    <Content Include="Content\nethelp\Media\applifeupdatelogo.gif" />
+    <Content Include="Content\nethelp\Media\favicon.ico" />
+    <Content Include="Content\nethelp\nethelppage.js" />
+    <Content Include="Content\nethelp\searchindex.js" />
+    <Content Include="Content\nethelp\settings.xml" />
+    <Content Include="Content\nethelp\themes\AppLife Update\custom-icons.css" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\AppLifeUpdateIcon.ico" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\applifeupdatelogo.gif" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1-active.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1-default.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1-error.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1-focus.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1-highlight.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\custom-icon-1.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-favicon.ico" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1-active.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1-default.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1-error.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1-focus.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1-highlight.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-1.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2-active.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2-default.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2-error.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2-focus.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2-highlight.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h-icon-2.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\d2h_logo_placeholder.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\empty.gif" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\gray50.png" />
+    <Content Include="Content\nethelp\themes\AppLife Update\images\spinner.gif" />
+    <Content Include="Content\nethelp\themes\AppLife Update\layout.html" />
+    <Content Include="Content\nethelp\themes\AppLife Update\search-addons.js" />
+    <Content Include="Content\nethelp\themes\AppLife Update\settings.en-us.xml" />
+    <Content Include="Content\nethelp\themes\AppLife Update\settings.theme.xml" />
+    <Content Include="Content\nethelp\themes\AppLife Update\settings.xml" />
+    <Content Include="Content\nethelp\themes\AppLife Update\theme.css" />
+    <Content Include="Content\nethelp\themes\AppLife Update\theme.js" />
+    <Content Include="Content\nethelp\themes\AppLife Update\topic.css" />
+    <Content Include="Content\nethelp\themes\AppLife Update\user.css" />
+    <Content Include="Content\nethelp\themes\AppLife Update\user.js" />
+    <Content Include="Content\nethelp\toc.js" />
+    <Content Include="Content\nethelp\toc.xml" />
+    <Content Include="Content\nethelp\WordDocuments\64bitoperatingsystems.htm" />
+    <Content Include="Content\nethelp\WordDocuments\accesscontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\accesscontrol1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\accesscontrollists.htm" />
+    <Content Include="Content\nethelp\WordDocuments\accessinglogsthroughtheapi.htm" />
+    <Content Include="Content\nethelp\WordDocuments\accessingtheresultsofthepreviousupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\acquiringandapplyingalicensenumber.htm" />
+    <Content Include="Content\nethelp\WordDocuments\actionconditionalexpressiondialog.htm" />
+    <Content Include="Content\nethelp\WordDocuments\actionconditionals.htm" />
+    <Content Include="Content\nethelp\WordDocuments\actionsandbuildmachinerelativefilepaths.htm" />
+    <Content Include="Content\nethelp\WordDocuments\activatingyourlicense.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addapplifeserver.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addattribute.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addelement.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addfilesbycomparisonactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addfilesbycomparisonv40change.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addfoldercontents.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addingcustomactionstoyourproject.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addreplacefiles.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addreplacefilesactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addreplacefilesbycomparison.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addxmlattributeactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\addxmlelementactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\administration.htm" />
+    <Content Include="Content\nethelp\WordDocuments\allowanonymousaccess.htm" />
+    <Content Include="Content\nethelp\WordDocuments\alltargets.htm" />
+    <Content Include="Content\nethelp\WordDocuments\analytics.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applicationdirectory.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applications.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applications1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanagerconfiguration.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanagerfeatures.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanagerfindinstalldirectoryactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanagerquickstart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifemanagersetupdateversionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifeupdateactions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifeupdatecomponents.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifeupdateengineoptions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applifeupdateproject.htm" />
+    <Content Include="Content\nethelp\WordDocuments\applyupdatesautomatically.htm" />
+    <Content Include="Content\nethelp\WordDocuments\assigningtoapplicationsversions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\automaticupdatechaining.htm" />
+    <Content Include="Content\nethelp\WordDocuments\automaticupdateduringoffpeakhours.htm" />
+    <Content Include="Content\nethelp\WordDocuments\automatingapplifeupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\backupsqlserverdatabase.htm" />
+    <Content Include="Content\nethelp\WordDocuments\backupsqlserverdatabaseactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\begindatabasetransaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\beginsqlservertransaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\beginsqlservertransactionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\begintransactionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\buildinganupdatepackage.htm" />
+    <Content Include="Content\nethelp\WordDocuments\buildingyourupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\buildtab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\cacheddownloads.htm" />
+    <Content Include="Content\nethelp\WordDocuments\changenode.htm" />
+    <Content Include="Content\nethelp\WordDocuments\changexmlnodeactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\checkfileexistsactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\checkforupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\checkforupdateform.htm" />
+    <Content Include="Content\nethelp\WordDocuments\checkserviceexistsactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\clientaccesscontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\clientaccesskey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\clientid.htm" />
+    <Content Include="Content\nethelp\WordDocuments\clients.htm" />
+    <Content Include="Content\nethelp\WordDocuments\clientversionidentification.htm" />
+    <Content Include="Content\nethelp\WordDocuments\closesqlserverconnection.htm" />
+    <Content Include="Content\nethelp\WordDocuments\closesqlserverconnectionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commandlineutility.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commandlineutilitylocation.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commands.htm" />
+    <Content Include="Content\nethelp\WordDocuments\comment.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commentactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commitdatabasetransaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commitsqlservertransaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commitsqlservertransactionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\committransactionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\commonexpansionvariablesused.htm" />
+    <Content Include="Content\nethelp\WordDocuments\comparingtwoupdatelocations.htm" />
+    <Content Include="Content\nethelp\WordDocuments\comregistration.htm" />
+    <Content Include="Content\nethelp\WordDocuments\configurationoptions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\configurationthroughapplifeserver.htm" />
+    <Content Include="Content\nethelp\WordDocuments\configuringanapplicationforapplifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\configuringthroughthemakeupdatenewprojectwizard.htm" />
+    <Content Include="Content\nethelp\WordDocuments\controlledrollout.htm" />
+    <Content Include="Content\nethelp\WordDocuments\coordinatedapplicationshutdown.htm" />
+    <Content Include="Content\nethelp\WordDocuments\copyfoldercontentsactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createfileshortcut.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createfileshortcutactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createfolder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createfolderactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createregistrykey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\createregistrykeyactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\creatingandtestingconditionals.htm" />
+    <Content Include="Content\nethelp\WordDocuments\creatingnewapplications.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customactionassemblies.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customactionbuilder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customactionplaceholders.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customactionquickstart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customactionstab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customdata.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customformsquickstart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customizedforms.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customizetheloglocation.htm" />
+    <Content Include="Content\nethelp\WordDocuments\customupdateexecutable.htm" />
+    <Content Include="Content\nethelp\WordDocuments\dashboard.htm" />
+    <Content Include="Content\nethelp\WordDocuments\databaseactions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletefiles.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletefilesactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletefolder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletefolderaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletenode.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deleteregistrykey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deleteregistrykeyactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deleteregistryvalues.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deleteregistryvaluesactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletexmlnodeactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deletingclientinformation.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deployinganapplifeupdateenabledapplication.htm" />
+    <Content Include="Content\nethelp\WordDocuments\deployingtheapplifeupdatewindowsservice.htm" />
+    <Content Include="Content\nethelp\WordDocuments\determiningthecurrentlyinstalledversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\director.htm" />
+    <Content Include="Content\nethelp\WordDocuments\disablelogging.htm" />
+    <Content Include="Content\nethelp\WordDocuments\downloadauthentication.htm" />
+    <Content Include="Content\nethelp\WordDocuments\downloading.htm" />
+    <Content Include="Content\nethelp\WordDocuments\downloadupdateform.htm" />
+    <Content Include="Content\nethelp\WordDocuments\downloadverification.htm" />
+    <Content Include="Content\nethelp\WordDocuments\durationtoallowhours.htm" />
+    <Content Include="Content\nethelp\WordDocuments\dynamiccodeaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\dynamiccodeaction1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\editingmetadata.htm" />
+    <Content Include="Content\nethelp\WordDocuments\elevatedprivileges.htm" />
+    <Content Include="Content\nethelp\WordDocuments\emailsupport.htm" />
+    <Content Include="Content\nethelp\WordDocuments\enableapplifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\enablingapplifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\executemsi.htm" />
+    <Content Include="Content\nethelp\WordDocuments\executemsiactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\executingupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\expansionvariablessharedproperties.htm" />
+    <Content Include="Content\nethelp\WordDocuments\failurenotification.htm" />
+    <Content Include="Content\nethelp\WordDocuments\filesfolders.htm" />
+    <Content Include="Content\nethelp\WordDocuments\finalbuilderaction.htm" />
+    <Content Include="Content\nethelp\WordDocuments\findyourcloudsubscriptionid.htm" />
+    <Content Include="Content\nethelp\WordDocuments\finishsynchronization.htm" />
+    <Content Include="Content\nethelp\WordDocuments\generaltab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gettingstarted.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gettingupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\glossaryofterms.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_actioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_actionlist.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_actionpalette.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_applifeupdateactionlist.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_assemblyversionnumber.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_aup.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_client.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_currentupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_customdata1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_customupdateexecutable1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_directorxml.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_historicalsummary.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_makeupdate1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_msi.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_msiexecexe.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_msp.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_networkfolder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_package.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_previousupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_publickey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_sharedproperies.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_targetversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_updatecontroller1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_updatelauncher.htm" />
+    <Content Include="Content\nethelp\WordDocuments\gloss_windowsinstallerdatabase.htm" />
+    <Content Include="Content\nethelp\WordDocuments\greaterthanorequalto.htm" />
+    <Content Include="Content\nethelp\WordDocuments\hostassemblyversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\ignoringclients.htm" />
+    <Content Include="Content\nethelp\WordDocuments\implementingacustomupdateengineuserinterfaceiupdateui.htm" />
+    <Content Include="Content\nethelp\WordDocuments\initialinstall.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installation.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installgacassemblyeditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installingapplifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installingapplifemanager1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installingapplifemanager2.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installingapplifeserver.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installingapplifeupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installnet40.htm" />
+    <Content Include="Content\nethelp\WordDocuments\installnet40actioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\integratedapi.htm" />
+    <Content Include="Content\nethelp\WordDocuments\integratingapplicationshutdown.htm" />
+    <Content Include="Content\nethelp\WordDocuments\interveningduringacheckforupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\kineticjumpsupport.htm" />
+    <Content Include="Content\nethelp\WordDocuments\licenseagreement.htm" />
+    <Content Include="Content\nethelp\WordDocuments\licenseform.htm" />
+    <Content Include="Content\nethelp\WordDocuments\licensemanagement.htm" />
+    <Content Include="Content\nethelp\WordDocuments\localizationtab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\localizedupdateengineuserinterface.htm" />
+    <Content Include="Content\nethelp\WordDocuments\localizedupdateprocess.htm" />
+    <Content Include="Content\nethelp\WordDocuments\makeupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\makeupdateconsoleapplication.htm" />
+    <Content Include="Content\nethelp\WordDocuments\makingcustomactions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\managingpublishedupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\manualactivation.htm" />
+    <Content Include="Content\nethelp\WordDocuments\manualcheckforupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\maskedaddreplacefiles.htm" />
+    <Content Include="Content\nethelp\WordDocuments\maskedaddreplacefilesactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\microsoftinstallerpatch.htm" />
+    <Content Include="Content\nethelp\WordDocuments\missingactionplaceholder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\msbuildtask.htm" />
+    <Content Include="Content\nethelp\WordDocuments\msidisplayversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\newprojectwizard.htm" />
+    <Content Include="Content\nethelp\WordDocuments\noupdatesummarytext.htm" />
+    <Content Include="Content\nethelp\WordDocuments\opensqlserverconnection.htm" />
+    <Content Include="Content\nethelp\WordDocuments\opensqlserverconnectionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\operatingsystem.htm" />
+    <Content Include="Content\nethelp\WordDocuments\optionsform.htm" />
+    <Content Include="Content\nethelp\WordDocuments\palettes.htm" />
+    <Content Include="Content\nethelp\WordDocuments\passinginsharedpropertiesforanupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\patchexistingfile.htm" />
+    <Content Include="Content\nethelp\WordDocuments\patchexistingfileactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\patchfolder.htm" />
+    <Content Include="Content\nethelp\WordDocuments\patchfolderactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\phonesupport.htm" />
+    <Content Include="Content\nethelp\WordDocuments\preferences.htm" />
+    <Content Include="Content\nethelp\WordDocuments\preservingcommandlinearguments.htm" />
+    <Content Include="Content\nethelp\WordDocuments\preventapplicationrestart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\preventapplicationrestartactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\primaryexecutable.htm" />
+    <Content Include="Content\nethelp\WordDocuments\primaryexecutableassemblyversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\primaryexecutablefileversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\processname.htm" />
+    <Content Include="Content\nethelp\WordDocuments\programversioning.htm" />
+    <Content Include="Content\nethelp\WordDocuments\progressupdates.htm" />
+    <Content Include="Content\nethelp\WordDocuments\projectproperties.htm" />
+    <Content Include="Content\nethelp\WordDocuments\proxy.htm" />
+    <Content Include="Content\nethelp\WordDocuments\proxyservers.htm" />
+    <Content Include="Content\nethelp\WordDocuments\proxysettings.htm" />
+    <Content Include="Content\nethelp\WordDocuments\publickey1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\publishingatestupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\publishingchanges.htm" />
+    <Content Include="Content\nethelp\WordDocuments\publishingtab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\publishingwithaccesscontrollists.htm" />
+    <Content Include="Content\nethelp\WordDocuments\quickstarts.htm" />
+    <Content Include="Content\nethelp\WordDocuments\readfileversionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\readnode.htm" />
+    <Content Include="Content\nethelp\WordDocuments\readregistryvalue.htm" />
+    <Content Include="Content\nethelp\WordDocuments\readregistryvalueactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\readxmlnodetextactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\recoveringfromacompromisedprivatekey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\reference.htm" />
+    <Content Include="Content\nethelp\WordDocuments\registerassembly.htm" />
+    <Content Include="Content\nethelp\WordDocuments\registerassemblyactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\registerlibrary.htm" />
+    <Content Include="Content\nethelp\WordDocuments\registerlibraryactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\registry.htm" />
+    <Content Include="Content\nethelp\WordDocuments\removingversions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\replacefilesonrestart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\replacefilesonrestartactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\replacepublickey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\replacepublickeyactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\replacingcustomactionassemblies.htm" />
+    <Content Include="Content\nethelp\WordDocuments\requirements.htm" />
+    <Content Include="Content\nethelp\WordDocuments\restartoperatingsystem.htm" />
+    <Content Include="Content\nethelp\WordDocuments\restartoperatingsystemactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\resumingafaileddownload.htm" />
+    <Content Include="Content\nethelp\WordDocuments\roles.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runactionlist.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runactionlisteditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runcommandline.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runcommandlineactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runsqlserverquery.htm" />
+    <Content Include="Content\nethelp\WordDocuments\runsqlserverqueryactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\searchsortfilter.htm" />
+    <Content Include="Content\nethelp\WordDocuments\securitytab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\serverrequirements.htm" />
+    <Content Include="Content\nethelp\WordDocuments\serversettings.htm" />
+    <Content Include="Content\nethelp\WordDocuments\serviceregistration.htm" />
+    <Content Include="Content\nethelp\WordDocuments\services.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setapplicationdirectory.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setdisplayversionactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setregistryvalues.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setregistryvaluesactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setsharedproperty.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setsharedpropertyactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\settingsharedpropertyvariables.htm" />
+    <Content Include="Content\nethelp\WordDocuments\setupdateversion.htm" />
+    <Content Include="Content\nethelp\WordDocuments\sharedlists.htm" />
+    <Content Include="Content\nethelp\WordDocuments\sharedproperties.htm" />
+    <Content Include="Content\nethelp\WordDocuments\simplequickstart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\simplewpfquickstart.htm" />
+    <Content Include="Content\nethelp\WordDocuments\spelling.htm" />
+    <Content Include="Content\nethelp\WordDocuments\sqlserveractions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\startservice.htm" />
+    <Content Include="Content\nethelp\WordDocuments\startserviceactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\statusstripupdatedisplaycontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\stopservice.htm" />
+    <Content Include="Content\nethelp\WordDocuments\stopserviceactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\support.htm" />
+    <Content Include="Content\nethelp\WordDocuments\supportednetframeworks.htm" />
+    <Content Include="Content\nethelp\WordDocuments\targetversions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theapplifemanagerui.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theapplifeupdateengine.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theapplifeupdateserviceregistrationutility.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theapplifeupdatesolution.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theapplifeupdatewindowsservice.htm" />
+    <Content Include="Content\nethelp\WordDocuments\thefirstrunafteranupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\themakeupdatewindow.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theupdatelog.htm" />
+    <Content Include="Content\nethelp\WordDocuments\theuseraccountcontroluac.htm" />
+    <Content Include="Content\nethelp\WordDocuments\timetoallowupdateshhmm.htm" />
+    <Content Include="Content\nethelp\WordDocuments\toggletheapplifemanageruioutputwindow.htm" />
+    <Content Include="Content\nethelp\WordDocuments\transacteddatabasequery.htm" />
+    <Content Include="Content\nethelp\WordDocuments\transactedqueryactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\transactedstoredprocedure.htm" />
+    <Content Include="Content\nethelp\WordDocuments\transactedstoredprocedureactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\uninstallgacassemblyeditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\unregisterlibrary.htm" />
+    <Content Include="Content\nethelp\WordDocuments\unregisterlibraryactioneditor.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateactionconfigurationandstate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateactionexecution.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateactionmethods.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateactions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateactions1.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatecategory.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatecontext.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatecontroller.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatecontrollerversionproperty.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatedetailsdisplaycontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatedetailsdisplaywpfcontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatedisplaycontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatedisplaywpfcontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatefeatures.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateinteractive.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatenotifyicondisplaycontrol.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateoptions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateprocesspermissions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updaterecheckfrequencyminutes.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updateservice.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatesummarytext.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatewindowtab.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatinguserexperienceoptions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatingyourserver.htm" />
+    <Content Include="Content\nethelp\WordDocuments\updatingyoursoftware.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usage.htm" />
+    <Content Include="Content\nethelp\WordDocuments\userforums.htm" />
+    <Content Include="Content\nethelp\WordDocuments\users.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usingapplifemanager.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usingapplifeserver.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usingapplifeupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usingclientid.htm" />
+    <Content Include="Content\nethelp\WordDocuments\usingthecommandlineutility.htm" />
+    <Content Include="Content\nethelp\WordDocuments\versioning.htm" />
+    <Content Include="Content\nethelp\WordDocuments\versions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\viewingyourprojectfilepublickey.htm" />
+    <Content Include="Content\nethelp\WordDocuments\visualcontrolconfigurationoptions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\whatarecustomactions.htm" />
+    <Content Include="Content\nethelp\WordDocuments\whatisapplifeupdate.htm" />
+    <Content Include="Content\nethelp\WordDocuments\windowspresentationfoundationwpf.htm" />
+    <Content Include="Content\nethelp\WordDocuments\xmlactions.htm" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\Templates\Mail\AdminUserPasswordResetMsg.txt" />
+    <Content Include="Content\Templates\Mail\NewAccountMsg.txt" />
+    <Content Include="Content\Templates\Mail\NewAppMsg.txt" />
+    <Content Include="Content\Templates\Mail\NewSubscriptionMsg.txt" />
+    <Content Include="Content\Templates\Mail\SendPasswordResetMsg.txt" />
+    <Content Include="Content\Templates\Mail\SubscriptionCancellationMsg.txt" />
+    <Content Include="Content\Templates\Mail\UpdateFailureMsg.txt" />
+    <Content Include="Content\Themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Themes\base\jquery-ui.css" />
+    <Content Include="Content\Themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\Themes\base\jquery.ui.all.css" />
+    <Content Include="Content\Themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\Themes\base\jquery.ui.base.css" />
+    <Content Include="Content\Themes\base\jquery.ui.button.css" />
+    <Content Include="Content\Themes\base\jquery.ui.core.css" />
+    <Content Include="Content\Themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\Themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\Themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\Themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\Themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\Themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\Themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\Themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\Themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\Themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\Themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\Themes\blue.css" />
+    <Content Include="Content\Themes\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Themes\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Themes\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Themes\images\ui-bg_flat_35_258cd1_40x100.png" />
+    <Content Include="Content\Themes\images\ui-bg_flat_65_258cd1_40x100.png" />
+    <Content Include="Content\Themes\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Themes\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Themes\images\ui-bg_highlight-soft_100_ffffff_1x100.png" />
+    <Content Include="Content\Themes\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Themes\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Themes\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Themes\images\ui-icons_258cd1_256x240.png" />
+    <Content Include="Content\Themes\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Themes\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GenericError.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="InternalError.aspx" />
+    <Content Include="InternalError.htm" />
+    <Content Include="NotFoundError.aspx" />
+    <Content Include="NotFoundError.htm" />
+    <Content Include="Scripts\Administration.js" />
+    <Content Include="Scripts\ApplicationTable.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\Content.cshtml" />
+    <Content Include="App_Data\ApplicationUpdates\4b130588-7765-462e-a815-e68f4406a86c\1.3.0.3.zip" />
+    <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+    <Content Include="ckeditor\CHANGES.md" />
+    <Content Include="ckeditor\LICENSE.md" />
+    <Content Include="ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="ckeditor\plugins\scayt\README.md" />
+    <Content Include="ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="ckeditor\plugins\wsc\README.md" />
+    <Content Include="ckeditor\README.md" />
+    <Content Include="ckeditor\skins\moono\readme.md" />
+    <Content Include="Content\Files\AppLifeManager.msi" />
+    <Content Include="Content\nethelp\js\nodejs\settings.json" />
+    <Content Include="Content\nethelp\WordDocuments\AppLife Update.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Automating AppLife Update.doc" />
+    <Content Include="Content\nethelp\WordDocuments\EULA.rtf" />
+    <Content Include="Content\nethelp\WordDocuments\Getting Started.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Glossary.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Reference.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Support.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Troubleshooting Issues.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Update Actions.doc" />
+    <Content Include="Content\nethelp\WordDocuments\Using AppLife Update.doc" />
+    <Content Include="Models\Internal\DirectorSchema.xsx" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\ClientTable.js" />
+    <Content Include="Scripts\ClientUpdateTable.js" />
+    <Content Include="Scripts\editApplication.js" />
+    <Content Include="Scripts\editVersion.js" />
+    <Content Include="Scripts\facebox.js" />
+    <Content Include="Scripts\FailedUpdateTable.js" />
+    <None Include="Scripts\jquery-1.9.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
+    <Content Include="Scripts\jquery.timer.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.1.debug.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\ManageACLLists.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\UserTable.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Add.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\EditorTemplates\ApplicationRole.cshtml" />
+    <Content Include="Views\Account\EditUser.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\UserSummary.cshtml" />
+    <Content Include="Views\Account\UserTable.cshtml" />
+    <Content Include="Views\Account\ViewLog.cshtml" />
+    <Content Include="Views\Administration\Config.cshtml" />
+    <Content Include="Views\Administration\Updates.cshtml" />
+    <Content Include="Views\Application\ACLItems.cshtml" />
+    <Content Include="Views\Application\Add.cshtml" />
+    <Content Include="Views\Application\ApplicationTable.cshtml" />
+    <Content Include="Views\Application\Edit.cshtml" />
+    <Content Include="Views\Application\EditApplication.cshtml" />
+    <Content Include="Views\Application\EditorTemplates\UserRoleView.cshtml" />
+    <Content Include="Views\Application\GetUserList.cshtml" />
+    <Content Include="Views\Application\Index.cshtml" />
+    <Content Include="Views\Application\ManageACL.cshtml" />
+    <Content Include="Views\Application\ManageACLLists.cshtml" />
+    <Content Include="Views\Application\ViewLog.cshtml" />
+    <Content Include="Views\Home\ActivityView.cshtml" />
+    <Content Include="Views\Home\AppView.cshtml" />
+    <Content Include="Views\Home\AppViewClientTable.cshtml" />
+    <Content Include="Views\Home\ClientUpdateTable.cshtml" />
+    <Content Include="Views\Home\EditApplication.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
+    <Content Include="Views\Home\FailedUpdate.cshtml" />
+    <Content Include="Views\Home\FailedUpdateTable.cshtml" />
+    <Content Include="Views\Home\GetClient.cshtml" />
+    <Content Include="Views\Home\GetExecutedUpdate.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AccessListViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SummaryViewModel.cshtml" />
+    <Content Include="Views\Shared\_ACLSelector.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\Version\Index.cshtml" />
+    <Content Include="Views\Version\VersionActivity_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60380</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44344/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

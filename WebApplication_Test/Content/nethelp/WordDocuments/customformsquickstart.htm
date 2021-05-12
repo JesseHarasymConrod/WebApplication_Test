@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Custom Forms Quick Start</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="simplequickstart.htm" /><link rel="next" href="customactionquickstart.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="8449679d-96e1-4296-af94-c08adcd58d29">
+<h3>Custom Forms Quick Start</h3>
+<p class="MsoBodyText">The Custom Forms application utilizes methods and events on 
+the Update Controller to check for, download, and apply an update.  The 
+application replaces the standard update engine user interface (displayed to the 
+end-user as an update is being executed) with a completely custom UI.  The 
+concepts that you learn in this quick start can be used to design and implement 
+completely customized updating user experiences.</p>
+<p class="MsoBodyText">This Quick Start does not use any built-in user interface 
+forms at all.  It includes totally custom forms that utilize the methods 
+and events of the Update Controller to perform all of the update related 
+tasks.  Specifically:</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">1.  A 
+custom <i>check for updates</i> form<br /><br /><img border="0" src="../ImagesExt/image135_30.png" alt="" /><br /><br />This form uses the 
+<i>CheckForUpdateAsync</i> method and the <i>CheckForUpdateCompleted</i> event 
+to check for updates.</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">2.  A 
+custom <i>download updates</i> form<br /><br /><img border="0" src="../ImagesExt/image135_31.png" alt="" /><br /><br />This form uses the 
+<i>DownloadUpdateAsync</i> method, The <i>DownloadUpdateProgressChanged 
+</i>event, and the <i>DownloadUpdateCompleted</i> event to download a discovered 
+update. </p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">3.  Once 
+downloaded, a button is enabled that allows the user to apply the 
+update.<br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">4.  A 
+custom Update Engine user interface form<br /><br /><img border="0" src="../ImagesExt/image135_32.png" alt="" /><br /><br />This form is displayed by creating an 
+assembly that includes a class that implements the 
+<i>Kjs.AppLife.Update.Engine.Core.IUpdateUI</i> interface.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 12pt">Enabling the 
+Application</span></b></p>
+<p class="MsoBodyText">The application is enabled for updates by following the 
+same procedure outlined in the <a class="topic-link" href="simplequickstart.htm">Simple Quick Start</a>.  You add an <i>Update 
+Controller</i> to the host application source code, and then use the <i>Set up a 
+new project</i> utility.  If you have not yet reviewed the Simple Quick 
+Start, we recommend that you do so before continuing.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 12pt">Coding the Update Process 
+</span></b></p>
+<p class="MsoBodyText">Instead of using a built-in user experience as we did in 
+the Simple Quick Start, a custom user interface is implemented here.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  
+Create a folder under <i>My Documents</i> and name it <i>Custom Forms</i>.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  
+Extract the <i>Custom Forms</i> Quick Start in your preferred language by 
+clicking on the link on the AppLife <i>Make Update</i> start page or the Help 
+&gt; Quick Starts menu.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  Open 
+the <i>CustomForms.sln</i> Visual Studio solution.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">4.  Start 
+the solution. When the main form opens, click the <i>Check for Updates</i> 
+button.  You will see that the entire user interface of the update process 
+is completely customized.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Checking for Updates </b></p>
+<p class="MsoBodyText">The AppLife Update Controller provides synchronous and 
+asynchronous methods to check for updates.  Both methods perform an update 
+discovery task by checking the designated update location for updates.  If 
+an update is available for the current version, the <i>CurrentUpdate</i> 
+property of the Update Controller will contain an <i>UpdateInformation</i> 
+structure with information about the available update.  If an update is not 
+available, the <i>CurrentUpdate</i> property will be empty or null.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The synchronous <i>CheckForUpdate</i> method returns true 
+if an update is found.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The asynchronous <i>CheckForUpdateAsync</i> method will 
+raise the <i>CheckForUpdateCompleted</i> event when the check is complete.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">From AppLife Make Update, click on Help&gt;API Reference 
+and browse to:</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">Kjs.AppLife.Update.Controller 
+Namespace</p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">          
+UpdateController class</p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">                   
+UpdateController Methods</p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">                             
+CheckForUpdateAsync Method</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Review the documentation for this method.  This is the 
+method this Quick Start uses.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">5.  In 
+Visual Studio, open the Form1 source code file of the <i>Custom Forms</i> 
+project.  The <i>Check For Updates</i> button handler contains code that 
+opens the custom <i>CheckForUpdatesForm</i><br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">6.  The 
+<i>CheckForUpdatesForm</i> contains the relevant code that performs the update 
+check using the Update Controller.<br /><br />In the constructor of the form, we 
+subscribe to the <i>CheckForUpdateCompleted</i> event and we call the 
+<i>CheckForUpdateAsync</i> method.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">7.  Once 
+the form is opened and before the <i>CheckForUpdateCompleted</i> event occurs, 
+an animated gif is displayed to the user.  The user can cancel the check or 
+close the form.  The Download button is disabled until an update is 
+found.<br /><br />You can cancel an ongoing asynchronous operation by calling the 
+<i>UpdateController.CancelAsync</i> method. </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">8.  
+Looking at the <i>mUpdateController_CheckForUpdateCompleted </i>event handler, 
+we can see that we interrogate the <i>CheckForUpdateCompletedEventArgs</i> to 
+determine the results of the update check.  First we see if the operation 
+was cancelled, then we look for any errors that might have occurred.  If 
+all is good, we can look at the <i>Result</i> property.  If an update was 
+found we enable the <i>Download</i> button and do some work to show the user 
+what was found.  Notice that we look at the <i>CurrentUpdate</i> property 
+of the Update Controller.  If no update was found, the <i>Current 
+Update</i> property would be empty or null.<br /><br />This event handler is 
+guaranteed to be executed on the same thread that started the asynchronous 
+check.  You don’t have to worry about any thread marshalling when using 
+these asynchronous methods.  That is all done by the Update 
+Controller.<br /><br />Notice how little work that was actually involved with the 
+update process.  Most of the code that is present involves handling the 
+form and how we want to interact with the user.<br /><br />One more item to note is 
+the <i>UpdateFound</i> event.  Though not used in this Quick Start code, 
+this event allows you to interrogate the update information, and use local 
+client state information, such as your application licensing status, in order to 
+select from alternate updates that might be available.  The update can also 
+be canceled, which prevents an update from being discovered.  The AppLife 
+Update API documentation contains more information on this event. <br /><br />Now 
+let’s go download the update.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Downloading an Update</b></p>
+<p class="MsoBodyText">Once an update is found, the <i>CurrentUpdate</i> property 
+contains all the information we need to download, validate, and apply the 
+update.<br /><br />The <i>Download Update </i>button click handler instantiates and 
+shows a new <i>DownloadUpdateForm</i>.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">9.  Look 
+at the constructor of the <i>DownloadUpdateForm</i>.  Much like the 
+<i>CheckForUpdate </i>form, we subscribe to events and call an asynchronous 
+download method.  This time we subscribe to an additional event that sends 
+download progress updates.<br /><br />We subscribe to the 
+<i>DownloadUpdateProgressChanged </i>event and the 
+<i>DownloadUpdateCompleted</i> event.<br /><br />Then we call the 
+<i>DownloadUpdateAsync</i> method.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">10. When a 
+progress event occurs, we update the text of the information label on the 
+form.  Again, this handler is guaranteed to execute on the calling thread, 
+so as long as the initial <i>DownloadAsync</i> method was called on the UI 
+thread, you can safely modify UI controls.  The thread synchronization work 
+is done for you in the Update Controller.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">11. When the 
+download completed event is handled, much like when the check for update was 
+completed, we check to see if the operation was cancelled and check for any 
+errors.  Once the update is downloaded, the controller can validate and 
+apply the update.  With the download completed and validated, we enable the 
+<i>Install Now</i> button.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Validate &amp; Apply the Update</b></p>
+<p class="MsoBodyText">Validating the downloaded update uses the public key from 
+the Update Controller and the signature of the update package contained in the 
+Director to check the downloaded update package.  You can perform 
+validation manually using the <i>UpdateController.ValidateUpdate</i> 
+method.<br /><br /></p>
+<p class="MsoBodyText">The downloaded update can be applied using the 
+<i>ApplyUpdate </i>method.  This method also performs validation prior to 
+execution of the update.<br /><br />Applying an update shuts down this instance as 
+well as all other instances of the application being updated so that its files 
+and assemblies can be replaced.  Though this Quick Start does not do so, 
+you can subscribe to the <i>UpdateStarted</i> event of the 
+UpdateController.  This event will be raised on every running instance of 
+the hosting application.  You can perform any work necessary prior to 
+shutdown, and you can cancel the update from any instance of the 
+application.  If all instances cannot be shutdown, the update will abort 
+itself.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">12. Look at 
+the <i>installButton_Click</i> method.  Notice that we validate the update 
+manually before calling <i>ApplyUpdate</i>.  Alternately you could call 
+<i>ApplyUpdate</i> and catch any 
+Kjs.AppLife.Update.Controller.ValidationException exceptions.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Like the Simple Quick Start, the AppLife Update project 
+uses the Add &amp; Replace file action to replace the single CustomForms.exe 
+file.<br /><br /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">13. To 
+customize the Update Engine user interface, we will create a new .Net assembly 
+(.exe or .dll) and create a class that implements the 
+<i>Kjs.AppLife.Update.Engine.Core.IUpdateUI</i> interface. Notice the <i>Custom 
+Update UI</i> project in the quick start solution.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">From AppLife Make Update, click on Help&gt;API Reference 
+and browse to:</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">Kjs.AppLife.Update.Engine.Core 
+Namespace</p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">          
+IUpdateUI Intererface</p>
+<p class="MsoBodyText" style="TEXT-INDENT: 36pt">                   
+IUpdateUI Members</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">This interface is implemented by the <i>Form1</i> class of 
+the Custom Update UI project.  The class code has lots of code comments 
+that provide details on the interface and how it is implemented.  To 
+summarize:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The custom user interface is displayed in the <i>IUpdateUI.Open()</i> 
+method</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The user interface is refreshed in the <i>IUpdateUI.Update()</i> method 
+</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Update completion notification is provided from the 
+<i>IUpdateUI.Finish()</i> method.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The Custom UI informs the Update Engine of its activity by raising 
+events.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18.75pt; tab-stops: 216.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>When the User Interface is closed, the <i>Closed</i> event is raised 
+informing the update engine that it’s okay to shutdown and complete the update 
+process.</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 54pt; TEXT-INDENT: -18.75pt; tab-stops: 216.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>The User Interface can cancel, pause or resume the update by raising 
+events.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">14. The 
+customized user interface is imported into AppLife Make Update, making it 
+available to be packaged into an update.  This is accomplished through the 
+project settings dialog.  <i>Project -&gt; Settings </i>menu option.  
+</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"><img border="0" src="../ImagesExt/image135_33.png" alt="" /></p>
+<p class="MsoBodyText">With the customized update engine user interface present, 
+all future updates will utilize the imported user interface.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">This Quick Start highlights the manual methods on the 
+Update Controller that allows you to check for, download, and apply updates 
+under a very flexible architecture.  A customized update engine user 
+interface was also presented.  We used forms to control the process, but no 
+forms are actually necessary.  You can mold the update discovery and 
+download features into any visual or non-visual process that best fits your 
+application and your users.</p><span id="related-topics"></span></body></html>

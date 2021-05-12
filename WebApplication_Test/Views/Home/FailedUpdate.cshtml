@@ -1,0 +1,24 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.Dashboard.FailedUpdateHomeViewModel
+@{
+    ViewBag.Title = @String.Format("Failed Updates: {0}", @Model.Name);
+}
+<div class="breadcrumb"> : @Html.ActionLink("Dashboard", "Index") / @Html.ActionLink(Model.Name, "AppView", new {id = Model.ApplicationId}) </div><br />
+<h2 class="grid_5">Failed Updates: @Model.Name</h2>
+<!-- START SEARCH -->
+<div id="search" class="grid_3 prefix_4">
+	@using(Ajax.BeginForm("FailedUpdateSearch", "Home", new {id=Model.ApplicationId},  new AjaxOptions {
+				HttpMethod = "GET",
+				UpdateTargetId = "failedUpdateTable",
+				InsertionMode = InsertionMode.Replace,
+				OnComplete = "setFilter()"
+	})) {
+		<input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("QuickFailedUpdateSearch", "Home", new { id = Model.ApplicationId})" placeholder="Search" />
+		<input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+ }
+</div>
+<!-- END SEARCH -->
+<div class="clearfix">
+</div>
+<hr />
+@Html.Partial("FailedUpdateTable", Model.FailedUpdateTableViewModel)
+@Content.Script("FailedUpdateTable.js", @Url)

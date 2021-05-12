@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Execute MSI</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="operatingsystem.htm" /><link rel="next" href="installnet40.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="d1ded02c-009d-4d8e-94db-5e0570e9b574">
+<h4>Execute MSI</h4>
+<p class="MsoBodyText">The <i>Execute MSI</i> action will utilize the Windows 
+Installer to execute a designated Msi file.  This action allows the update 
+author to designate an execute <i>msiexec.exe</i> command line as well as a 
+rollback command line.</p>
+<p class="MsoBodyText">To assist in creating the command line, a client path can 
+be designated and assigned to the &lt;path&gt; variable.  The designated 
+path can be substituted into the two action command lines with the &lt;path&gt; 
+variable.  Shared properties will be expanded into the command lines as 
+well.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">No action taken</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Executes the <i>Execute</i> command line using 
+msiexec.exe</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Executes the <i>Rollback</i> command line using 
+msiexec.exe</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

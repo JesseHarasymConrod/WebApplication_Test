@@ -1,0 +1,112 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.Dashboard.FailedUpdateTableViewModel
+<script type="text/javascript">
+    var applicationId = '@string.Format("{0}", Model.ApplicationId)';
+</script>
+<div id="failedUpdateTable">
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th width="4%" scope="col">View
+            </th>
+            <th width="24%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'UniqueId')">Unique ID</a>
+                @if(Model.SortCol == "UniqueId") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="19%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'ClientAccessKey')">Client Access Key</a>
+                @if(Model.SortCol == "ClientAccessKey") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="13%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'Version')">Version</a>
+                @if(Model.SortCol == "Version") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="13%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'StartingVersion')">Starting Version</a>
+                @if(Model.SortCol == "StartingVersion") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="16%" scope="col">
+                <a href="#void" onclick="redrawGrid('sortCol', 'Date')">Date</a>
+                @if(Model.SortCol == "Date") {
+                    if(Model.SortOrder) { 	
+                    <span class="ui-icon-inline ui-icon-triangle-1-s"></span>} else {
+                    <span class="ui-icon-inline ui-icon-triangle-1-n"></span>
+                    }
+                }
+            </th>
+            <th width="5%" scope="col"></th>
+        </tr>
+        @foreach(var item in Model.FailedUpdateEntries) {
+            <tr id="row-@item.Id">
+                <td>
+                    <a href="@Url.Action("GetExecutedUpdate", "Home", new { applicationId = item.AppId, executionId = item.Id })" onclick="storeTableParams();">
+                        <img src="@Url.Content("~/Content/Images/16X16/information.png")" alt="View" style="float:left;" />
+                     </a>
+                </td>
+                <td>
+                    <div title="@item.ClientId">@AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(item.ClientId)</div>
+                </td>
+                <td>
+                    @item.ClientAccessKey
+                </td>
+                <td>
+                    @item.UpdateVersion
+                </td>
+                <td>@item.StartingVersion</td>
+                <td>
+                    @string.Format("{0:G}", item.CompletedTimeUTC.ToLocalTime())
+                </td>
+                <td><a href="#" onclick="deleteRow(this)" rel="@item.Id">
+                    <img src="@Url.Content("~/Content/Images/16X16/delete.png")" alt="Remove" /></a></td>
+            </tr>
+        }
+    </table>
+    <div class="grid_6">
+        Page @(Model.FailedUpdateEntries.PageIndex + 1)
+        of @Model.FailedUpdateEntries.TotalPages
+        @if(!string.IsNullOrEmpty(Model.Filter)) {
+            @:(filtered)
+		}
+    </div>
+    <div class="grid_6">
+        <ul id="pagination">
+            @{if(Model.FailedUpdateEntries.HasPreviousPage) {
+                <li class="previous"><a href="#void" onclick="redrawGrid('pageIndex', gridState.pageIndex - 1)">« Previous</a> </li>
+              } else {  
+                <li class="previous-off">&laquo; Previous</li>
+              }
+            }
+            @{if(Model.FailedUpdateEntries.HasNextPage) {
+                <li class="next"><a href="#void" onclick="redrawGrid('pageIndex', gridState.pageIndex + 1)">Next »</a> </li>
+              } else {  
+                <li class="next-off">Next &raquo;</li>
+              }
+            }
+        </ul>
+    </div>
+    <div id="dialog-confirm" title="Confirm Removal" style="display: none;">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 40px 0;"></span>
+            This update execution entry will be permanently deleted and cannot be recovered. Are you sure?
+        </p>
+    </div>
+</div>

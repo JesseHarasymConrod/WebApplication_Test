@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>The AppLife Update Engine</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="buildinganupdatepackage.htm" /><link rel="next" href="targetversions.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="a4e518e1-23a5-4bf7-bca1-da183771ce7b">
+<h3>The AppLife Update Engine</h3>
+<p class="MsoBodyText">When the Update Engine is executed on the client computer, 
+the downloaded update package is parsed to determine the actions that should be 
+executed on the client computer.  The Update Engine performs the update in 
+a three stage operation.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Prepare</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Execute</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Cleanup</p>
+<p class="MsoBodyText">Each update action contained in the update package defines 
+methods for each stage the engine executes, as well as a rollback method should 
+an unexpected exception occur during the update process.  The engine first 
+iterates the action list, calling the <i>Prepare</i> method on each 
+action.  Within the prepare method, each action perform any preparatory and 
+backup activity necessary.  Backup activity is performed to facilitate 
+rolling back the state of the client to its initial pre-update state.</p>
+<p class="MsoBodyText">Upon successful completion of the <i>Prepare</i> stage, the 
+engine starts over and iterates each action calling the <i>Execute</i> 
+method.  Within this method the action performs the update steps.  Any 
+activity that must be completed for this update to be successful is performed in 
+the <i>Execute</i> stage.  When this stage is completed for all the actions 
+in the update package, the client software is considered <i>updated</i>.  
+Any unexpected exception that occurs prior to completing the <i>Execute</i> 
+stage on all actions will cause the engine to enter into a <i>Rollback</i> 
+process.  If the <i>Execute </i>stage completes successfully, the engine 
+moves on to the <i>Cleanup </i>stage.</p>
+<p class="MsoBodyText">The <i>Cleanup</i> stage is for removing any temporary 
+files, logging custom activity, or tidying up behind the process.  There 
+are no activities critical to the success of the update occurring in this 
+stage.  If an unexpected exception occurs in this stage, the stage is 
+aborted, but a complete rollback will not occur.  In this event the 
+software is considered successfully updated, but there might be files left in 
+the user’s temporary directory.</p>
+<p class="MsoBodyText">In the event of an exception that causes a rollback, the 
+engine starts at the current action and iterates in the reverse order.  
+Each action executes its defined rollback activity.  When the rollback 
+process completes, the client software should be back to the same state that 
+existed before executing the update.</p>
+<p class="MsoBodyText">Each update package is self-contained and includes the 
+update engine.</p><span id="related-topics"></span></body></html>

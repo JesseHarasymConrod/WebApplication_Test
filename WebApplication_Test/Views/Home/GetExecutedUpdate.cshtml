@@ -1,0 +1,84 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ExecutedUpdateViewModel
+<style>
+    .success {
+        background-image: url(../../Content/Images/32x32/accept.png);
+        height: auto;
+    }
+
+    .failure {
+        background-image: url(../../Content/Images/32x32/exclamation.png);
+        background-position: 10px 20px;
+        height: auto;
+    }
+</style>
+
+@{
+    ViewBag.Title = "ExecutedUpdate";
+}
+
+@{
+    ViewBag.Title = string.Format("Executed Update: {0}", AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(Model.ExecutedUpdate.ClientId));
+}
+<div class="breadcrumb">: @Html.ActionLink("Dashboard", "Index") / @Html.ActionLink(@Model.ApplicationName, "AppView", new { id = Model.ExecutedUpdate.AppId }) / @Html.ActionLink(@AppLifeServerMvc.Models.UIHelper.ClientIDFormatter(Model.ExecutedUpdate.ClientId), "GetClient", new { applicationId = Model.ExecutedUpdate.AppId, clientId = Model.ExecutedUpdate.ClientId })  </div>
+<br />
+<div class="grid_12">
+    <h4>Update Execution Id: <span>@Model.ExecutedUpdate.Id</span>
+    </h4>
+    Client Id: @Model.ExecutedUpdate.ClientId<br />
+    Client Access Key: @Model.ExecutedUpdate.ClientAccessKey
+
+    @if(Model.ExecutedUpdate.Result == "Success") {
+        <div class="notification success">
+            <b>Update Result</b>: @Model.ExecutedUpdate.Result!
+        </div>
+    } else { 
+        <div class="notification failure">
+            <b>Update Result:</b> @Model.ExecutedUpdate.Result<br />
+            <div style="line-height: 14px;">
+                <b>Error Information:</b><br />
+                @Model.ExecutedUpdate.ErrorText<br />
+                <br />
+                Client Log Path: @Model.ExecutedUpdate.LogPath
+            </div>
+        </div>
+    }
+</div>
+<div class="clearfix">
+</div>
+<hr />
+<div class="grid_6">
+    <p>
+        <b>Update Version: </b>@Model.ExecutedUpdate.UpdateVersion<br />
+        <b>Starting Version: </b>@Model.ExecutedUpdate.StartingVersion<br />
+        <b>Time: </b>@Model.ExecutedUpdate.CompletedTimeUTC.ToLocalTime().ToString("f")<br />
+        <br />
+        <b>Update Engine Version: </b>@Model.ExecutedUpdate.EngineVersion<br />
+        <b>CLR: </b>@Model.ExecutedUpdate.CLR<br />
+        <b>Elevation Setting: </b>@Model.ExecutedUpdate.ElevationSetting<br />
+    </p>
+</div>
+<div class="grid_6">
+    <p>
+        <b>Computer Name: </b>@Model.ExecutedUpdate.ComputerName<br />
+        <b>Operating System: </b>@Model.ExecutedUpdate.OS<br />
+        <b>Version: </b>@Model.ExecutedUpdate.OSVersion<br />
+        <b>Platform: </b>@Model.ExecutedUpdate.Platform<br />
+        <b>Service Pack: </b>@Model.ExecutedUpdate.OSServicePack<br />
+        <b>IP Address: </b>@Model.ExecutedUpdate.IPAddress<br />
+        <br />
+        <b>Culture: </b>@Model.ExecutedUpdate.Culture<br />
+        <b>UI Culture: </b>@Model.ExecutedUpdate.UICulture<br />
+    </p>
+</div>
+@*<div>
+    Current Version: @Model.CurrentVersion<br />
+    First Update Check: @Model.FirstCheckDate<br />
+    Last Update Check: @Model.LastCheckDate<br />
+    Computer Name: @Model.ComputerName<br />
+    Client ID: @Model.ClientId<br />
+    Client Access Key: @Model.ClientAccessKey
+</div>*@
+
+<div id="loaderDiv">
+</div>
+

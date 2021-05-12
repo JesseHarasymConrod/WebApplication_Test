@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Finish Synchronization</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="updateprocesspermissions.htm" /><link rel="next" href="projectproperties.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="1df0d17a-1223-4aa0-aa13-ed709bcc9add">
+<h3>Finish Synchronization</h3>
+<p class="MsoBodyText">Information about the new AppLife Update project must be 
+included in your application source code.  This information can be 
+transferred using the Windows Clipboard.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">If your application is not forms based, or you would prefer 
+to create and instantiate the Update Controller in code, you can paste a code 
+snippet in either C#, VB.net, or XAML. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The properties that are synchronized are:</p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 198.0pt"><b>1.   </b>Application 
+ID<br />A globally unique identifier (GUID) that uniquely identifies your 
+application.  The ID of an update package must match the application ID set 
+in the Update Controller to be applied.<br /><br /><b></b></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 198.0pt"><b>2.   </b>Public Key 
+Token<br />An AppLife Update project file (aup) contains an RSA public-private key 
+pair.  When an update is built, the resulting update package is signed 
+using the private key.  When the Update Controller embedded in your 
+application downloads an update package, it uses the signature and the public 
+key token to <a class="topic-link" href="downloadverification.htm">verify</a> that 
+the package was built by its corresponding project file.  <b><i>It is 
+important that you back up your project file (aup).</i></b>  If your 
+project file is lost, you will not be able to build updates for your 
+application.<b></b></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 198.0pt"><b>3.   </b>Update 
+Location<br />The update location is where the Update Controller will look to find 
+updates for your application.<b></b></p><span id="related-topics"></span></body></html>

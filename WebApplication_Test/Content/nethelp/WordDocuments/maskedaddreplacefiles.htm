@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Masked Add &amp; Replace Files</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="deletefiles.htm" /><link rel="next" href="patchexistingfile.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="8030da36-31b0-42f4-a267-9498a3ff7234">
+<h4>Masked Add &amp; Replace Files</h4>
+<p class="MsoBodyText">The masked add &amp; replace files action allows you to 
+specify a file mask to use when adding files from your local file system to the 
+update.  To use this action, you set the target client folder, provide a 
+local folder to look for files in, and you supply a file mask such as 
+(*.exe).</p>
+<p class="MsoBodyText">When this action is processed during the update build 
+process, the mask is applied to the local folder and all files that match the 
+mask are included into the update package.  This action is an extension of 
+the add &amp; replace files action</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action verifies permissions 
+to the target folder.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Makes a copy of the files that are going to be replaced on 
+the client computer, then adds and replaces the defined list of files on the 
+client.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Attempts to copy the files that were backed up in the 
+execute stage back to their original location.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

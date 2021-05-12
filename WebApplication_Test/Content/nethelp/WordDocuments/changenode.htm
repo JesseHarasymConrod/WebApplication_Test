@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Change Node</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="addattribute.htm" /><link rel="next" href="deletenode.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="2a93187a-6c56-42d6-ad64-f2e0589dec1b">
+<h4>Change Node</h4>
+<p class="MsoBodyText">The <i>Change Node</i> action replaces the value of an xml 
+node found using an XPath expression.  The node can be an attribute or an 
+element.  To use this action you provide a path to an existing Xml Document 
+by selecting from a list of known folders on the client target and then 
+providing a sub path and file name.</p>
+<p class="MsoBodyText">You then provide an XPath expression to identify the node 
+that you want to change.  If more than one node matches the XPath 
+expression, you can choose one of five actions:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Change all nodes (the default action)</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Change only the first node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Change only the last node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Don’t change any nodes</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Abort the update</p>
+<p class="MsoBodyText">You provide the new node text and nodes are changed based 
+on the setting above.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">Verifies permission to modify the defined Xml file.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">The action backs up the Xml file then changes the Xml node 
+text, performing the operation as defined by the action properties.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup file created during the <i>execute</i> 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Restores the xml file with the file backed up in the 
+<i>execute</i> stage.</p><span id="related-topics"></span></body></html>

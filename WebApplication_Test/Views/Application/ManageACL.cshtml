@@ -1,0 +1,35 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ManageACLViewModel
+@{
+    ViewBag.Title = "AppLife Server - Manage Access Lists";
+}
+<div class="breadcrumb">:
+    @if(!string.IsNullOrEmpty(Model.Version)){
+        @Html.ActionLink("Dashboard", "Index", "Home") @Html.Raw(" / ") @Html.ActionLink("Application", "AppView", "Home", new {Id = Model.Id}, null) @Html.Raw(" / ")  @Html.ActionLink("Version", "Index", "Version", new { id = Model.Id, version = Model.Version }, null)
+    }else{
+        @Html.ActionLink("Dashboard", "Index", "Home") @Html.Raw(" / ") @Html.ActionLink(Model.ApplicationName, "AppView", "Home", new { id = Model.Id }, null) @Html.Raw(" / ") @Html.ActionLink("Edit", "EditApplication", "Home", new { id = Model.Id }, null)
+    }
+    </div>
+<br />
+<div class="container_12">
+    <h2 class="grid_3">Application Access Lists</h2>
+    <div id="search" class="grid_3 prefix_6">
+        @using(Ajax.BeginForm("AccessListSearch", "Application", new { id = Model.Id }, new AjaxOptions {
+            HttpMethod = "GET",
+            UpdateTargetId = "manageACLListPane",
+            InsertionMode = InsertionMode.Replace
+        })) {
+            <input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("AccessListQuickSearch", "Application", new { id = Model.Id })" placeholder="Search" />
+            <input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+        }
+    </div>
+    <div class="clearfix"></div>
+    <hr />
+    <script type="text/javascript">
+        var applicationId = '@Model.Id';
+    </script>
+    <div id="manageACLListPane">
+        @Html.Partial("ManageACLLists", Model)
+    </div>
+</div>
+<div id="loaderDiv"></div>
+

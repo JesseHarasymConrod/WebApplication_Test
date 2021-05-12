@@ -1,0 +1,30 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ApplicationTableView
+
+@{
+    ViewBag.Title = "AppLife Server - Applications";
+}
+<h2 class="grid_1">
+	Applications</h2>
+<!-- START SEARCH -->
+<div id="search" class="grid_3 prefix_8">
+	@using(Ajax.BeginForm("Search", "Application", new AjaxOptions {
+				HttpMethod = "GET",
+				UpdateTargetId = "applicationTable",
+				InsertionMode = InsertionMode.Replace,
+				OnComplete = "setFilter()"
+	})) {	
+		<input type="text" class="text medium clearable" name="q" id="q" data-autocomplete="@Url.Action("QuickSearch", "Application")" placeholder="Search" />
+		<input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+ }
+</div>
+<!-- END SEARCH -->
+<div class="clearfix">
+</div>
+<hr />
+@{Html.RenderPartial("ApplicationTable");}
+@Content.Script("ApplicationTable.js", @Url)
+<div class="grid_8">
+	<input type="submit" class="submit" value="Add Application" onclick="location.href='@Url.Action("Add", "Application")'" />
+</div>
+<div id="loaderDiv">
+</div>

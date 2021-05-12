@@ -1,0 +1,96 @@
+﻿<html>
+<head>
+	<title>Update Failure Notification</title>
+	<style type="text/css">
+		Body {
+			margin: 0;
+			padding: 0;
+			font-family: Tahoma, Arial, Verdana, sans-serif;
+		}
+		div {
+			margin: 5px 10px;
+		}
+		p {
+			font-size: 12px;
+			color: #666666;
+			line-height: 18px;
+			margin-bottom: 0px;
+		}
+		h1 {
+		}
+		h3 {
+			font-size: 18px;
+			font-weight: normal;
+			color: #007BA8;
+			margin-bottom: 0px;
+		}
+		.logo {
+			font-family: Tahoma, Arial, Verdana, sans-serif;
+			font-size: 36px;
+			letter-spacing: -3px;
+			padding: 10px 0px 10px 0px;
+			color: #fff;
+			margin-left: 15px;
+		}
+		.header {
+			background-color: #258cd1;
+			background-image: url('[publicUrl]/content/images/header_highlighter.png');
+			background-repeat: repeat-x;
+			height: 75px;
+		}
+		.footer {
+			text-align: center;
+			font-size: 10px;
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+		.logo_wrapper {
+			height: 171px;
+		}
+	</style>
+</head>
+<body>
+	<table cellpadding="0" cellspacing="0" border="0" width="600">
+		<tr>
+			<td class="header">
+				<div class="logo">
+					<img src="[publicUrl]/Content/images/AUServer_White_48X48.png" alt="AppLife Server"
+						width="48" height="48" /><strong>AppLife</strong>Server</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<p>
+						Hello [name],
+					</p>
+						<p>An error has occured while applying an application update to version [updateVersion] for the application [appName].</p>
+						<p>Application: [appName]<br/>
+						Id: [appId]</p>
+						<p>Time: [updateTime]<br/>
+						Version: [updateVersion]<br/>
+						Starting Version: [startingVersion]<br/>
+						Client Access Key: [clientAccessKey]<br/>
+						Client Id: [clientId]<br/>
+						Computer Name: [computerName]<br/>
+						IP Address: [ipAddress]<br/>
+						Environment: [environment]
+						</p>
+						<p>
+						<b>Error Information:</b><br/>
+						[errorText]
+						</p>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p class="footer">
+					&copy; Copyright 2013 Kinetic Jump Software, LLC | Powered by <a target="_blank"
+						href="http://www.kineticjump.com/">AppLife Update</a>
+				</p>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

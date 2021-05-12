@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>@ViewBag.Title</title>
+    @Content.Script("jquery-1.9.0.min.js", @Url)
+    @Content.Script("scripts.js", @Url)
+    @Content.Script("jquery-ui-1.9.2.custom.min.js", @Url)
+    @Content.Script("jquery.unobtrusive-ajax.min.js", @Url)
+    @*@Content.Script("facebox.js", @Url)*@
+    @Content.Script("jquery.validate.min.js", @Url)
+    @Content.Script("jquery.validate.unobtrusive.js", @Url)
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" type="text/javascript"></script>
+    @Content.Script("knockout.mapping-latest.js", @Url)
+    @Content.Script("moment.js", @Url)
+
+
+    @*
+
+    <link href="~/Content/facebox.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet"  type="text/css" />
+    <link href="~/Content/styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!--[if IE 6]>
+    <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+
+      DD_belatedPNG.fix('#header');
+      DD_belatedPNG.fix('.notification');
+      DD_belatedPNG.fix('.submit');
+      DD_belatedPNG.fix('#info');
+      DD_belatedPNG.fix('.pngfix');
+
+    </script>
+    <![endif]-->
+    <!-- START THE MENU -->
+    <script type="text/javascript">
+        var globalHomePath = '@Url.Content("~")';
+        // initialise plugins
+        jQuery(function () {
+            jQuery('ul.sf-menu').superfish();
+        });
+    </script>
+
+    <!--START HEADER  -->
+    <div id="header">
+        <div id="head_wrap" class="container_12">
+            <!--START LOGO  -->
+            <div id="logo" class="grid_8">
+                <h1>
+                    <img src="~/Content/images/AUServer_White_48X48.png" alt="AppLife Server" />
+                    <strong>AppLife</strong>Server
+                </h1>
+            </div>
+            <!-- END LOGO -->
+            <!-- START USERPANEL -->
+            <div id="user_panel" class="grid_4">
+                <ul>
+                    @if(User.IsInRole("admin")) {
+                    <li>@Html.ActionLink("Config", "Config", "Administration")</li>}
+                    @{Html.RenderAction("UserSummary", "Account");}
+                    <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
+                </ul>
+            </div>
+            <!-- END USERPANEL -->
+            <!--START NAVIGATION  -->
+            <div id="nav" class="grid_9">
+                <ul class="sf-menu">
+                    <!-- class "current" defines this as current page -->
+                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+                    @if(AppLifeServerMvc.Models.Internal.KjsIntegration.Subscription.Exists(User)) {
+                    <li>@Html.ActionLink("Subscription", "Index", "Subscription")</li>
+                    }
+                    <!-- Example of an item with nested list, this will display as a drop down menu -->
+                    @{if(User.IsInRole("admin")) {
+                    <li>@Html.ActionLink("Applications", "Index", "Application")</li>
+                    }
+                      }
+
+
+                    @{if(User.IsInRole("admin")) {
+                    <li>@Html.ActionLink("Users", "Index", "Account")</li>
+                    }}
+
+                    @*
+                    <li>
+                        <a href="#">Reports</a>
+                        <!-- example of sub-menu level. -->
+                        <ul>
+                            <li><a href="#">Application</a></li>
+                            <li><a href="#">Client</a></li>
+                        </ul>
+                    </li>*@
+                    <li>
+                        <a href="@Url.Content("~/content/nethelp/WordDocuments/usingapplifeserver.htm")" target="_blank">Help</a>
+                        @if(User.IsInRole("admin")) {
+                        <ul>
+                            <li>@Html.ActionLink("Updates","Updates","Administration")</li>
+                        </ul>
+                        }
+                    </li>
+                </ul>
+            </div>
+            <!-- END NAV -->
+            @*<!-- START SEARCH -->
+            <div id="search" class="grid_3 buttons">
+                <form id="form1" name="form1" method="post" action="">
+                    <input type="text" class="text medium" id="search2" />
+                    <input name="Submit" type="submit" class="submit special" value="Go" id="Submit" />
+                </form>
+            </div>
+            <!-- END SEARCH -->*@
+        </div>
+        <!-- END HEAD_WRAP (CONTAINER FOR LOGO AND NAVIGATION -->
+    </div>
+    <!--END HEADER (FULLL WIDTH WRAPPER WITH BG) -->
+    <!--START CONTENT  -->
+    <div id="content" class="container_12">
+        @RenderBody()
+        <!-- End #Info -->
+        <!-- START FOOTER -->
+        <div id="footer" class="grid_12">
+            <p>
+                &copy; Copyright 2016 Kinetic Jump Software, LLC | Powered by <a href="http://www.kineticjump.com/update">
+                    AppLife
+                    Update
+                </a>
+            </p>
+        </div>
+        <!-- END FOOTER -->
+    </div>
+</body>
+</html>

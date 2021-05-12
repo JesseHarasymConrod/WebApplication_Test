@@ -1,0 +1,26 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ApplicationViewModel
+
+@{
+    ViewBag.Title = "AppLife Server - Add Application";
+}
+<div class="grid_12">
+	<h2>
+		Add New Application</h2>
+	<div class="clearfix">
+	</div>
+	<hr />
+	@using(Html.BeginForm()) {
+		@Html.ValidationSummary(true)
+
+		@Html.Partial("EditApplication");
+ }
+	<div class="grid_2">
+		<br />
+		@Html.ActionLink("Back to List", "Index")
+	</div>
+</div>
+<script language="javascript" type="text/javascript">
+	$(document).ready(function () {
+		document.getElementById("viewState").value = sessionStorage.getItem("ApplicationTable");
+	});
+</script>

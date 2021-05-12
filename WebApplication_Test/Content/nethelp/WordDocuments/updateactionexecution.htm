@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Update Action Execution</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="updateactions1.htm" /><link rel="next" href="expansionvariablessharedproperties.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="3eb16741-b7b4-4815-8fcd-378ef1ffddaa">
+<h3>Update Action Execution</h3>
+<p class="MsoBodyText">AppLife Updates are performed by the AppLife Update 
+Engine.  The update engine is responsible for executing the actions defined 
+in the update project.  Each action contains the logic necessary to perform 
+its function.  In addition to the actual update process, each action is 
+responsible for ensuring that its work can be rolled back in the event of an 
+unexpected exception anywhere in the update process.  To support this, the 
+update engine executes multiple stages within the update process.  The 
+stages that the engine executes are:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Prepare</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Execute</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Cleanup</p>
+<p class="MsoBodyText">And in the event that an error occurs, a <i>Rollback</i> 
+stage is executed.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The engine first iterates through each action and executes 
+the <i>Prepare</i> stage.  The purpose of this stage is to perform any 
+actions necessary to prepare the client for the work to be done in the 
+<i>Execute</i> stage.  This might include backing up files that are to be 
+replaced, checking for specific permissions to perform the tasks, etc.</p>
+<p class="MsoBodyText">Once each action has performed its <i>Prepare</i> 
+operations, the action list is iterated, with each action performing its 
+<i>Execute </i>operations.  When the final action in the action list 
+successfully completes its <i>Execute</i> operation, the update is considered 
+successful.  If an exception occurs before reaching this point, the Update 
+Engine will enter a <i>Rollback</i> stage.  During a rollback operation, 
+the actions are iterated in reverse order from the action that caused the 
+exception.  In each action, the <i>Rollback</i> operations are 
+performed.</p>
+<p class="MsoBodyText">Upon successfully completing the <i>Execute</i> phase, the 
+Update Engine iterates the <i>Cleanup</i> phase.  Each action can remove 
+any temporary files or perform any other cleanup operations necessary.  No 
+actions actually required to update the client should be performed in the 
+<i>Cleanup</i> stage.  An exception in this stage will not cause a rollback 
+operation.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>Note:</i> <i>When an action has a conditional statement 
+assigned, the action </i>Prepare<i> method is deferred to execute just before 
+the </i>Execute<i> method. When the execute stage reaches the action, the 
+conditional statement is evaluated. Based on the result of evaluating the 
+conditional expression, the prepare stage method will execute immediately before 
+the Execute method.</i></p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

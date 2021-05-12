@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Delete Registry Key</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="setregistryvalues.htm" /><link rel="next" href="deleteregistryvalues.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="7b123e06-7d45-4b96-975e-0a4c6bd8e104">
+<h4>Delete Registry Key</h4>
+<p class="MsoBodyText">The <i>Delete Registry Key </i>action deletes a defined 
+registry key and all its values.  To use this action you select the 
+registry hive and define the path to the key that is to be removed.</p>
+<p class="MsoBodyText">This action will not remove sub keys.  The key being 
+removed cannot contain sub keys.  If the key contains sub keys, this action 
+will fail.</p>
+<p class="MsoBodyText">If the defined key does not exist, no errors are 
+raised.</p>
+<p class="MsoBodyText">Use caution when deleting registry keys.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action checks delete 
+permissions of the defined registry location.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">This action backs up the defined registry key, then deletes 
+if it exists.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Restores registry key as it was backed up in the 
+<i>execute</i> stage.</p><span id="related-topics"></span></body></html>

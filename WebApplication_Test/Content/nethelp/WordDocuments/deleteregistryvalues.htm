@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Delete Registry Values</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="deleteregistrykey.htm" /><link rel="next" href="readregistryvalue.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="dd83f509-4182-45b8-a820-f7867950d371">
+<h4>Delete Registry Values</h4>
+<p class="MsoBodyText">The <i>Delete Registry Values</i> action removes one or 
+more values from a designated registry key.  To use this action you select 
+a registry hive and define a path to the key that holds the values that are to 
+be removed.  This key must exist.  Then you provide a list of value 
+names that are to be removed.  The match is case insensitive.  If a 
+defined value is not found the action continues without raising an error.</p>
+<p class="MsoBodyText">Use caution when deleting values from the registry.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action checks delete 
+permissions of the defined registry location.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">This action backs up the registry values then deletes the 
+defined registry values, if they exist.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">No action taken.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Restores registry values that were backed up in the 
+<i>execute</i> stage.</p><span id="related-topics"></span></body></html>

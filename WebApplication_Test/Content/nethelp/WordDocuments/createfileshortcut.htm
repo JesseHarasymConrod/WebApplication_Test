@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Create File Shortcut</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="replacefilesonrestart.htm" /><link rel="next" href="applifemanager.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="9144ea4e-2c04-4121-82fb-4c39c5590513">
+<h4>Create File Shortcut</h4>
+<p class="MsoBodyText">The create file shortcut action allows you to create a 
+shortcut on the client during an update.  To use this action, you set the 
+location of the shortcut, the target of the shortcut, and any command line 
+arguments.</p>
+<p class="MsoBodyText">For this action to be valid, a shortcut location, target 
+location, and if set, an Icon location must be configured.</p>
+<p class="MsoBodyText">If the defined shortcut already exists on the client, you 
+can choose to replace it, skip it, or abort the update.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action verifies permissions 
+to the shortcut location folder.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Creates a new shortcut on the client computer.  If a 
+shortcut already exists, the original is backed up. </p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">If a preexisting shortcut was backed up in the 
+<i>execute</i> stage, this shortcut is restored.</p><span id="related-topics"></span></body></html>

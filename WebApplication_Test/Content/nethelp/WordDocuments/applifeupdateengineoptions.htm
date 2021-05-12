@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>AppLife Update Engine Options</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="applifeupdateproject.htm" /><link rel="next" href="coordinatedapplicationshutdown.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="7f7a7f85-ac88-413b-bee0-5e3e5dcefb81">
+<h4>AppLife Update Engine Options</h4>
+<p class="MsoBodyText">When using an AppLife Update Action List Project, your 
+updates are executed on client systems by the AppLife Update Engine.  The 
+operation of the AppLife Update Engine user is configurable within the host 
+application code.  </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Configuration options for the AppLife Update Engine user 
+interface include:</p>
+<p class="MsoBodyText"><i></i> </p>
+<p class="MsoBodyText"><i>No User Interface</i></p>
+<p class="MsoBodyText">You can choose not to show this form at all during an 
+update.  This options allows you to silently update your application.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>Immediate Close</i></p>
+<p class="MsoBodyText">By default, the AppLife Update Engine user interface shows 
+an “update complete” message and requires the user to click a close button to 
+complete the update.  Upon clicking the close button, the newly updated 
+application restarts.  You can choose not to require the user to click a 
+close button and have the <i>update</i> user interface immediately close upon 
+completion of applying the update.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>No Restart</i></p>
+<p class="MsoBodyText">You can configure the AppLife Update Engine interface to 
+not restart the application upon completion of the update.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>No Shutdown</i></p>
+<p class="MsoBodyText">By default, when an update is applied, the application 
+hosting the Update Controller is shutdown so that its assembly can be replaced 
+during the update process.  In some implementations, this is not 
+desired.  You can configure your update process to not shutdown the hosting 
+application during an update process.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">These options can be combined for custom 
+configurations.  The <i>ApplyUpdate</i> and the <i>UpdateInteractive</i> 
+methods of the Update Controller provide overrides that allow you to configure 
+these options.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

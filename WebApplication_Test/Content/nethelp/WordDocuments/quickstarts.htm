@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Quick Starts</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="installingapplifemanager.htm" /><link rel="next" href="applifemanagerquickstart.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="50cf6823-101c-42ab-a2de-f9f19ee8c025">
+<h2>Quick Starts</h2>
+<p class="MsoBodyText">Welcome to AppLife Update!  AppLife Update provides 
+incredible flexibility in implementing an update process within your software 
+application.  You can choose to use the AppLife Manager Windows service or 
+integrate directly into your application with four built-in and ready to use 
+update processes. Or take advantage of the flexibility provided by the AppLife 
+Update API and easily develop your own updating user experience. </p>
+<p class="MsoBodyText">With your deployed maintenance process looking and behaving 
+the way you want, the actions that you can utilize in maintaining your deployed 
+installations from one version to the next is just as flexible. Many common 
+Windows application updating activities, such as file and registry manipulation, 
+come ready-to-use. Just drag, drop and configure them in your action list. And 
+if you don’t find a built-in action that meets your needs, you can use the 
+Dynamic Code Action to write your own .Net updating code, or create your own 
+reusable custom actions.  We’ll show you how.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Within this Quick Start guide, we demonstrate how to use 
+AppLife Update to maintain your applications.  Using the AppLife Manager, a 
+direct integration approach, or a customize AppLife Update implementation to 
+meet your specific updating requirements.<br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">1.  
+<b>AppLife Manager<br /></b>This quick start will walk through the process of 
+creating a new application on an AppLife Server, setting up an AppLife Project 
+to publish updates for the application, and publishing an initial update that 
+will install the application on deployed systems running AppLife 
+Manager.<br /><br /><b></b></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">2.  
+<b>Simple<br /></b>The simple quick start application implements the AppLife 
+Update solution in its simplest form.  We enable a brand new WinForms 
+application for updating with AppLife Update.  This implementation might 
+just be all that you need.<br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">3.  
+<b>Simple – WPF<br /></b>The simple WPF quick start uses the AppLife WPF updating 
+control to implement updating features into a WPF application.<br /><br /></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">4.  
+<b>Custom Forms</b><br />The Custom Forms application utilizes methods and events 
+on the Update Controller to check for, download, and apply an update.  The 
+application replaces the built-in updating user interface with a completely 
+custom one.  The tasks that you learn in this quick start can be used to 
+design and implement many different updating processes.<br /><br /><b></b></p>
+<p class="C1HNumber" style="MARGIN-LEFT: 36pt; tab-stops: 202.5pt">5.  
+<b>Custom Actions<br /></b>This example demonstrates how to create a custom 
+action, as well as a corresponding custom action builder and custom action 
+editor to provide an Update Action that will perform a text file search on the 
+deployed client that is being updated for a designated regular expression. The 
+results are then further manipulated with customized .Net code using a 
+<i>Dynamic Code Action</i>. <br /><br /><b></b></p>
+<p class="MsoBodyText">After you have reviewed these quick starts, you will be 
+well prepared to implement AppLife Update into your own applications.  
+Please refer to this help manual in its entirety, as well as the AppLife Update 
+API reference, which can be accessed through the AppLife Update Help menu <a href="http://www.kineticjump.com/update/apihelp">or Online</a>, for more 
+information on using the AppLife Update product to integrate an update process, 
+and deploy software updates into your own applications.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">To work through these quick starts, you will need to have 
+AppLife Update and Visual Studio installed on your computer. For the AppLife 
+Manager walk through, you will need access to an AppLife Server or an AppLife 
+Update Cloud subscription.</p>
+<p class="MsoBodyText">If you have not already done so, install AppLife Update to 
+your local system.  </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>NOTE:  All of the Quick Starts come with a 
+precompiled version 2.0.0.0.  This precompiled version is located in the 
+</i>CurrentVersion<i> folder.  The update location in the precompiled 
+version does not match the location to where you extracted the Quick 
+Start.  As a result, after successfully updating to version 2.0.0.0, 
+subsequent check for update attempts will result in a message that the update 
+location can not be found.  To correct this in your Quick Start, change the 
+Update Location on the Update Controller within the Visual Studio project to 
+match the Update Location of the Make Update project.</i></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 12pt">Extracting the Quick 
+Starts</span></b></p>
+<p class="MsoBodyText">The Quick Starts are packaged with the install of AppLife 
+Update.  You can extract any of the Quick Starts into a new folder by 
+selecting a Quick Start from the Start Page or the Help &gt; Quick Starts 
+menu.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Once extracted, the extraction location will contain a 
+completed Visual Studio project, a corresponding AppLife Update project, and an 
+updates folder with a compiled update ready to go.  You can open the Visual 
+Studio project and the AppLife update project file to view the completed quick 
+start.  This solution can act as a reference as you read through this 
+accompanying documentation.  </p>
+<div class="related-topics-header">
+<p class="RelatedHead">More:</p>
+<div class="related-topics">
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="applifemanagerquickstart.htm">AppLife Manager Quick Start</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="simplequickstart.htm">Simple Quick Start</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="customformsquickstart.htm">Custom Forms Quick Start</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="customactionquickstart.htm">Custom Action Quick Start</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="simplewpfquickstart.htm">Simple WPF Quick 
+Start</a></p></div></div></body></html>

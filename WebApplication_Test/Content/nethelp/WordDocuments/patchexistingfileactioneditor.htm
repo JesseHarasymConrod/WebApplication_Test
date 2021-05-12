@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Patch Existing File Action Editor</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="patchfolderactioneditor.htm" /><link rel="next" href="replacefilesonrestartactioneditor.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="9a832648-1756-47b3-9de1-030ae864ef4a">
+<div style="MARGIN-BOTTOM: 7pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: medium none; MARGIN-TOP: 9pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0pt">
+<h2 style="MARGIN-BOTTOM: 0pt; BORDER-TOP: medium none; BORDER-RIGHT: medium none; MARGIN-TOP: 0pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0pt">Patch 
+Existing File Action Editor</h2></div>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image133_14.png" alt="" /></p>
+<p class="MsoBodyText">Action description – Descriptive text that can be used to 
+identify this particular action in the Actions list.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Target client folder – The <a class="topic-link" href="filesfolders.htm">folder</a> on the client to place files that contains 
+the file(s) you are adding/replacing.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Subdirectories – The directory below the designated client 
+root folder that contains the files.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Version Information displays the assembly version and file 
+version of the baseline file and the target file.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The <b>Patch Existing File</b> action utilizes the <a href="http://msdn.microsoft.com/en-us/library/ms811406.aspx" target="_blank">Microsoft Delta Compression API</a> to create a differential patch 
+file between two versions of an assembly during an update build, and then 
+packages the patch file into the update.</p>
+<p class="MsoBodyText">As the update is executed, this differential patch is 
+combined with the base file that exists on a deployed client to construct the 
+target file.</p>
+<p class="MsoBodyText">Utilizing the <b>Patch Existing File</b> action can 
+significantly reduce the size of the resulting update package.  The 
+specific version of the baseline file must be present on the system being 
+updated.</p>
+<p class="MsoBodyText"><i>NOTE: </i>The Windows Installer SDK must be present on 
+the system <i>building</i> the update package.  <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c17ba869-9671-4330-a63e-1fd44e0e2505&amp;displaylang=en" target="_blank">Get it here.</a>  Patch extraction support is available on 
+Windows 2000 and later.</p>
+<p class="MsoBodyText">See <a class="topic-link" href="patchexistingfile.htm">File 
+Patching Action</a> for more details</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

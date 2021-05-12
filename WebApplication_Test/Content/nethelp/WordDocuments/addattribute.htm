@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Add Attribute</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="addelement.htm" /><link rel="next" href="changenode.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="e9ff0f18-c64f-4dbf-bf90-1f67f53a5741">
+<h4>Add Attribute</h4>
+<p class="MsoBodyText">The <i>Add Attribute</i> action allows you to add an 
+attribute to a specific Xml element.  To use this action you provide a path 
+to an existing Xml Document by selecting from a list of known folders on the 
+client target and then providing a sub path and file name.  If the 
+attribute already exists, the value will be modified to match the configured 
+setting.</p>
+<p class="MsoBodyText">You then provide an XPath expression to identify the 
+element that the new attribute will be added to.  If more than one element 
+matches the XPath expression, you can choose one of five actions:</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the attribute to all nodes (the default action)</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the attribute to only the first node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Add the attribute to only the last node found</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Don’t add any attributes</p>
+<p class="C1HBullet" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 198.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Abort the update</p>
+<p class="MsoBodyText">You provide the name and value of the new attribute and it 
+is added to the element based on the setting above.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">Verifies permissions to modify the xml file.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Backs up the xml file then inserts the new xml attribute, 
+performing the operation as defined by the action properties.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup file created during the <i>execute</i> 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Restores the xml file with the file backed up in the 
+<i>execute</i> stage.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

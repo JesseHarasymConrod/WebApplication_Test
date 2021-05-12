@@ -1,0 +1,196 @@
+﻿@model AppLifeServerMvc.Models.AppMaintenance
+
+@{
+    ViewBag.Title = "Dashboard - AppLife Server Maintenance";
+}
+<script src="~/Scripts/jquery.timer.js"></script>
+<script>
+    var timer;
+
+    $(function () {
+        $("#progressbar").progressbar({
+            value: 0
+        });
+    });
+
+    function btnDownload_Click() {
+        $.post('StartUpdateDownload', function () {
+            timer = $.timer(getProgress);
+            timer.set({ time: 2000, autostart: true });
+            $("#btnDownload").attr('hidden', 'hidden');
+            $("#progressbar").attr('hidden', null);
+        })
+        .fail(function () {
+            $("#updateInfoPanel").attr("hidden", "hidden");
+            $("#txtError").text("The download failed to start.");
+            $("#updateFailureResultsPanel").attr("hidden", null);
+        });
+        return;
+    }
+
+    function getProgress() {
+        $.getJSON("GetDownloadProgress", {}, function (status) {
+            $("#progressbar").progressbar("value", status.Percent);
+            if (status.Error != null) {
+                timer.stop();
+                $("#updateInfoPanel").attr("hidden", "hidden");
+                $("#txtError").text(status.Error);
+                $("#updateFailureResultsPanel").attr("hidden", null);
+
+                $("#progressbar").attr('hidden', 'hidden');
+                $("#btnDownload").attr('hidden', null);
+                return;
+            }
+            if (status.Percent == 100) {
+                timer.stop();
+                //when done enable apply button
+                $("#progressbar").attr('hidden', 'hidden');
+                $("#btnApply").attr('hidden', null);
+                return;
+            }
+        })
+        .fail(function () {
+            alert("progress fail.");
+            $("#btnApply").attr('hidden', 'hidden');
+            $("#btnDownload").attr('hidden', null);
+        });
+    }
+    var updateExecutionId;
+
+    function btnApply_Click() {
+        $("#loaderDiv").addClass('ui-ajax-loading');
+        $("#applyDiv").attr("hidden", null);
+        //start the update
+        $.post("ApplyUpdate", null, function (data) {
+            updateExecutionId = data;
+            timer = $.timer(getUpdateResult(), 2000, true);
+        })
+        .fail(function () {
+            $("#loaderDiv").removeClass('ui-ajax-loading');
+            $("#applyDiv").attr("hidden", "hidden");
+
+            $("#updateInfoPanel").attr("hidden", "hidden");
+            $("#txtError").text("Apply update failed.");
+            $("#updateFailureResultsPanel").attr("hidden", null);
+        });
+    }
+
+    function getUpdateResult() {
+        $.getJSON("GetUpdateResult", { executionId: updateExecutionId },
+            function (status) {
+                if (status != null) {
+                    if (status.Result == "Success") {
+                        $("#updateInfoPanel").attr("hidden", "hidden");
+                        $("#updateSuccessResultsPanel").attr("hidden", null);
+                    } else {
+                        $("#updateInfoPanel").attr("hidden", "hidden");
+                        $("#txtError").text(status.ErrorText);
+                        $("#updateFailureResultsPanel").attr("hidden", null);
+                    }
+                    $("#loaderDiv").removeClass('ui-ajax-loading');
+                    $("#applyDiv").attr("hidden", "hidden");
+                    timer.stop();
+                }
+            })
+        .fail(function () {
+            timer = $.timer(getUpdateResult(), 1000, true);
+        });
+    }
+</script>
+<style>
+    .warning {
+        background-image: url(../../Content/Images/32x32/error.png);
+    }
+
+    .success {
+        background-image: url(../../Content/Images/32x32/accept.png);
+    }
+
+    .failure {
+       background-image: url(../../Content/Images/32x32/exclamation.png);
+       height:auto;         
+    }
+
+    .ui-ajax-loading {
+        background-color: white;        
+        opacity: .1;
+    }
+
+    .fullscreenDiv {
+	    background: url('../../Content/Images/ajax-loaders/bar.gif') 50% no-repeat;
+        position: absolute;
+        width: 300px;
+        height: 100px;
+        top: 240px;
+        left: 50%;
+        margin-left: -150px; /* margin is -0.5 * dimension */
+    }
+
+    #loaderDiv{
+    	background:none;
+    }
+    
+    #updateInfoPanel {
+        padding-top: 10px; 
+        padding-bottom: 15px; 
+        height: auto; 
+        cursor: auto; 
+        background-image: url(../../Content/Images/32x32/information.png);
+        line-height: 18px;
+    }
+
+</style>
+<div class="grid_12">
+    <h2>Application Maintenance</h2>
+    <hr />
+    <h4>Installed Version:</h4>
+    <b>Application:</b> @Model.Version<br />
+    <b>Database:</b> @Model.DbVersion<br />
+    <h5>Update Check Results</h5>
+
+    @if(Model.NoUpdateService) {
+        <div class="notification warning">
+            <p>No update service present. Install the AppLife Server Update Service on this server to enable automatic maintenance.</p>
+        </div>
+    } else {
+        if(@Model.CurrentUpdate != null) {
+            
+        <div id="updateInfoPanel" class="notification information">
+            <h4>A new version is available for automatic installation.</h4>
+            <b>New Version:</b> @Model.CurrentUpdate.Version<br />
+            <b>Publish Date:</b> @Model.CurrentUpdate.PostedDateUtc.ToLocalTime().ToString("F")<br />
+            <b>Package Size:</b> @string.Format("{0:#,#} KB", Model.CurrentUpdate.FileSize / 1000)<br />
+            <b>Additional Info</b><br />
+            <div style="height: 300px; overflow-y: scroll; background-color: white; padding: 4px; margin: 5px 0;">@Html.Raw(Model.CurrentUpdate.HistoricalSummaryHtml)</div>
+
+            <div>
+                @if(Model.CurrentUpdate.IsDownloaded) {
+                    <input type="submit" class="submit" id="btnDownload" onclick="btnDownload_Click()" hidden="hidden" value="Download" />
+                    <input type="button" id="btnApply" class="submit" value="Install Update" onclick="btnApply_Click()" />
+                        
+                } else { 
+                    <input type="button" class="submit" id="btnDownload" onclick="btnDownload_Click()" value="Download" />                   
+                    <input type="button" class="submit" id="btnApply" value="Install Update" onclick="btnApply_Click()" hidden="hidden" /> 
+                }
+                <div id="progressbar" hidden="hidden"></div>
+            </div>
+        </div>
+        <div id="updateSuccessResultsPanel" class="notification success" hidden="hidden">
+            <div><p>The update completed successfully. @Html.ActionLink("Click to Refresh", "Updates");</p></div>    
+        </div>
+        <div id="updateFailureResultsPanel" class="notification failure" hidden="hidden">
+            <p>An error occurred during the update.</p>
+            <p>Message: <span id="txtError"></span>   </p>
+        </div>
+        } else {
+        <div class="notification success">
+            <p>Your installation is up-to-date.</p>
+        </div>
+        }
+    }
+</div>
+
+<div id="applyDiv" class="fullscreenDiv" hidden="hidden">
+    <h4>Applying update. Please wait...</h4>
+</div>
+<div id="loaderDiv"></div>

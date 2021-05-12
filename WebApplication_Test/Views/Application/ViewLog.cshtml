@@ -1,0 +1,37 @@
+﻿@model List<AppLifeServerMvc.Models.Internal.PublishHistory>
+
+@{
+    ViewBag.Title = "Application Publish Log";
+}
+
+<h2>Publish log for @ViewBag.AppName</h2>
+<hr />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px">
+    <tr>
+        <th width="15%">Date</th>
+        <th width="15%">File Name</th>
+        <th width="68%">Username</th>
+@*        <th width="9%">More</th>*@
+        <th width="2%"></th>
+    </tr>
+</table>
+<div class="scroll" style="height: 600px; border: 1px solid lightgray;">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0px">
+        @foreach(var item in Model) {
+            <tr>
+                <td width="15%">@String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:g}", item.DateTimeUtc.ToLocalTime())</td>
+                <td width="15%">@item.Filename</td>
+                <td width="70%">@item.UserName</td>
+@*                <td width="10%">@if(item.Filename.ToLowerInvariant() == "director.xml") {
+                    <span>More</span>
+                                }
+                </td>*@
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="grid_2">
+    <br />
+    @Html.ActionLink("Back to List", "Index")
+</div>

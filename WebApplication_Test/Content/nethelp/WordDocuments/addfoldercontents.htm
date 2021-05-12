@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Add Folder Contents</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="addreplacefilesbycomparison.htm" /><link rel="next" href="createfolder.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="2b843f3d-8e82-4720-82da-97a51047e655">
+<h4>Add Folder Contents</h4>
+<p class="MsoBodyText">The <i>Add Folder</i> action creates a folder in the 
+designated target client folder.  All files in the local folder are 
+packaged into the update.  You can choose to include subdirectories.  
+If subdirectories are included, the inner directories are created on the 
+deployed client and their contents are placed inside of the newly created 
+directories.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action verifies permissions 
+to the target folder.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Makes a copy of the files that are going to be replaced on 
+the client computer, then adds and replaces the defined list of files on the 
+client.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup copies that were made during the execute 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Attempts to copy the files that were backed up in the 
+execute stage back to their original location.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

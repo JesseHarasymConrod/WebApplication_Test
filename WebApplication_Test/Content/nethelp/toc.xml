@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toc>
+  <item>
+    <title><![CDATA[The AppLife® Update Solution]]></title>
+    <tooltip><![CDATA[The AppLife® Update Solution]]></tooltip>
+    <item url="WordDocuments/whatisapplifeupdate.htm">
+      <title><![CDATA[What is AppLife Update?]]></title>
+      <tooltip><![CDATA[What is AppLife Update?]]></tooltip>
+    </item>
+    <item url="WordDocuments/updatefeatures.htm">
+      <title><![CDATA[Update Features]]></title>
+      <tooltip><![CDATA[Update Features]]></tooltip>
+    </item>
+    <item url="WordDocuments/requirements.htm">
+      <title><![CDATA[Requirements]]></title>
+      <tooltip><![CDATA[Requirements]]></tooltip>
+    </item>
+    <item url="WordDocuments/licenseagreement.htm">
+      <title><![CDATA[License Agreement]]></title>
+      <tooltip><![CDATA[License Agreement]]></tooltip>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Getting Started]]></title>
+    <tooltip><![CDATA[Getting Started]]></tooltip>
+    <item url="WordDocuments/installation.htm">
+      <title><![CDATA[Installation]]></title>
+      <tooltip><![CDATA[Installation]]></tooltip>
+      <item url="WordDocuments/installingapplifeupdate.htm">
+        <title><![CDATA[Installing AppLife Update]]></title>
+        <tooltip><![CDATA[Installing AppLife Update]]></tooltip>
+      </item>
+      <item url="WordDocuments/installingapplifeserver.htm">
+        <title><![CDATA[Installing AppLife Server]]></title>
+        <tooltip><![CDATA[Installing AppLife Server]]></tooltip>
+      </item>
+      <item url="WordDocuments/installingapplifemanager.htm">
+        <title><![CDATA[Installing AppLife Manager]]></title>
+        <tooltip><![CDATA[Installing AppLife Manager]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/quickstarts.htm">
+      <title><![CDATA[Quick Starts]]></title>
+      <tooltip><![CDATA[Quick Starts]]></tooltip>
+      <item url="WordDocuments/applifemanagerquickstart.htm">
+        <title><![CDATA[AppLife Manager Quick Start]]></title>
+        <tooltip><![CDATA[AppLife Manager Quick Start]]></tooltip>
+      </item>
+      <item url="WordDocuments/simplequickstart.htm">
+        <title><![CDATA[Simple Quick Start]]></title>
+        <tooltip><![CDATA[Simple Quick Start]]></tooltip>
+      </item>
+      <item url="WordDocuments/customformsquickstart.htm">
+        <title><![CDATA[Custom Forms Quick Start]]></title>
+        <tooltip><![CDATA[Custom Forms Quick Start]]></tooltip>
+      </item>
+      <item url="WordDocuments/customactionquickstart.htm">
+        <title><![CDATA[Custom Action Quick Start]]></title>
+        <tooltip><![CDATA[Custom Action Quick Start]]></tooltip>
+      </item>
+      <item url="WordDocuments/simplewpfquickstart.htm">
+        <title><![CDATA[Simple WPF Quick Start]]></title>
+        <tooltip><![CDATA[Simple WPF Quick Start]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/licensemanagement.htm">
+      <title><![CDATA[License Management]]></title>
+      <tooltip><![CDATA[License Management]]></tooltip>
+      <item url="WordDocuments/acquiringandapplyingalicensenumber.htm">
+        <title><![CDATA[Acquiring and Applying a License Number]]></title>
+        <tooltip><![CDATA[Acquiring and Applying a License Number]]></tooltip>
+      </item>
+      <item url="WordDocuments/activatingyourlicense.htm">
+        <title><![CDATA[Activating your License]]></title>
+        <tooltip><![CDATA[Activating your License]]></tooltip>
+      </item>
+      <item url="WordDocuments/manualactivation.htm">
+        <title><![CDATA[Manual Activation]]></title>
+        <tooltip><![CDATA[Manual Activation]]></tooltip>
+      </item>
+    </item>
+  </item>
+  <item url="WordDocuments/usingapplifeserver.htm">
+    <title><![CDATA[Using AppLife Server]]></title>
+    <tooltip><![CDATA[Using AppLife Server]]></tooltip>
+    <item url="WordDocuments/dashboard.htm">
+      <title><![CDATA[Dashboard]]></title>
+      <tooltip><![CDATA[Dashboard]]></tooltip>
+    </item>
+    <item url="WordDocuments/applications.htm">
+      <title><![CDATA[Applications]]></title>
+      <tooltip><![CDATA[Applications]]></tooltip>
+      <item url="WordDocuments/versions.htm">
+        <title><![CDATA[Versions]]></title>
+        <tooltip><![CDATA[Versions]]></tooltip>
+        <item url="WordDocuments/analytics.htm">
+          <title><![CDATA[Analytics]]></title>
+          <tooltip><![CDATA[Analytics]]></tooltip>
+        </item>
+        <item url="WordDocuments/editingmetadata.htm">
+          <title><![CDATA[Editing Metadata]]></title>
+          <tooltip><![CDATA[Editing Metadata]]></tooltip>
+        </item>
+        <item url="WordDocuments/removingversions.htm">
+          <title><![CDATA[Removing Versions]]></title>
+          <tooltip><![CDATA[Removing Versions]]></tooltip>
+        </item>
+        <item url="WordDocuments/accesscontrol.htm">
+          <title><![CDATA[Access Control]]></title>
+          <tooltip><![CDATA[Access Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/publishingwithaccesscontrollists.htm">
+          <title><![CDATA[Publishing with Access Control Lists]]></title>
+          <tooltip><![CDATA[Publishing with Access Control Lists]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/clients.htm">
+        <title><![CDATA[Clients]]></title>
+        <tooltip><![CDATA[Clients]]></tooltip>
+        <item url="WordDocuments/failurenotification.htm">
+          <title><![CDATA[Failure Notification]]></title>
+          <tooltip><![CDATA[Failure Notification]]></tooltip>
+        </item>
+        <item url="WordDocuments/searchsortfilter.htm">
+          <title><![CDATA[Search / Sort / Filter]]></title>
+          <tooltip><![CDATA[Search / Sort / Filter]]></tooltip>
+        </item>
+        <item url="WordDocuments/deletingclientinformation.htm">
+          <title><![CDATA[Deleting Client Information]]></title>
+          <tooltip><![CDATA[Deleting Client Information]]></tooltip>
+        </item>
+        <item url="WordDocuments/ignoringclients.htm">
+          <title><![CDATA[Ignoring Clients]]></title>
+          <tooltip><![CDATA[Ignoring Clients]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="WordDocuments/accesscontrol1.htm">
+      <title><![CDATA[Access Control]]></title>
+      <tooltip><![CDATA[Access Control]]></tooltip>
+      <item url="WordDocuments/clientid.htm">
+        <title><![CDATA[Client ID]]></title>
+        <tooltip><![CDATA[Client ID]]></tooltip>
+      </item>
+      <item url="WordDocuments/clientaccesskey.htm">
+        <title><![CDATA[Client Access Key]]></title>
+        <tooltip><![CDATA[Client Access Key]]></tooltip>
+      </item>
+      <item url="WordDocuments/accesscontrollists.htm">
+        <title><![CDATA[Access Control Lists]]></title>
+        <tooltip><![CDATA[Access Control Lists]]></tooltip>
+        <item url="WordDocuments/assigningtoapplicationsversions.htm">
+          <title><![CDATA[Assigning to Applications/Versions]]></title>
+          <tooltip><![CDATA[Assigning to Applications/Versions]]></tooltip>
+        </item>
+        <item url="WordDocuments/sharedlists.htm">
+          <title><![CDATA[Shared Lists]]></title>
+          <tooltip><![CDATA[Shared Lists]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="WordDocuments/applifemanagerfeatures.htm">
+      <title><![CDATA[AppLife Manager Features]]></title>
+      <tooltip><![CDATA[AppLife Manager Features]]></tooltip>
+      <item url="WordDocuments/installingapplifemanager2.htm">
+        <title><![CDATA[Installing AppLife Manager]]></title>
+        <tooltip><![CDATA[Installing AppLife Manager]]></tooltip>
+      </item>
+      <item url="WordDocuments/enablingapplifemanager.htm">
+        <title><![CDATA[Enabling AppLife Manager]]></title>
+        <tooltip><![CDATA[Enabling AppLife Manager]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/administration.htm">
+      <title><![CDATA[Administration]]></title>
+      <tooltip><![CDATA[Administration]]></tooltip>
+      <item url="WordDocuments/users.htm">
+        <title><![CDATA[Users]]></title>
+        <tooltip><![CDATA[Users]]></tooltip>
+        <item url="WordDocuments/roles.htm">
+          <title><![CDATA[Roles]]></title>
+          <tooltip><![CDATA[Roles]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/applications1.htm">
+        <title><![CDATA[Applications]]></title>
+        <tooltip><![CDATA[Applications]]></tooltip>
+        <item url="WordDocuments/creatingnewapplications.htm">
+          <title><![CDATA[Creating New Applications]]></title>
+          <tooltip><![CDATA[Creating New Applications]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/serversettings.htm">
+        <title><![CDATA[Server Settings]]></title>
+        <tooltip><![CDATA[Server Settings]]></tooltip>
+      </item>
+      <item url="WordDocuments/updatingyourserver.htm">
+        <title><![CDATA[Updating your Server]]></title>
+        <tooltip><![CDATA[Updating your Server]]></tooltip>
+      </item>
+      <item url="WordDocuments/serverrequirements.htm">
+        <title><![CDATA[Server Requirements]]></title>
+        <tooltip><![CDATA[Server Requirements]]></tooltip>
+      </item>
+    </item>
+  </item>
+  <item url="WordDocuments/usingapplifemanager.htm">
+    <title><![CDATA[Using AppLife Manager]]></title>
+    <tooltip><![CDATA[Using AppLife Manager]]></tooltip>
+    <item url="WordDocuments/configuringanapplicationforapplifemanager.htm">
+      <title><![CDATA[Configuring an Application for AppLife Manager]]></title>
+      <tooltip><![CDATA[Configuring an Application for AppLife Manager]]></tooltip>
+      <item url="WordDocuments/configurationoptions.htm">
+        <title><![CDATA[Configuration Options]]></title>
+        <tooltip><![CDATA[Configuration Options]]></tooltip>
+        <item url="WordDocuments/applicationdirectory.htm">
+          <title><![CDATA[Application Directory]]></title>
+          <tooltip><![CDATA[Application Directory]]></tooltip>
+        </item>
+        <item url="WordDocuments/commonexpansionvariablesused.htm">
+          <title><![CDATA[Common Expansion Variables Used]]></title>
+          <tooltip><![CDATA[Common Expansion Variables Used]]></tooltip>
+        </item>
+        <item url="WordDocuments/processname.htm">
+          <title><![CDATA[Process Name]]></title>
+          <tooltip><![CDATA[Process Name]]></tooltip>
+        </item>
+        <item url="WordDocuments/primaryexecutable.htm">
+          <title><![CDATA[Primary Executable]]></title>
+          <tooltip><![CDATA[Primary Executable]]></tooltip>
+        </item>
+        <item url="WordDocuments/enableapplifemanager.htm">
+          <title><![CDATA[Enable AppLife Manager]]></title>
+          <tooltip><![CDATA[Enable AppLife Manager]]></tooltip>
+        </item>
+        <item url="WordDocuments/applyupdatesautomatically.htm">
+          <title><![CDATA[Apply Updates Automatically]]></title>
+          <tooltip><![CDATA[Apply Updates Automatically]]></tooltip>
+        </item>
+        <item url="WordDocuments/updaterecheckfrequencyminutes.htm">
+          <title><![CDATA[Update Recheck Frequency (Minutes)]]></title>
+          <tooltip><![CDATA[Update Recheck Frequency (Minutes)]]></tooltip>
+        </item>
+        <item url="WordDocuments/clientversionidentification.htm">
+          <title><![CDATA[Client Version Identification]]></title>
+          <tooltip><![CDATA[Client Version Identification]]></tooltip>
+        </item>
+        <item url="WordDocuments/allowanonymousaccess.htm">
+          <title><![CDATA[Allow Anonymous Access]]></title>
+          <tooltip><![CDATA[Allow Anonymous Access]]></tooltip>
+        </item>
+        <item url="WordDocuments/integratedapi.htm">
+          <title><![CDATA[Integrated API]]></title>
+          <tooltip><![CDATA[Integrated API]]></tooltip>
+        </item>
+        <item url="WordDocuments/publickey1.htm">
+          <title><![CDATA[Public Key]]></title>
+          <tooltip><![CDATA[Public Key]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/automaticupdateduringoffpeakhours.htm">
+        <title><![CDATA[Automatic Update during Off-Peak Hours]]></title>
+        <tooltip><![CDATA[Automatic Update during Off-Peak Hours]]></tooltip>
+        <item url="WordDocuments/timetoallowupdateshhmm.htm">
+          <title><![CDATA[Time to Allow Updates (HH:MM)]]></title>
+          <tooltip><![CDATA[Time to Allow Updates (HH:MM)]]></tooltip>
+        </item>
+        <item url="WordDocuments/durationtoallowhours.htm">
+          <title><![CDATA[Duration to Allow (Hours)]]></title>
+          <tooltip><![CDATA[Duration to Allow (Hours)]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/integratingapplicationshutdown.htm">
+        <title><![CDATA[Integrating Application Shutdown]]></title>
+        <tooltip><![CDATA[Integrating Application Shutdown]]></tooltip>
+      </item>
+      <item url="WordDocuments/determiningthecurrentlyinstalledversion.htm">
+        <title><![CDATA[Determining the Currently Installed Version]]></title>
+        <tooltip><![CDATA[Determining the Currently Installed Version]]></tooltip>
+        <item url="WordDocuments/applifemanagerconfiguration.htm">
+          <title><![CDATA[AppLife Manager Configuration]]></title>
+          <tooltip><![CDATA[AppLife Manager Configuration]]></tooltip>
+        </item>
+        <item url="WordDocuments/primaryexecutableassemblyversion.htm">
+          <title><![CDATA[Primary Executable Assembly Version]]></title>
+          <tooltip><![CDATA[Primary Executable Assembly Version]]></tooltip>
+        </item>
+        <item url="WordDocuments/primaryexecutablefileversion.htm">
+          <title><![CDATA[Primary Executable File Version]]></title>
+          <tooltip><![CDATA[Primary Executable File Version]]></tooltip>
+        </item>
+        <item url="WordDocuments/msidisplayversion.htm">
+          <title><![CDATA[MSI Display Version]]></title>
+          <tooltip><![CDATA[MSI Display Version]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/clientaccesscontrol.htm">
+        <title><![CDATA[Client Access Control]]></title>
+        <tooltip><![CDATA[Client Access Control]]></tooltip>
+        <item url="WordDocuments/usingclientid.htm">
+          <title><![CDATA[Using Client ID]]></title>
+          <tooltip><![CDATA[Using Client ID]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/configurationthroughapplifeserver.htm">
+        <title><![CDATA[Configuration Through AppLife Server]]></title>
+        <tooltip><![CDATA[Configuration Through AppLife Server]]></tooltip>
+      </item>
+      <item url="WordDocuments/configuringthroughthemakeupdatenewprojectwizard.htm">
+        <title><![CDATA[Configuring Through the Make Update New Project Wizard]]></title>
+        <tooltip><![CDATA[Configuring Through the Make Update New Project Wizard]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/installingapplifemanager1.htm">
+      <title><![CDATA[Installing AppLife Manager]]></title>
+      <tooltip><![CDATA[Installing AppLife Manager]]></tooltip>
+    </item>
+    <item url="WordDocuments/theapplifemanagerui.htm">
+      <title><![CDATA[The AppLife Manager UI]]></title>
+      <tooltip><![CDATA[The AppLife Manager UI]]></tooltip>
+      <item url="WordDocuments/commands.htm">
+        <title><![CDATA[Commands]]></title>
+        <tooltip><![CDATA[Commands]]></tooltip>
+        <item url="WordDocuments/addapplifeserver.htm">
+          <title><![CDATA[Add AppLife Server]]></title>
+          <tooltip><![CDATA[Add AppLife Server]]></tooltip>
+        </item>
+        <item url="WordDocuments/manualcheckforupdates.htm">
+          <title><![CDATA[Manual Check for Updates]]></title>
+          <tooltip><![CDATA[Manual Check for Updates]]></tooltip>
+        </item>
+        <item url="WordDocuments/toggletheapplifemanageruioutputwindow.htm">
+          <title><![CDATA[Toggle the AppLife Manager UI Output Window]]></title>
+          <tooltip><![CDATA[Toggle the AppLife Manager UI Output Window]]></tooltip>
+        </item>
+        <item url="WordDocuments/findyourcloudsubscriptionid.htm">
+          <title><![CDATA[Find your Cloud Subscription Id]]></title>
+          <tooltip><![CDATA[Find your Cloud Subscription Id]]></tooltip>
+        </item>
+      </item>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Using AppLife® Update]]></title>
+    <tooltip><![CDATA[Using AppLife® Update]]></tooltip>
+    <item url="WordDocuments/updatingyoursoftware.htm">
+      <title><![CDATA[Updating Your Software]]></title>
+      <tooltip><![CDATA[Updating Your Software]]></tooltip>
+      <item url="WordDocuments/updatinguserexperienceoptions.htm">
+        <title><![CDATA[Updating User Experience Options]]></title>
+        <tooltip><![CDATA[Updating User Experience Options]]></tooltip>
+        <item url="WordDocuments/updatedisplaycontrol.htm">
+          <title><![CDATA[UpdateDisplay Control]]></title>
+          <tooltip><![CDATA[UpdateDisplay Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/updatenotifyicondisplaycontrol.htm">
+          <title><![CDATA[UpdateNotifyIconDisplay Control]]></title>
+          <tooltip><![CDATA[UpdateNotifyIconDisplay Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/updatedetailsdisplaycontrol.htm">
+          <title><![CDATA[UpdateDetailsDisplay Control]]></title>
+          <tooltip><![CDATA[UpdateDetailsDisplay Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/statusstripupdatedisplaycontrol.htm">
+          <title><![CDATA[StatusStripUpdateDisplay Control]]></title>
+          <tooltip><![CDATA[StatusStripUpdateDisplay Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/updateinteractive.htm">
+          <title><![CDATA[Update Interactive]]></title>
+          <tooltip><![CDATA[Update Interactive]]></tooltip>
+        </item>
+        <item url="WordDocuments/updatedisplaywpfcontrol.htm">
+          <title><![CDATA[UpdateDisplay WPF Control]]></title>
+          <tooltip><![CDATA[UpdateDisplay WPF Control]]></tooltip>
+        </item>
+        <item url="WordDocuments/updatedetailsdisplaywpfcontrol.htm">
+          <title><![CDATA[UpdateDetailsDisplay WPF Control]]></title>
+          <tooltip><![CDATA[UpdateDetailsDisplay WPF Control]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/visualcontrolconfigurationoptions.htm">
+        <title><![CDATA[Visual Control Configuration Options]]></title>
+        <tooltip><![CDATA[Visual Control Configuration Options]]></tooltip>
+      </item>
+      <item url="WordDocuments/gettingupdates.htm">
+        <title><![CDATA[Getting Updates]]></title>
+        <tooltip><![CDATA[Getting Updates]]></tooltip>
+        <item url="WordDocuments/versioning.htm">
+          <title><![CDATA[Versioning]]></title>
+          <tooltip><![CDATA[Versioning]]></tooltip>
+          <item url="WordDocuments/updatecontrollerversionproperty.htm" window="proc">
+            <title><![CDATA[Update Controller Version Property]]></title>
+            <tooltip><![CDATA[Update Controller Version Property]]></tooltip>
+          </item>
+          <item url="WordDocuments/hostassemblyversion.htm" window="proc">
+            <title><![CDATA[Host Assembly Version]]></title>
+            <tooltip><![CDATA[Host Assembly Version]]></tooltip>
+          </item>
+        </item>
+        <item url="WordDocuments/director.htm">
+          <title><![CDATA[Director]]></title>
+          <tooltip><![CDATA[Director]]></tooltip>
+        </item>
+        <item url="WordDocuments/checkforupdate.htm">
+          <title><![CDATA[Check for Update]]></title>
+          <tooltip><![CDATA[Check for Update]]></tooltip>
+        </item>
+        <item url="WordDocuments/interveningduringacheckforupdates.htm">
+          <title><![CDATA[Intervening during a Check for Updates]]></title>
+          <tooltip><![CDATA[Intervening during a Check for Updates]]></tooltip>
+        </item>
+        <item url="WordDocuments/customdata.htm">
+          <title><![CDATA[Custom Data]]></title>
+          <tooltip><![CDATA[Custom Data]]></tooltip>
+        </item>
+        <item url="WordDocuments/downloading.htm">
+          <title><![CDATA[Downloading]]></title>
+          <tooltip><![CDATA[Downloading]]></tooltip>
+          <item url="WordDocuments/cacheddownloads.htm" window="proc">
+            <title><![CDATA[Cached Downloads]]></title>
+            <tooltip><![CDATA[Cached Downloads]]></tooltip>
+          </item>
+          <item url="WordDocuments/resumingafaileddownload.htm" window="proc">
+            <title><![CDATA[Resuming a Failed Download]]></title>
+            <tooltip><![CDATA[Resuming a Failed Download]]></tooltip>
+          </item>
+        </item>
+        <item url="WordDocuments/downloadauthentication.htm">
+          <title><![CDATA[Download Authentication]]></title>
+          <tooltip><![CDATA[Download Authentication]]></tooltip>
+        </item>
+        <item url="WordDocuments/downloadverification.htm">
+          <title><![CDATA[Download Verification]]></title>
+          <tooltip><![CDATA[Download Verification]]></tooltip>
+        </item>
+        <item url="WordDocuments/proxyservers.htm">
+          <title><![CDATA[Proxy Servers]]></title>
+          <tooltip><![CDATA[Proxy Servers]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/automaticupdatechaining.htm">
+        <title><![CDATA[Automatic Update Chaining]]></title>
+        <tooltip><![CDATA[Automatic Update Chaining]]></tooltip>
+      </item>
+      <item url="WordDocuments/localizedupdateprocess.htm">
+        <title><![CDATA[Localized Update Process]]></title>
+        <tooltip><![CDATA[Localized Update Process]]></tooltip>
+      </item>
+      <item url="WordDocuments/executingupdates.htm">
+        <title><![CDATA[Executing Updates]]></title>
+        <tooltip><![CDATA[Executing Updates]]></tooltip>
+        <item url="WordDocuments/supportednetframeworks.htm">
+          <title><![CDATA[Supported .Net Frameworks]]></title>
+          <tooltip><![CDATA[Supported .Net Frameworks]]></tooltip>
+        </item>
+        <item url="WordDocuments/preservingcommandlinearguments.htm">
+          <title><![CDATA[Preserving Command Line Arguments]]></title>
+          <tooltip><![CDATA[Preserving Command Line Arguments]]></tooltip>
+        </item>
+        <item url="WordDocuments/microsoftinstallerpatch.htm">
+          <title><![CDATA[Microsoft Installer Patch]]></title>
+          <tooltip><![CDATA[Microsoft Installer Patch]]></tooltip>
+        </item>
+        <item url="WordDocuments/customupdateexecutable.htm">
+          <title><![CDATA[Custom Update Executable]]></title>
+          <tooltip><![CDATA[Custom Update Executable]]></tooltip>
+        </item>
+        <item url="WordDocuments/applifeupdateproject.htm">
+          <title><![CDATA[AppLife Update Project]]></title>
+          <tooltip><![CDATA[AppLife Update Project]]></tooltip>
+        </item>
+        <item url="WordDocuments/applifeupdateengineoptions.htm">
+          <title><![CDATA[AppLife Update Engine Options]]></title>
+          <tooltip><![CDATA[AppLife Update Engine Options]]></tooltip>
+        </item>
+        <item url="WordDocuments/coordinatedapplicationshutdown.htm">
+          <title><![CDATA[Coordinated Application Shutdown]]></title>
+          <tooltip><![CDATA[Coordinated Application Shutdown]]></tooltip>
+        </item>
+        <item url="WordDocuments/passinginsharedpropertiesforanupdate.htm">
+          <title><![CDATA[Passing in Shared Properties for an Update]]></title>
+          <tooltip><![CDATA[Passing in Shared Properties for an Update]]></tooltip>
+        </item>
+        <item url="WordDocuments/implementingacustomupdateengineuserinterfaceiupdateui.htm">
+          <title><![CDATA[Implementing a Custom Update Engine User Interface (IUpdateUI)]]></title>
+          <tooltip><![CDATA[Implementing a Custom Update Engine User Interface (IUpdateUI)]]></tooltip>
+        </item>
+        <item url="WordDocuments/thefirstrunafteranupdate.htm">
+          <title><![CDATA[The First Run after an Update]]></title>
+          <tooltip><![CDATA[The First Run after an Update]]></tooltip>
+        </item>
+        <item url="WordDocuments/accessingtheresultsofthepreviousupdate.htm">
+          <title><![CDATA[Accessing the Results of the Previous Update]]></title>
+          <tooltip><![CDATA[Accessing the Results of the Previous Update]]></tooltip>
+        </item>
+        <item url="WordDocuments/localizedupdateengineuserinterface.htm">
+          <title><![CDATA[Localized Update Engine User Interface]]></title>
+          <tooltip><![CDATA[Localized Update Engine User Interface]]></tooltip>
+        </item>
+        <item url="WordDocuments/elevatedprivileges.htm">
+          <title><![CDATA[Elevated Privileges]]></title>
+          <tooltip><![CDATA[Elevated Privileges]]></tooltip>
+        </item>
+        <item url="WordDocuments/recoveringfromacompromisedprivatekey.htm">
+          <title><![CDATA[Recovering From a Compromised Private Key]]></title>
+          <tooltip><![CDATA[Recovering From a Compromised Private Key]]></tooltip>
+        </item>
+        <item url="WordDocuments/theupdatelog.htm">
+          <title><![CDATA[The Update Log]]></title>
+          <tooltip><![CDATA[The Update Log]]></tooltip>
+        </item>
+        <item url="WordDocuments/customizetheloglocation.htm">
+          <title><![CDATA[Customize the Log Location]]></title>
+          <tooltip><![CDATA[Customize the Log Location]]></tooltip>
+        </item>
+        <item url="WordDocuments/disablelogging.htm">
+          <title><![CDATA[Disable Logging]]></title>
+          <tooltip><![CDATA[Disable Logging]]></tooltip>
+        </item>
+        <item url="WordDocuments/accessinglogsthroughtheapi.htm">
+          <title><![CDATA[Accessing Logs through the API]]></title>
+          <tooltip><![CDATA[Accessing Logs through the API]]></tooltip>
+        </item>
+        <item url="WordDocuments/64bitoperatingsystems.htm">
+          <title><![CDATA[64 Bit Operating Systems]]></title>
+          <tooltip><![CDATA[64 Bit Operating Systems]]></tooltip>
+        </item>
+        <item url="WordDocuments/windowspresentationfoundationwpf.htm">
+          <title><![CDATA[Windows Presentation Foundation (WPF)]]></title>
+          <tooltip><![CDATA[Windows Presentation Foundation (WPF)]]></tooltip>
+        </item>
+        <item url="WordDocuments/theuseraccountcontroluac.htm">
+          <title><![CDATA[The User Account Control (UAC)]]></title>
+          <tooltip><![CDATA[The User Account Control (UAC)]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="WordDocuments/buildingyourupdate.htm">
+      <title><![CDATA[Building Your Update]]></title>
+      <tooltip><![CDATA[Building Your Update]]></tooltip>
+      <item url="WordDocuments/initialinstall.htm">
+        <title><![CDATA[Initial Install]]></title>
+        <tooltip><![CDATA[Initial Install]]></tooltip>
+      </item>
+      <item url="WordDocuments/buildinganupdatepackage.htm">
+        <title><![CDATA[Building an Update Package]]></title>
+        <tooltip><![CDATA[Building an Update Package]]></tooltip>
+      </item>
+      <item url="WordDocuments/theapplifeupdateengine.htm">
+        <title><![CDATA[The AppLife Update Engine]]></title>
+        <tooltip><![CDATA[The AppLife Update Engine]]></tooltip>
+      </item>
+      <item url="WordDocuments/targetversions.htm">
+        <title><![CDATA[Target Versions]]></title>
+        <tooltip><![CDATA[Target Versions]]></tooltip>
+        <item url="WordDocuments/alltargets.htm">
+          <title><![CDATA[All Targets]]></title>
+          <tooltip><![CDATA[All Targets]]></tooltip>
+        </item>
+        <item url="WordDocuments/greaterthanorequalto.htm">
+          <title><![CDATA[Greater Than or Equal To]]></title>
+          <tooltip><![CDATA[Greater Than or Equal To]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/updatesummarytext.htm">
+        <title><![CDATA[Update Summary Text]]></title>
+        <tooltip><![CDATA[Update Summary Text]]></tooltip>
+        <item url="WordDocuments/noupdatesummarytext.htm">
+          <title><![CDATA[No Update Summary Text]]></title>
+          <tooltip><![CDATA[No Update Summary Text]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/publishingatestupdate.htm">
+        <title><![CDATA[Publishing a Test Update]]></title>
+        <tooltip><![CDATA[Publishing a Test Update]]></tooltip>
+      </item>
+      <item url="WordDocuments/proxysettings.htm">
+        <title><![CDATA[Proxy Settings]]></title>
+        <tooltip><![CDATA[Proxy Settings]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/managingpublishedupdates.htm">
+      <title><![CDATA[Managing Published Updates]]></title>
+      <tooltip><![CDATA[Managing Published Updates]]></tooltip>
+      <item url="WordDocuments/publishingchanges.htm">
+        <title><![CDATA[Publishing Changes]]></title>
+        <tooltip><![CDATA[Publishing Changes]]></tooltip>
+      </item>
+      <item url="WordDocuments/comparingtwoupdatelocations.htm">
+        <title><![CDATA[Comparing two Update Locations]]></title>
+        <tooltip><![CDATA[Comparing two Update Locations]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/theapplifeupdatewindowsservice.htm">
+      <title><![CDATA[The AppLife Update Windows Service]]></title>
+      <tooltip><![CDATA[The AppLife Update Windows Service]]></tooltip>
+      <item url="WordDocuments/serviceregistration.htm">
+        <title><![CDATA[Service Registration]]></title>
+        <tooltip><![CDATA[Service Registration]]></tooltip>
+      </item>
+      <item url="WordDocuments/viewingyourprojectfilepublickey.htm">
+        <title><![CDATA[Viewing your Project File Public Key]]></title>
+        <tooltip><![CDATA[Viewing your Project File Public Key]]></tooltip>
+      </item>
+      <item url="WordDocuments/theapplifeupdateserviceregistrationutility.htm">
+        <title><![CDATA[The AppLife Update Service Registration Utility]]></title>
+        <tooltip><![CDATA[The AppLife Update Service Registration Utility]]></tooltip>
+      </item>
+      <item url="WordDocuments/deployingtheapplifeupdatewindowsservice.htm">
+        <title><![CDATA[Deploying the AppLife Update Windows Service]]></title>
+        <tooltip><![CDATA[Deploying the AppLife Update Windows Service]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/deployinganapplifeupdateenabledapplication.htm">
+      <title><![CDATA[Deploying an AppLife Update Enabled Application]]></title>
+      <tooltip><![CDATA[Deploying an AppLife Update Enabled Application]]></tooltip>
+    </item>
+    <item url="WordDocuments/updateoptions.htm">
+      <title><![CDATA[Update Options]]></title>
+      <tooltip><![CDATA[Update Options]]></tooltip>
+      <item url="WordDocuments/controlledrollout.htm">
+        <title><![CDATA[Controlled Rollout]]></title>
+        <tooltip><![CDATA[Controlled Rollout]]></tooltip>
+      </item>
+      <item url="WordDocuments/customizedforms.htm">
+        <title><![CDATA[Customized Forms]]></title>
+        <tooltip><![CDATA[Customized Forms]]></tooltip>
+        <item url="WordDocuments/checkforupdateform.htm">
+          <title><![CDATA[Check for Update Form]]></title>
+          <tooltip><![CDATA[Check for Update Form]]></tooltip>
+        </item>
+        <item url="WordDocuments/downloadupdateform.htm">
+          <title><![CDATA[Download Update Form]]></title>
+          <tooltip><![CDATA[Download Update Form]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="WordDocuments/applifeupdatecomponents.htm">
+      <title><![CDATA[AppLife Update Components]]></title>
+      <tooltip><![CDATA[AppLife Update Components]]></tooltip>
+      <item url="WordDocuments/updatecontroller.htm">
+        <title><![CDATA[Update Controller]]></title>
+        <tooltip><![CDATA[Update Controller]]></tooltip>
+      </item>
+      <item url="WordDocuments/updateservice.htm">
+        <title><![CDATA[Update Service]]></title>
+        <tooltip><![CDATA[Update Service]]></tooltip>
+      </item>
+      <item url="WordDocuments/makeupdate.htm">
+        <title><![CDATA[Make Update]]></title>
+        <tooltip><![CDATA[Make Update]]></tooltip>
+      </item>
+      <item url="WordDocuments/makeupdateconsoleapplication.htm">
+        <title><![CDATA[Make Update Console Application]]></title>
+        <tooltip><![CDATA[Make Update Console Application]]></tooltip>
+      </item>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Update Actions]]></title>
+    <tooltip><![CDATA[Update Actions]]></tooltip>
+    <item url="WordDocuments/updateactions1.htm">
+      <title><![CDATA[Update Actions]]></title>
+      <tooltip><![CDATA[Update Actions]]></tooltip>
+      <item url="WordDocuments/updateactionexecution.htm">
+        <title><![CDATA[Update Action Execution]]></title>
+        <tooltip><![CDATA[Update Action Execution]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/expansionvariablessharedproperties.htm">
+      <title><![CDATA[Expansion Variables (Shared Properties)]]></title>
+      <tooltip><![CDATA[Expansion Variables (Shared Properties)]]></tooltip>
+      <item url="WordDocuments/settingsharedpropertyvariables.htm">
+        <title><![CDATA[Setting Shared Property Variables]]></title>
+        <tooltip><![CDATA[Setting Shared Property Variables]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/actionconditionals.htm">
+      <title><![CDATA[Action Conditionals]]></title>
+      <tooltip><![CDATA[Action Conditionals]]></tooltip>
+      <item url="WordDocuments/creatingandtestingconditionals.htm">
+        <title><![CDATA[Creating and Testing Conditionals]]></title>
+        <tooltip><![CDATA[Creating and Testing Conditionals]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/applifeupdateactions.htm">
+      <title><![CDATA[AppLife Update Actions]]></title>
+      <tooltip><![CDATA[AppLife Update Actions]]></tooltip>
+      <item url="WordDocuments/actionsandbuildmachinerelativefilepaths.htm">
+        <title><![CDATA[Actions and Build Machine Relative File Paths]]></title>
+        <tooltip><![CDATA[Actions and Build Machine Relative File Paths]]></tooltip>
+      </item>
+      <item url="WordDocuments/filesfolders.htm">
+        <title><![CDATA[Files & Folders]]></title>
+        <tooltip><![CDATA[Files & Folders]]></tooltip>
+        <item url="WordDocuments/addreplacefiles.htm">
+          <title><![CDATA[Add & Replace Files]]></title>
+          <tooltip><![CDATA[Add & Replace Files]]></tooltip>
+        </item>
+        <item url="WordDocuments/addreplacefilesbycomparison.htm">
+          <title><![CDATA[Add & Replace Files by Comparison]]></title>
+          <tooltip><![CDATA[Add & Replace Files by Comparison]]></tooltip>
+        </item>
+        <item url="WordDocuments/addfoldercontents.htm">
+          <title><![CDATA[Add Folder Contents]]></title>
+          <tooltip><![CDATA[Add Folder Contents]]></tooltip>
+        </item>
+        <item url="WordDocuments/createfolder.htm">
+          <title><![CDATA[Create Folder]]></title>
+          <tooltip><![CDATA[Create Folder]]></tooltip>
+        </item>
+        <item url="WordDocuments/deletefolder.htm">
+          <title><![CDATA[Delete Folder]]></title>
+          <tooltip><![CDATA[Delete Folder]]></tooltip>
+        </item>
+        <item url="WordDocuments/deletefiles.htm">
+          <title><![CDATA[Delete Files]]></title>
+          <tooltip><![CDATA[Delete Files]]></tooltip>
+        </item>
+        <item url="WordDocuments/maskedaddreplacefiles.htm">
+          <title><![CDATA[Masked Add & Replace Files]]></title>
+          <tooltip><![CDATA[Masked Add & Replace Files]]></tooltip>
+        </item>
+        <item url="WordDocuments/patchexistingfile.htm">
+          <title><![CDATA[Patch Existing File]]></title>
+          <tooltip><![CDATA[Patch Existing File]]></tooltip>
+        </item>
+        <item url="WordDocuments/patchfolder.htm">
+          <title><![CDATA[Patch Folder]]></title>
+          <tooltip><![CDATA[Patch Folder]]></tooltip>
+        </item>
+        <item url="WordDocuments/replacefilesonrestart.htm">
+          <title><![CDATA[Replace Files on Restart]]></title>
+          <tooltip><![CDATA[Replace Files on Restart]]></tooltip>
+        </item>
+        <item url="WordDocuments/createfileshortcut.htm">
+          <title><![CDATA[Create File Shortcut]]></title>
+          <tooltip><![CDATA[Create File Shortcut]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/applifemanager.htm">
+        <title><![CDATA[AppLife Manager]]></title>
+        <tooltip><![CDATA[AppLife Manager]]></tooltip>
+        <item url="WordDocuments/setapplicationdirectory.htm">
+          <title><![CDATA[Set Application Directory]]></title>
+          <tooltip><![CDATA[Set Application Directory]]></tooltip>
+        </item>
+        <item url="WordDocuments/setupdateversion.htm">
+          <title><![CDATA[Set Update Version]]></title>
+          <tooltip><![CDATA[Set Update Version]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/operatingsystem.htm">
+        <title><![CDATA[Operating System]]></title>
+        <tooltip><![CDATA[Operating System]]></tooltip>
+        <item url="WordDocuments/executemsi.htm">
+          <title><![CDATA[Execute MSI]]></title>
+          <tooltip><![CDATA[Execute MSI]]></tooltip>
+        </item>
+        <item url="WordDocuments/installnet40.htm">
+          <title><![CDATA[Install .NET 4.0]]></title>
+          <tooltip><![CDATA[Install .NET 4.0]]></tooltip>
+        </item>
+        <item url="WordDocuments/restartoperatingsystem.htm">
+          <title><![CDATA[Restart Operating System]]></title>
+          <tooltip><![CDATA[Restart Operating System]]></tooltip>
+        </item>
+        <item url="WordDocuments/runcommandline.htm">
+          <title><![CDATA[Run Command Line]]></title>
+          <tooltip><![CDATA[Run Command Line]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/registry.htm">
+        <title><![CDATA[Registry]]></title>
+        <tooltip><![CDATA[Registry]]></tooltip>
+        <item url="WordDocuments/createregistrykey.htm">
+          <title><![CDATA[Create Registry Key]]></title>
+          <tooltip><![CDATA[Create Registry Key]]></tooltip>
+        </item>
+        <item url="WordDocuments/setregistryvalues.htm">
+          <title><![CDATA[Set Registry Values]]></title>
+          <tooltip><![CDATA[Set Registry Values]]></tooltip>
+        </item>
+        <item url="WordDocuments/deleteregistrykey.htm">
+          <title><![CDATA[Delete Registry Key]]></title>
+          <tooltip><![CDATA[Delete Registry Key]]></tooltip>
+        </item>
+        <item url="WordDocuments/deleteregistryvalues.htm">
+          <title><![CDATA[Delete Registry Values]]></title>
+          <tooltip><![CDATA[Delete Registry Values]]></tooltip>
+        </item>
+        <item url="WordDocuments/readregistryvalue.htm">
+          <title><![CDATA[Read Registry Value]]></title>
+          <tooltip><![CDATA[Read Registry Value]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/comregistration.htm">
+        <title><![CDATA[COM Registration]]></title>
+        <tooltip><![CDATA[COM Registration]]></tooltip>
+        <item url="WordDocuments/registerassembly.htm">
+          <title><![CDATA[Register Assembly]]></title>
+          <tooltip><![CDATA[Register Assembly]]></tooltip>
+        </item>
+        <item url="WordDocuments/registerlibrary.htm">
+          <title><![CDATA[Register Library]]></title>
+          <tooltip><![CDATA[Register Library]]></tooltip>
+        </item>
+        <item url="WordDocuments/unregisterlibrary.htm">
+          <title><![CDATA[Unregister Library]]></title>
+          <tooltip><![CDATA[Unregister Library]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/xmlactions.htm">
+        <title><![CDATA[XML Actions]]></title>
+        <tooltip><![CDATA[XML Actions]]></tooltip>
+        <item url="WordDocuments/addelement.htm">
+          <title><![CDATA[Add Element]]></title>
+          <tooltip><![CDATA[Add Element]]></tooltip>
+        </item>
+        <item url="WordDocuments/addattribute.htm">
+          <title><![CDATA[Add Attribute]]></title>
+          <tooltip><![CDATA[Add Attribute]]></tooltip>
+        </item>
+        <item url="WordDocuments/changenode.htm">
+          <title><![CDATA[Change Node]]></title>
+          <tooltip><![CDATA[Change Node]]></tooltip>
+        </item>
+        <item url="WordDocuments/deletenode.htm">
+          <title><![CDATA[Delete Node]]></title>
+          <tooltip><![CDATA[Delete Node]]></tooltip>
+        </item>
+        <item url="WordDocuments/readnode.htm">
+          <title><![CDATA[Read Node]]></title>
+          <tooltip><![CDATA[Read Node]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/services.htm">
+        <title><![CDATA[Services]]></title>
+        <tooltip><![CDATA[Services]]></tooltip>
+        <item url="WordDocuments/startservice.htm">
+          <title><![CDATA[Start Service]]></title>
+          <tooltip><![CDATA[Start Service]]></tooltip>
+        </item>
+        <item url="WordDocuments/stopservice.htm">
+          <title><![CDATA[Stop Service]]></title>
+          <tooltip><![CDATA[Stop Service]]></tooltip>
+        </item>
+        <item url="WordDocuments/replacepublickey.htm">
+          <title><![CDATA[Replace Public Key]]></title>
+          <tooltip><![CDATA[Replace Public Key]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/sqlserveractions.htm">
+        <title><![CDATA[Sql Server Actions]]></title>
+        <tooltip><![CDATA[Sql Server Actions]]></tooltip>
+        <item url="WordDocuments/backupsqlserverdatabase.htm">
+          <title><![CDATA[Backup SQL Server Database]]></title>
+          <tooltip><![CDATA[Backup SQL Server Database]]></tooltip>
+        </item>
+        <item url="WordDocuments/beginsqlservertransaction.htm">
+          <title><![CDATA[Begin SQL Server Transaction]]></title>
+          <tooltip><![CDATA[Begin SQL Server Transaction]]></tooltip>
+        </item>
+        <item url="WordDocuments/closesqlserverconnection.htm">
+          <title><![CDATA[Close SQL Server Connection]]></title>
+          <tooltip><![CDATA[Close SQL Server Connection]]></tooltip>
+        </item>
+        <item url="WordDocuments/commitsqlservertransaction.htm">
+          <title><![CDATA[Commit SQL Server Transaction]]></title>
+          <tooltip><![CDATA[Commit SQL Server Transaction]]></tooltip>
+        </item>
+        <item url="WordDocuments/opensqlserverconnection.htm">
+          <title><![CDATA[Open SQL Server Connection]]></title>
+          <tooltip><![CDATA[Open SQL Server Connection]]></tooltip>
+        </item>
+        <item url="WordDocuments/runsqlserverquery.htm">
+          <title><![CDATA[Run SQL Server Query]]></title>
+          <tooltip><![CDATA[Run SQL Server Query]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/databaseactions.htm">
+        <title><![CDATA[Database Actions]]></title>
+        <tooltip><![CDATA[Database Actions]]></tooltip>
+        <item url="WordDocuments/begindatabasetransaction.htm">
+          <title><![CDATA[Begin Database Transaction]]></title>
+          <tooltip><![CDATA[Begin Database Transaction]]></tooltip>
+        </item>
+        <item url="WordDocuments/commitdatabasetransaction.htm">
+          <title><![CDATA[Commit Database Transaction]]></title>
+          <tooltip><![CDATA[Commit Database Transaction]]></tooltip>
+        </item>
+        <item url="WordDocuments/transacteddatabasequery.htm">
+          <title><![CDATA[Transacted Database Query]]></title>
+          <tooltip><![CDATA[Transacted Database Query]]></tooltip>
+        </item>
+        <item url="WordDocuments/transactedstoredprocedure.htm">
+          <title><![CDATA[Transacted Stored Procedure]]></title>
+          <tooltip><![CDATA[Transacted Stored Procedure]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/sharedproperties.htm">
+        <title><![CDATA[Shared Properties]]></title>
+        <tooltip><![CDATA[Shared Properties]]></tooltip>
+        <item url="WordDocuments/setsharedproperty.htm">
+          <title><![CDATA[Set Shared Property]]></title>
+          <tooltip><![CDATA[Set Shared Property]]></tooltip>
+        </item>
+      </item>
+      <item url="WordDocuments/updatecategory.htm">
+        <title><![CDATA[Update Category]]></title>
+        <tooltip><![CDATA[Update Category]]></tooltip>
+        <item url="WordDocuments/comment.htm">
+          <title><![CDATA[Comment]]></title>
+          <tooltip><![CDATA[Comment]]></tooltip>
+        </item>
+        <item url="WordDocuments/dynamiccodeaction.htm">
+          <title><![CDATA[Dynamic Code Action]]></title>
+          <tooltip><![CDATA[Dynamic Code Action]]></tooltip>
+        </item>
+        <item url="WordDocuments/preventapplicationrestart.htm">
+          <title><![CDATA[Prevent Application Restart]]></title>
+          <tooltip><![CDATA[Prevent Application Restart]]></tooltip>
+        </item>
+        <item url="WordDocuments/runactionlist.htm">
+          <title><![CDATA[Run Action List]]></title>
+          <tooltip><![CDATA[Run Action List]]></tooltip>
+        </item>
+      </item>
+    </item>
+    <item url="WordDocuments/makingcustomactions.htm">
+      <title><![CDATA[Making Custom Actions]]></title>
+      <tooltip><![CDATA[Making Custom Actions]]></tooltip>
+      <item url="WordDocuments/whatarecustomactions.htm">
+        <title><![CDATA[What Are Custom Actions?]]></title>
+        <tooltip><![CDATA[What Are Custom Actions?]]></tooltip>
+      </item>
+      <item url="WordDocuments/updateactionconfigurationandstate.htm">
+        <title><![CDATA[Update Action Configuration and State]]></title>
+        <tooltip><![CDATA[Update Action Configuration and State]]></tooltip>
+      </item>
+      <item url="WordDocuments/updateactionmethods.htm">
+        <title><![CDATA[Update Action Methods]]></title>
+        <tooltip><![CDATA[Update Action Methods]]></tooltip>
+      </item>
+      <item url="WordDocuments/updatecontext.htm">
+        <title><![CDATA[Update Context]]></title>
+        <tooltip><![CDATA[Update Context]]></tooltip>
+      </item>
+      <item url="WordDocuments/progressupdates.htm">
+        <title><![CDATA[Progress Updates]]></title>
+        <tooltip><![CDATA[Progress Updates]]></tooltip>
+      </item>
+      <item url="WordDocuments/customactionbuilder.htm">
+        <title><![CDATA[Custom Action Builder]]></title>
+        <tooltip><![CDATA[Custom Action Builder]]></tooltip>
+      </item>
+      <item url="WordDocuments/addingcustomactionstoyourproject.htm">
+        <title><![CDATA[Adding Custom Actions to Your Project]]></title>
+        <tooltip><![CDATA[Adding Custom Actions to Your Project]]></tooltip>
+        <item url="WordDocuments/customactionassemblies.htm">
+          <title><![CDATA[Custom Action Assemblies]]></title>
+          <tooltip><![CDATA[Custom Action Assemblies]]></tooltip>
+        </item>
+        <item url="WordDocuments/palettes.htm">
+          <title><![CDATA[Palettes]]></title>
+          <tooltip><![CDATA[Palettes]]></tooltip>
+        </item>
+        <item url="WordDocuments/customactionplaceholders.htm">
+          <title><![CDATA[Custom Action Placeholders]]></title>
+          <tooltip><![CDATA[Custom Action Placeholders]]></tooltip>
+        </item>
+        <item url="WordDocuments/replacingcustomactionassemblies.htm">
+          <title><![CDATA[Replacing Custom Action Assemblies]]></title>
+          <tooltip><![CDATA[Replacing Custom Action Assemblies]]></tooltip>
+        </item>
+      </item>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Automating AppLife Update]]></title>
+    <tooltip><![CDATA[Automating AppLife Update]]></tooltip>
+    <item url="WordDocuments/commandlineutility.htm">
+      <title><![CDATA[Command Line Utility]]></title>
+      <tooltip><![CDATA[Command Line Utility]]></tooltip>
+      <item url="WordDocuments/commandlineutilitylocation.htm">
+        <title><![CDATA[Command Line Utility Location]]></title>
+        <tooltip><![CDATA[Command Line Utility Location]]></tooltip>
+      </item>
+      <item url="WordDocuments/usingthecommandlineutility.htm">
+        <title><![CDATA[Using the Command Line Utility]]></title>
+        <tooltip><![CDATA[Using the Command Line Utility]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/msbuildtask.htm">
+      <title><![CDATA[MSBuild Task]]></title>
+      <tooltip><![CDATA[MSBuild Task]]></tooltip>
+      <item url="WordDocuments/usage.htm">
+        <title><![CDATA[Usage]]></title>
+        <tooltip><![CDATA[Usage]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/finalbuilderaction.htm">
+      <title><![CDATA[FinalBuilder Action]]></title>
+      <tooltip><![CDATA[FinalBuilder Action]]></tooltip>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Support]]></title>
+    <tooltip><![CDATA[Support]]></tooltip>
+    <item url="WordDocuments/kineticjumpsupport.htm">
+      <title><![CDATA[Kinetic Jump Support]]></title>
+      <tooltip><![CDATA[Kinetic Jump Support]]></tooltip>
+      <item url="WordDocuments/emailsupport.htm">
+        <title><![CDATA[Email Support]]></title>
+        <tooltip><![CDATA[Email Support]]></tooltip>
+      </item>
+      <item url="WordDocuments/phonesupport.htm">
+        <title><![CDATA[Phone Support]]></title>
+        <tooltip><![CDATA[Phone Support]]></tooltip>
+      </item>
+      <item url="WordDocuments/userforums.htm">
+        <title><![CDATA[User Forums]]></title>
+        <tooltip><![CDATA[User Forums]]></tooltip>
+      </item>
+    </item>
+  </item>
+  <item>
+    <title><![CDATA[Reference]]></title>
+    <tooltip><![CDATA[Reference]]></tooltip>
+    <item url="WordDocuments/newprojectwizard.htm">
+      <title><![CDATA[New Project Wizard]]></title>
+      <tooltip><![CDATA[New Project Wizard]]></tooltip>
+      <item url="WordDocuments/programversioning.htm">
+        <title><![CDATA[Program Versioning]]></title>
+        <tooltip><![CDATA[Program Versioning]]></tooltip>
+      </item>
+      <item url="WordDocuments/updateprocesspermissions.htm">
+        <title><![CDATA[Update Process Permissions]]></title>
+        <tooltip><![CDATA[Update Process Permissions]]></tooltip>
+      </item>
+      <item url="WordDocuments/finishsynchronization.htm">
+        <title><![CDATA[Finish Synchronization]]></title>
+        <tooltip><![CDATA[Finish Synchronization]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/projectproperties.htm">
+      <title><![CDATA[Project Properties]]></title>
+      <tooltip><![CDATA[Project Properties]]></tooltip>
+      <item url="WordDocuments/updatewindowtab.htm">
+        <title><![CDATA[Update Window Tab]]></title>
+        <tooltip><![CDATA[Update Window Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/publishingtab.htm">
+        <title><![CDATA[Publishing Tab]]></title>
+        <tooltip><![CDATA[Publishing Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/securitytab.htm">
+        <title><![CDATA[Security Tab]]></title>
+        <tooltip><![CDATA[Security Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/localizationtab.htm">
+        <title><![CDATA[Localization Tab]]></title>
+        <tooltip><![CDATA[Localization Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/customactionstab.htm">
+        <title><![CDATA[Custom Actions Tab]]></title>
+        <tooltip><![CDATA[Custom Actions Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/buildtab.htm">
+        <title><![CDATA[Build Tab]]></title>
+        <tooltip><![CDATA[Build Tab]]></tooltip>
+      </item>
+      <item url="WordDocuments/generaltab.htm">
+        <title><![CDATA[General Tab]]></title>
+        <tooltip><![CDATA[General Tab]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/themakeupdatewindow.htm">
+      <title><![CDATA[The Make Update Window]]></title>
+      <tooltip><![CDATA[The Make Update Window]]></tooltip>
+    </item>
+    <item url="WordDocuments/actionconditionalexpressiondialog.htm">
+      <title><![CDATA[Action Conditional Expression Dialog]]></title>
+      <tooltip><![CDATA[Action Conditional Expression Dialog]]></tooltip>
+    </item>
+    <item url="WordDocuments/registerassemblyactioneditor.htm">
+      <title><![CDATA[Register Assembly Action Editor]]></title>
+      <tooltip><![CDATA[Register Assembly Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/registerlibraryactioneditor.htm">
+      <title><![CDATA[Register Library Action Editor]]></title>
+      <tooltip><![CDATA[Register Library Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/unregisterlibraryactioneditor.htm">
+      <title><![CDATA[Unregister Library Action Editor]]></title>
+      <tooltip><![CDATA[Unregister Library Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/addreplacefilesactioneditor.htm">
+      <title><![CDATA[Add & Replace Files Action Editor]]></title>
+      <tooltip><![CDATA[Add & Replace Files Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/addfilesbycomparisonactioneditor.htm">
+      <title><![CDATA[Add Files By Comparison Action Editor]]></title>
+      <tooltip><![CDATA[Add Files By Comparison Action Editor]]></tooltip>
+      <item url="WordDocuments/addfilesbycomparisonv40change.htm">
+        <title><![CDATA[Add Files by Comparison (v4.0 Change)]]></title>
+        <tooltip><![CDATA[Add Files by Comparison (v4.0 Change)]]></tooltip>
+      </item>
+    </item>
+    <item url="WordDocuments/deletefilesactioneditor.htm">
+      <title><![CDATA[Delete Files Action Editor]]></title>
+      <tooltip><![CDATA[Delete Files Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/maskedaddreplacefilesactioneditor.htm">
+      <title><![CDATA[Masked Add & Replace Files Action Editor]]></title>
+      <tooltip><![CDATA[Masked Add & Replace Files Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/patchfolderactioneditor.htm">
+      <title><![CDATA[Patch Folder Action Editor]]></title>
+      <tooltip><![CDATA[Patch Folder Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/patchexistingfileactioneditor.htm">
+      <title><![CDATA[Patch Existing File Action Editor]]></title>
+      <tooltip><![CDATA[Patch Existing File Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/replacefilesonrestartactioneditor.htm">
+      <title><![CDATA[Replace Files on Restart Action Editor]]></title>
+      <tooltip><![CDATA[Replace Files on Restart Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/createfolderactioneditor.htm">
+      <title><![CDATA[Create Folder Action Editor]]></title>
+      <tooltip><![CDATA[Create Folder Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/deletefolderaction.htm">
+      <title><![CDATA[Delete Folder Action]]></title>
+      <tooltip><![CDATA[Delete Folder Action]]></tooltip>
+    </item>
+    <item url="WordDocuments/copyfoldercontentsactioneditor.htm">
+      <title><![CDATA[Copy Folder Contents Action Editor]]></title>
+      <tooltip><![CDATA[Copy Folder Contents Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/createfileshortcutactioneditor.htm">
+      <title><![CDATA[Create File Shortcut Action Editor]]></title>
+      <tooltip><![CDATA[Create File Shortcut Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/installnet40actioneditor.htm">
+      <title><![CDATA[Install .NET 4.0 Action Editor]]></title>
+      <tooltip><![CDATA[Install .NET 4.0 Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/installgacassemblyeditor.htm">
+      <title><![CDATA[Install GAC Assembly Editor]]></title>
+      <tooltip><![CDATA[Install GAC Assembly Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/uninstallgacassemblyeditor.htm">
+      <title><![CDATA[Uninstall GAC Assembly Editor]]></title>
+      <tooltip><![CDATA[Uninstall GAC Assembly Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/executemsiactioneditor.htm">
+      <title><![CDATA[Execute Msi Action Editor]]></title>
+      <tooltip><![CDATA[Execute Msi Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/restartoperatingsystemactioneditor.htm">
+      <title><![CDATA[Restart Operating System Action Editor]]></title>
+      <tooltip><![CDATA[Restart Operating System Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/runcommandlineactioneditor.htm">
+      <title><![CDATA[Run Command Line Action Editor]]></title>
+      <tooltip><![CDATA[Run Command Line Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/createregistrykeyactioneditor.htm">
+      <title><![CDATA[Create Registry Key Action Editor]]></title>
+      <tooltip><![CDATA[Create Registry Key Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/deleteregistrykeyactioneditor.htm">
+      <title><![CDATA[Delete Registry Key Action Editor]]></title>
+      <tooltip><![CDATA[Delete Registry Key Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/deleteregistryvaluesactioneditor.htm">
+      <title><![CDATA[Delete Registry Values Action Editor]]></title>
+      <tooltip><![CDATA[Delete Registry Values Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/setregistryvaluesactioneditor.htm">
+      <title><![CDATA[Set Registry Values Action Editor]]></title>
+      <tooltip><![CDATA[Set Registry Values Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/readregistryvalueactioneditor.htm">
+      <title><![CDATA[Read Registry Value Action Editor]]></title>
+      <tooltip><![CDATA[Read Registry Value Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/startserviceactioneditor.htm">
+      <title><![CDATA[Start Service Action Editor]]></title>
+      <tooltip><![CDATA[Start Service Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/stopserviceactioneditor.htm">
+      <title><![CDATA[Stop Service Action Editor]]></title>
+      <tooltip><![CDATA[Stop Service Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/replacepublickeyactioneditor.htm">
+      <title><![CDATA[Replace Public Key Action Editor]]></title>
+      <tooltip><![CDATA[Replace Public Key Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/addxmlattributeactioneditor.htm">
+      <title><![CDATA[Add Xml Attribute Action Editor]]></title>
+      <tooltip><![CDATA[Add Xml Attribute Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/addxmlelementactioneditor.htm">
+      <title><![CDATA[Add Xml Element Action Editor]]></title>
+      <tooltip><![CDATA[Add Xml Element Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/changexmlnodeactioneditor.htm">
+      <title><![CDATA[Change Xml Node Action Editor]]></title>
+      <tooltip><![CDATA[Change Xml Node Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/deletexmlnodeactioneditor.htm">
+      <title><![CDATA[Delete Xml Node Action Editor]]></title>
+      <tooltip><![CDATA[Delete Xml Node Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/readxmlnodetextactioneditor.htm">
+      <title><![CDATA[Read Xml Node Text Action Editor]]></title>
+      <tooltip><![CDATA[Read Xml Node Text Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/commentactioneditor.htm">
+      <title><![CDATA[Comment Action Editor]]></title>
+      <tooltip><![CDATA[Comment Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/runactionlisteditor.htm">
+      <title><![CDATA[Run Action List Editor]]></title>
+      <tooltip><![CDATA[Run Action List Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/dynamiccodeaction1.htm">
+      <title><![CDATA[Dynamic Code Action]]></title>
+      <tooltip><![CDATA[Dynamic Code Action]]></tooltip>
+    </item>
+    <item url="WordDocuments/preventapplicationrestartactioneditor.htm">
+      <title><![CDATA[Prevent Application Restart Action Editor]]></title>
+      <tooltip><![CDATA[Prevent Application Restart Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/begintransactionactioneditor.htm">
+      <title><![CDATA[Begin Transaction Action Editor]]></title>
+      <tooltip><![CDATA[Begin Transaction Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/committransactionactioneditor.htm">
+      <title><![CDATA[Commit Transaction Action Editor]]></title>
+      <tooltip><![CDATA[Commit Transaction Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/transactedqueryactioneditor.htm">
+      <title><![CDATA[Transacted Query Action Editor]]></title>
+      <tooltip><![CDATA[Transacted Query Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/transactedstoredprocedureactioneditor.htm">
+      <title><![CDATA[Transacted Stored Procedure Action Editor]]></title>
+      <tooltip><![CDATA[Transacted Stored Procedure Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/backupsqlserverdatabaseactioneditor.htm">
+      <title><![CDATA[Backup SQL Server Database Action Editor]]></title>
+      <tooltip><![CDATA[Backup SQL Server Database Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/beginsqlservertransactionactioneditor.htm">
+      <title><![CDATA[Begin SQL Server Transaction Action Editor]]></title>
+      <tooltip><![CDATA[Begin SQL Server Transaction Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/closesqlserverconnectionactioneditor.htm">
+      <title><![CDATA[Close SQL Server Connection Action Editor]]></title>
+      <tooltip><![CDATA[Close SQL Server Connection Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/commitsqlservertransactionactioneditor.htm">
+      <title><![CDATA[Commit SQL Server Transaction Action Editor]]></title>
+      <tooltip><![CDATA[Commit SQL Server Transaction Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/opensqlserverconnectionactioneditor.htm">
+      <title><![CDATA[Open SQL Server Connection Action Editor]]></title>
+      <tooltip><![CDATA[Open SQL Server Connection Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/runsqlserverqueryactioneditor.htm">
+      <title><![CDATA[Run SQL Server Query Action Editor]]></title>
+      <tooltip><![CDATA[Run SQL Server Query Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/setsharedpropertyactioneditor.htm">
+      <title><![CDATA[Set Shared Property Action Editor]]></title>
+      <tooltip><![CDATA[Set Shared Property Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/checkserviceexistsactioneditor.htm">
+      <title><![CDATA[Check Service Exists Action Editor]]></title>
+      <tooltip><![CDATA[Check Service Exists Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/checkfileexistsactioneditor.htm">
+      <title><![CDATA[Check File Exists Action Editor]]></title>
+      <tooltip><![CDATA[Check File Exists Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/readfileversionactioneditor.htm">
+      <title><![CDATA[Read File Version Action Editor]]></title>
+      <tooltip><![CDATA[Read File Version Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/setdisplayversionactioneditor.htm">
+      <title><![CDATA[Set Display Version Action Editor]]></title>
+      <tooltip><![CDATA[Set Display Version Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/applifemanagersetupdateversionactioneditor.htm">
+      <title><![CDATA[AppLife Manager Set Update Version Action Editor]]></title>
+      <tooltip><![CDATA[AppLife Manager Set Update Version Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/applifemanagerfindinstalldirectoryactioneditor.htm">
+      <title><![CDATA[AppLife Manager Find Install Directory Action Editor]]></title>
+      <tooltip><![CDATA[AppLife Manager Find Install Directory Action Editor]]></tooltip>
+    </item>
+    <item url="WordDocuments/missingactionplaceholder.htm">
+      <title><![CDATA[Missing Action Place Holder]]></title>
+      <tooltip><![CDATA[Missing Action Place Holder]]></tooltip>
+    </item>
+    <item url="WordDocuments/licenseform.htm">
+      <title><![CDATA[License Form]]></title>
+      <tooltip><![CDATA[License Form]]></tooltip>
+    </item>
+    <item url="WordDocuments/optionsform.htm">
+      <title><![CDATA[Options Form]]></title>
+      <tooltip><![CDATA[Options Form]]></tooltip>
+      <item url="WordDocuments/preferences.htm">
+        <title><![CDATA[Preferences]]></title>
+        <tooltip><![CDATA[Preferences]]></tooltip>
+      </item>
+      <item url="WordDocuments/proxy.htm">
+        <title><![CDATA[Proxy]]></title>
+        <tooltip><![CDATA[Proxy]]></tooltip>
+      </item>
+      <item url="WordDocuments/spelling.htm">
+        <title><![CDATA[Spelling]]></title>
+        <tooltip><![CDATA[Spelling]]></tooltip>
+      </item>
+    </item>
+  </item>
+</toc>

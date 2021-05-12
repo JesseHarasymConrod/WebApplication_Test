@@ -1,0 +1,30 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.VersionActivityViewModel
+@using AppLifeServerMvc.Models.ViewModels
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1.0", { 'packages': ['corechart'] });
+    google.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+        var chartData = new google.visualization.DataTable();
+
+        chartData.addColumn('string', 'Date');
+        chartData.addColumn('number', 'Updates');
+        
+        @foreach(AppliedUpdateActivityLineData ld in Model.Data) {
+            @Html.Raw(string.Format(@"chartData.addRow(['{0}',{1}]);", ld.Date.ToShortDateString(), ld.AppliedCount));
+        }
+   
+        var chartOptions = {
+            'legend': { position: 'none' },
+            height: 300,
+            title: 'Updates Timeline',
+            subtitle: 'Running total',
+            vAxis: { title: 'Total Applied Updates',  }
+        };
+
+        var updatesChart = new google.visualization.LineChart(document.getElementById('pnlUpdatesChart'));
+        updatesChart.draw(chartData, chartOptions);
+    }
+</script>
+<div id="pnlUpdatesChart">Applied Updates</div>

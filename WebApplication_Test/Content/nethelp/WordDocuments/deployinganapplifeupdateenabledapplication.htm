@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Deploying an AppLife Update Enabled Application</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="deployingtheapplifeupdatewindowsservice.htm" /><link rel="next" href="updateoptions.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="5e751489-8dc8-40ac-913c-d940e18a7755">
+<h2>Deploying an AppLife Update Enabled Application</h2>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 14pt">Update 
+Controller</span></b></p>
+<p class="MsoBodyText">To deploy an AppLife Update enabled application, ship the 
+<b>Kjs.AppLife.Update.Controller.dll</b> assembly with your application.  
+The controller assembly should be located in your application directory.</p>
+<p class="MsoBodyText"><b></b> </p>
+<p class="MsoBodyText"><b>Using Localized Resource (de, es, fr, it, ja, ru, zh-CHT 
++ community translations)  </b></p>
+<p class="MsoBodyText">AppLife Update ships with localized resources. The 
+localized satellite assemblies are located in the 
+<i>InstallDir/PublicAssemblies/Localized Resources</i> directory.  To 
+include localized controller resources, move the specific locales from this 
+folder into the folder that contains the Kjs.AppLife.Update.Controller.dll.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 14pt">WPF 
+Controls</span></b></p>
+<p class="MsoBodyText">If you are using the WPF controls, you must ship the 
+<b>Kjs.AppLife.Update.Wpf.dll</b> assembly along with the update controller 
+assembly.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b><span style="FONT-SIZE: 14pt">The AppLife Update Windows 
+Service</span></b></p>
+<p class="MsoBodyText">If you have configured your application to utilize the 
+AppLife Update Windows Service, you must ship the Windows Service with your 
+application.  See deploying the windows service for more information.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The update engine and update actions are not deployed with 
+your application. They are included in every update package. Your application 
+extracts the engine from the downloaded update package as updates are 
+applied.</p><span id="related-topics"></span></body></html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Building an Update Package</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="initialinstall.htm" /><link rel="next" href="theapplifeupdateengine.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="e113b27c-dfb6-47bf-969a-81c50b217278">
+<h3>Building an Update Package</h3>
+<p class="MsoBodyText">The <i>Make Update</i> application is used to build update 
+packages. Using Make Update, an update is created by adding Update Actions to 
+the action list in your AppLife Update project. When you build an update, all of 
+the actions in the action list are processed, and all of the new files and 
+instructions defined in the action list are packaged up into an update 
+package.  This is a file names <i>major.minor.build.revision.</i>zip.  
+The update package is compressed with gzip compression, but given the zip 
+extension so that web servers won’t block serving them up. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">To create an update, click the <i>Create an Update…</i> 
+button.</p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_36.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">1.  Set 
+the <i>Update version</i> of the new update.<br /><i>Note: This value can be 
+automatically set by referencing the assembly version or file version of a 
+designated file.</i> <i>See </i><a class="topic-link" href="projectproperties.htm"><i>Project Properties</i></a></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">2.  
+Define the previous versions that can successfully apply the new update.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">3.  Write 
+any summary text information that you would like the user to see. (This 
+information is available from the Update Controller when the update is 
+discovered).</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_37.png" alt="" /></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">4.  
+Select one or more update locations to publish the new update to.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">5.  If 
+your publish location requires credentials, you can enter them here. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_38.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; tab-stops: 162.0pt">6.  Click 
+the Build button to build and publish the new update.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image132_39.png" alt="" /></p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

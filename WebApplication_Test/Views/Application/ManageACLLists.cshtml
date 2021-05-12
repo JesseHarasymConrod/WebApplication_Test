@@ -1,0 +1,73 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ManageACLViewModel
+<div class="container_12">
+    <div class="grid_6">
+        <h6>Access Lists</h6>
+        <p>Assign lists to your application or individual updates to allow access.</p>
+        <div id="pnlAccessLists" class="scroll" style="height: 430px; border: 1px solid lightgray; margin-top:5px;">
+            <table id="tblAppAccessLists" name="tblAppAccessLists" border="0" cellpadding="0" cellspacing="0" class="ui-widget" style="width:100%; margin-top:0px;">
+                <tbody class="ui-widget-content ui-state-default">
+                    @foreach(var item in Model.AccessLists) {
+                        <tr id="row-@item.Id">
+                            <td width="5px;">
+                                <input data-shared="@item.IsShared.ToString().ToLower()" type="checkbox" id="AccessListId-@item.Id" hidden="hidden" />
+                            </td>
+                            <td align="left">@Html.DisplayFor(modelItem => item.Name) @{if(Model.Id != item.ApplicationId) {@Html.Raw("(Shared)")}
+                              }
+                            </td>
+                            
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-top:10px;">
+            <p>
+                <input type="button" class="submit" onclick="showAddPanel()" value="New" />
+                <input type="button" class="submit" onclick="showEditPanel()" value="Edit" />
+                <input id="btnDelete" type="button" class="submit" onclick="showRemoveCheckboxes()" value="Delete..."/>
+                <input id="btnRemoveLists" type="button" class="submit" onclick="removeCheckedLists()" value="Remove Checked" hidden="hidden"/>
+                <input id="btnCancelRemove" type="button" class="submit" onclick="hideRemoveCheckboxes()" value="Cancel Delete" hidden="hidden"/>
+                <input id="btnClone" type="button" class="submit" onclick="copyAccessList()" value="Clone" />
+            </p>
+        </div>
+    </div>
+    <div class="grid_6">
+        <h6>List Entries</h6>
+        <p>Add the client id or client access key, authorizing application updates.</p>
+        <div id="itemsTable">
+            <div>
+                <input id="txtNewKey" type="text" class="text medium ui-state-disabled" name="txtNewKey" style="width:85%;" />
+                <input id="btnAddListItem" type="button" class="submit ui-state-disabled" value="Add" />
+            </div>
+            <div id="pnlACLEntries" class="scroll" style="height: 400px; border: 1px solid lightgray; margin-top:5px;">
+                <table id="tblACLEntries" name="tblACLEntries">
+                    <tbody>
+                       
+                    </tbody>
+                </table>
+
+            </div>
+            <div style="margin-top:10px;">
+                <input type="button" class="submit" onclick="showEntryEditPanel()" value="Edit" />
+                <input id="btnRemoveEntries" type="button" class="submit" onclick="removeCheckedEntries()" value="Remove Checked" hidden="hidden" /><img id="imgCloseEntriesEdit" src="~/Content/images/16X16/cancel.png" onclick="closeEntriesEdit()" hidden="hidden" />
+            </div>
+        </div>
+    </div>
+</div>
+@Content.Script("ManageACLLists.js", @Url)
+ <div id="dialog-confirm" title="Confirm Removal" style="display: none;">
+        <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 40px 0;"></span>
+            The checked items will be removed. Are you sure?</p>
+</div>
+<div id="dialog-EditAcl" title="Add/Edit Access Control List" style="display:none;">
+    <div>
+        <p>List Name<br/>
+            <input id="txtListName" type="text" class="text big" name="txtListName" style="width:320px; margin-top:3px;" />
+        </p>
+        <p>
+            <input id="chkIsShared" type="checkbox" /> Share this list
+        </p>
+    </div>
+</div>

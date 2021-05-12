@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Dynamic Code Action</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="runactionlisteditor.htm" /><link rel="next" href="preventapplicationrestartactioneditor.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="700cb311-2046-49d4-8a3d-39ca4bf4b28e">
+<h2>Dynamic Code Action</h2>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image133_42.png" alt="" /></p>
+<p class="MsoBodyText">Action Description - Descriptive text that can be used to 
+identify this particular action in the Actions list.</p>
+<p class="MsoBodyText">Language: Select C# or Visual Basic.Net (The default 
+language can be set in the application options dialog)</p>
+<p class="MsoBodyText">Build – Test builds the source code provided.</p>
+<p class="MsoBodyText">Enable Debugging – Builds the resulting dynamic custom 
+actions assembly in debug mode and includes debug symbols in the update.  
+This setting is global for all Dynamic code actions in the project.</p>
+<p class="MsoBodyText">Framework- Designates the .Net Framework to target.  
+<i>Note: The build system must have the .Net Framework 3.5 SP1 or higher to 
+designate a target framework.</i></p>
+<p class="MsoBodyText">References – Provides a dialog to reference additional .Net 
+assemblies for use in the dynamic action source code.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">The <i>Dynamic Code Action </i>provides the ability to 
+create custom update activity using .Net source code.  The defined source 
+code is compiled and packaged into the update as Make Update builds the 
+update.</p>
+<p class="MsoBodyText"> Through the <i>UpdateContext</i> object, the Shared 
+Properties collection can be manipulated within a Dynamic Code Action. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><img border="0" src="../ImagesExt/image133_43.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><a class="topic-link" href="sharedproperties.htm">Shared 
+Properties</a> can be used in other actions as well as within <a class="topic-link" href="actionconditionals.htm">Action Conditional 
+expressions</a>.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Progress and textual information can be sent to the Update 
+Engine user interface for user presentation by using the 
+<i>OnProgressChanged</i> method from within an update action method body.</p>
+<p class="MsoBodyText"><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: black">OnProgressChanged(</span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: blue">new</span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: black"> 
+UpdateProgressChangedEventArgs(</span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: purple">10</span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: black">, </span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: maroon">"Dynamic code action progress 
+comments"</span><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: black">));</span></p>
+<p class="MsoBodyText"><span style="FONT-FAMILY: &quot;Courier New&quot;; COLOR: black"></span> </p>
+<p class="MsoBodyText">See the AppLife Update API Documentation content for 
+Kjs.AppLife.Update.Engine.Core UpdateAction class for more detailed technical 
+information. The API documentation can be accessed from the Help menu within 
+Make Update.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

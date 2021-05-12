@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Coordinated Application Shutdown</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="applifeupdateengineoptions.htm" /><link rel="next" href="passinginsharedpropertiesforanupdate.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="f0e4241e-20b0-4deb-b6d1-8831c32b998a">
+<h4>Coordinated Application Shutdown</h4>
+<p class="MsoBodyText">When an update is applied, inter-process communication 
+takes place between all running processes with an instantiated Update 
+Controller.  When an update is executed, an attempt is made to shutdown any 
+process with an Update Controller configured with the same <i>ApplicationID 
+</i>as the initiating controller<i>.</i>  In each of these processes, the 
+<i>UpdateStarted</i> event is first raised to allow the implementer to perform 
+any necessary work prior to the shutdown attempt.  From this event the 
+implementer can control the behavior of the update process.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">1.  
+Inspect the physical path of the instantiating host assembly, and use this 
+information to support independent side-by-side application updating.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">2.  
+Cancel the update process currently in progress.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">3.  
+Ignore the update process, and prevent the current instance from being shutdown, 
+without canceling the entire update process.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">4.  Pass 
+from the initiating application instance to all other instances custom data that 
+can be used to determine the proper behavior to take.  Set the 
+UpdateController.CustomIpcData property and investigate the <i>UpdateStarted</i> 
+Event Arguments custom data property.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Note: When the application update process is configured for 
+<i>No Shutdown </i>by using the <i>ApplyUpdateOptions.NoShutdown</i> parameter, 
+only the initiating update process will not shutdown. The inter-process 
+communication still occurs and the <i>UpdateStarted</i> event is raised on all 
+other instances.  If your implementation should prevent other processes 
+from shutting down, handle the <i>UpdateStarted </i>event and set up your 
+desired behavior.</p>
+<p class="MsoBodyText"><b>Disabling IPC</b></p>
+<p class="MsoBodyText">Update Controller Inter-Process Communications can be 
+disabled by setting the Update Controller <i>DisableControllerIPC</i> property 
+to true.</p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

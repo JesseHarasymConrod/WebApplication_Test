@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Action Conditionals</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="settingsharedpropertyvariables.htm" /><link rel="next" href="creatingandtestingconditionals.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="c4f678a7-811c-4ed7-9c64-e1c9370444a5">
+<h2>Action Conditionals</h2>
+<p class="MsoBodyText">Any action in an action list update can have a condition 
+assigned that controls whether or not the action is executed during the 
+update.  If no condition is set, the action is always executed.</p>
+<p class="MsoBodyText"><img src="../ImagesExt/image131_2.png" alt="" /></p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">Action conditions will take the form of an arithmetic 
+statement and evaluate to either true or false.  If the conditional 
+expression evaluates to true, the action is executed during the update.  If 
+it evaluates to false, the action is skipped and not executed.</p>
+<p class="MsoBodyText">The expression can include a combination of values, 
+operators and functions.</p>
+<p class="MsoBodyText"><b>Supported Operators</b></p>
+<p class="MsoBodyText"><i>Binary</i></p>
+<p class="MsoBodyText">+, -, *, /, mod, &gt;, &lt;, &gt;=, &lt;=, and, &amp;, or, 
+|, andalso, &amp;&amp;, orelse, ||, xor, ^, like, =, ==, &lt;&gt;, !=</p>
+<p class="MsoBodyText"><i>Unary</i></p>
+<p class="MsoBodyText">Not, !, ~, -</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Precedence</b></p>
+<p class="MsoBodyText">Standard operator precedence is honored.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">1.  -; !, 
+not; ~</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">2.  *; /; 
+%, mod</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">3.  +; 
+-</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">4.  &gt;; 
+&lt;; &gt;=; &lt;=</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">5.  ==, 
+=; !=, &lt;&gt;; like</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">6.  
+&amp;, and</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">7.  ^, 
+xor</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">8.  |, 
+or</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">9.  
+&amp;&amp;, andalso</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18pt; tab-stops: 180.0pt">10. ||, 
+orelse</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><b>Functions</b></p>
+<p class="MsoBodyText">The following functions are supported in action conditional 
+statements.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Startswith(string, string). Returns 1 if the first string starts with the 
+second string, using case-insensitive comparison.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Endswith(string, string). Returns 1 if the first string ends with the 
+second string, using case-insensitive comparison.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Contains(string, string). Returns 1 if the first string contains the 
+second string, using case-insensitive comparison.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Substring(string, number:start, number:length). Returns text from the 
+first string, from start (0-based) and extending for length characters.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Append(string, string). Returns a string containing string 1 followed by 
+string 2.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Round(number). Returns the number rounded to the nearest integer.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Sign(number). Returns 1 if the number is positive, -1 if the number is 
+negative, or 0 if the number is 0.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Int(number). Returns the integer part of the number.</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -18.75pt; tab-stops: 180.0pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>Frac(number). Returns the fractional part of the number.</p>
+<p class="MsoBodyText"> </p>
+<div class="related-topics-header">
+<p class="RelatedHead">More:</p>
+<div class="related-topics">
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="creatingandtestingconditionals.htm">Creating and Testing 
+Conditionals</a></p></div></div></body></html>

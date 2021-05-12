@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Delete Folder</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="createfolder.htm" /><link rel="next" href="deletefiles.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="640e0d80-88e7-4f47-942f-2d05fe45db09">
+<h4>Delete Folder</h4>
+<p class="MsoBodyText">The <i>Delete Folder</i> action removes the designated 
+folder from the target system.  You can optionally delete all files and 
+subdirectories.  You can also elect to continue the update if any file or 
+directory deletion fails, or abort the update.</p>
+<p class="MsoBodyText"><i>Prepare Stage</i></p>
+<p class="MsoBodyText">During the prepare stage, this action verifies permissions 
+to the target folder.</p>
+<p class="MsoBodyText"><i>Execute Stage</i></p>
+<p class="MsoBodyText">Makes a copy of the files that are going to be deleted on 
+the client computer, then deletes the folder and files on the client.</p>
+<p class="MsoBodyText"><i>Cleanup Stage</i></p>
+<p class="MsoBodyText">Removes the backup copies that were made during the execute 
+stage.</p>
+<p class="MsoBodyText"><i>Rollback Stage</i></p>
+<p class="MsoBodyText">Attempts to replace the files that were deleted from the 
+backup files created in the execute stage. </p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"> </p><span id="related-topics"></span></body></html>

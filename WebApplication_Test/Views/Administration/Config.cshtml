@@ -1,0 +1,77 @@
+﻿@model AppLifeServerMvc.Models.ViewModels.ConfigurationViewModel
+
+<script src="~/Scripts/Administration.js"></script>
+
+@using(Html.BeginForm("Edit", "Administration")) {
+<div class="grid_6">
+   
+    <h2>Server Settings</h2>
+    <p>
+        @Html.LabelFor(model => model.PublicUrl) @Html.ValidationMessageFor(model => model.PublicUrl)<br />
+        @Html.TextBoxFor(model => model.PublicUrl, new { Class = "text big error" })<br />
+
+        @Html.LabelFor(model => model.LicenseKey) @Html.ValidationMessageFor(model => model.LicenseKey)<br />
+        @Html.TextBoxFor(model => model.LicenseKey, new { Class = "text big error" })
+
+        @if(Request.IsSecureConnection) {
+          @Html.CheckBoxFor(model => model.RequireSsl)
+        } else {
+          @Html.CheckBoxFor(model => model.RequireSsl, new { @disabled = "disabled" })
+        }
+           @Html.LabelFor(model => model.RequireSsl)<br />
+        @Html.CheckBoxFor(model => model.RequireControllerSsl) @Html.LabelFor(model => model.RequireControllerSsl)<br />
+        <br />
+        @Html.LabelFor(model => model.ServerHelpPhone) @Html.ValidationMessageFor(model=>model.ServerHelpPhone)<br />
+        @Html.TextBoxFor(model => model.ServerHelpPhone, new { Class = "text big error" })<br />
+
+        @Html.LabelFor(model => model.ServerHelpEmail) @Html.ValidationMessageFor(model=>model.ServerHelpEmail) <br />
+        @Html.TextBoxFor(model => model.ServerHelpEmail, new { Class = "text big error" })
+
+    </p>
+</div>
+<div class="grid_6">
+    <h2>Mail Settings (SMTP)</h2>
+
+    <div class="grid_3">
+        @Html.LabelFor(model => model.SmtpServer) @Html.ValidationMessageFor(model => model.SmtpServer)<br />
+        @Html.TextBoxFor(model => model.SmtpServer, new { Class = "text big error" })<br />
+    </div>
+    <div class="grid_1">
+        @Html.LabelFor(model => model.SmtpPort)@Html.ValidationMessageFor(model => model.SmtpPort)<br />
+        @Html.TextBoxFor(model => model.SmtpPort, new { Class = "text big error" })
+    </div>
+    <div class="grid_1">
+        @Html.LabelFor(model => model.SmtpUseSsl) @Html.ValidationMessageFor(model => model.SmtpUseSsl)<br />
+        @Html.CheckBoxFor(model => model.SmtpUseSsl)
+    </div>
+    <div class="clearfix"></div>
+    <div class="grid_6">
+
+        @Html.LabelFor(model => model.SmtpFromAddress) @Html.ValidationMessageFor(model => model.SmtpFromAddress)<br />
+        @Html.TextBoxFor(model => model.SmtpFromAddress, new { Class = "text medium error" })
+        <br />
+
+        @Html.LabelFor(model => model.SmtpUser) @Html.ValidationMessageFor(model=>model.SmtpUser)<br/>
+        @Html.TextBoxFor(model=>model.SmtpUser, new { Class="text medium error"})
+        <br/>
+
+
+        @Html.LabelFor(model => model.SmtpPassword) @Html.ValidationMessageFor(model => model.SmtpPassword)<br />
+        @Html.PasswordFor(model => model.SmtpPassword, new { Class = "text medium error", value = Model.SmtpPassword })
+        <br />
+
+        <input type="button" class="submit" value="Send Test" onclick="sendSmtpTest('@Url.Action("SendTest")')" /><span id="testResult"></span>
+        <br/><img id="testIndeter" src="~/Content/images/loading.gif" style="visibility:collapse;" />
+        
+    </div>
+</div>
+    <div class="grid_12">
+
+        <input id="btnSubmit" type="submit" class="submit" value="Apply" />
+        <input type="button" class="submit" value="Cancel" onclick="location.href='@Url.Action("Index","Home")'" />
+    </div>
+    <div class="grid_12">
+        @Html.ValidationSummary(false)
+    </div>
+}
+

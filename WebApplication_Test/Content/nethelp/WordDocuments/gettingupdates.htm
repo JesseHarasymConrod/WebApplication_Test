@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Getting Updates</title>
+<meta charset="utf-8" />
+<script src="../js/nethelp.redirector.js" type="text/javascript"></script>
+<link rel="prev" href="visualcontrolconfigurationoptions.htm" /><link rel="next" href="versioning.htm" />
+<meta name="Generator" content="Doc-To-Help v.4.0.0.1396" />
+</head>
+<body data-c1-topic-id="e902d579-0099-4d7a-ba85-c3e882385afe">
+<h3>Getting Updates</h3>
+<p class="MsoBodyText">The process of retrieving an update from a network resource 
+is controlled by the <i>Update Controller</i>.  The <i>Update 
+Controller</i> is a component placed in your application.  The <i>Update 
+Controller</i> contains three properties that determine how updates are 
+retrieved.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>Update Location</i></p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 36pt; TEXT-INDENT: -36pt">The network 
+URI that identifies where to look for updates.  This value can be:</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 38.25pt; TEXT-INDENT: -18.75pt; tab-stops: 182.25pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>A file path (C:\My Applications\Updates\App1)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 38.25pt; TEXT-INDENT: -18.75pt; tab-stops: 182.25pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>A UNC Path (\\mynetworkserver\Updates\App1)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 38.25pt; TEXT-INDENT: -18.75pt; tab-stops: 182.25pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>An http location (<a href="http://mywebserver/Updates/App1">http://mywebserver/Updates/App1</a>)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 38.25pt; TEXT-INDENT: -18.75pt; tab-stops: 182.25pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>An https location (https://mysecureserver/Updates/App1)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 38.25pt; TEXT-INDENT: -18.75pt; tab-stops: 182.25pt"><span style="FONT-FAMILY: Verdana">•</span><span style="FONT-FAMILY: Symbol; VISIBILITY: hidden">      
+</span>An ftp location (ftp://myftpserver/Updates/App1)</p>
+<p class="MsoBodyText" style="MARGIN-LEFT: 20.25pt"> </p>
+<p class="MsoBodyText"><i>ApplicationID</i></p>
+<p class="MsoBodyText">Every application has a unique guid identifier.  The 
+update controller will not attempt to update from an update location with a 
+different Application ID.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText"><i>Version</i></p>
+<p class="MsoBodyText">The <i>Version</i> property identifies the version of the 
+software requesting an update.  Versions are of the form 
+&lt;Major&gt;.&lt;Minor&gt;.&lt;Build&gt;.&lt;Revision&gt;.  When updates 
+are published, they can be made available only for specific previous versions, 
+allowing for a great deal of flexibility in software update package 
+management.</p>
+<p class="MsoBodyText"> </p>
+<p class="MsoBodyText">When an update check is performed, the Update Controller 
+looks for updates at the specified <i>Update Location </i>that targets the 
+version of the client<i>.</i>  The updates at the location must match the 
+application id of the update controller.  If there is an update available, 
+information about the update can be displayed to the user.  The update can 
+also be downloaded and applied.</p>
+<div class="related-topics-header">
+<p class="RelatedHead">More:</p>
+<div class="related-topics">
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="versioning.htm">Versioning</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="director.htm">Director</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="checkforupdate.htm">Check for Update</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="interveningduringacheckforupdates.htm">Intervening during a Check for 
+Updates</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="customdata.htm">Custom Data</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="downloading.htm">Downloading</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="downloadauthentication.htm">Download Authentication</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="downloadverification.htm">Download Verification</a></p>
+<p class="MsoNormal"><a class="topic-link" style="TEXT-DECORATION: none" href="proxyservers.htm">Proxy Servers</a></p></div></div></body></html>
